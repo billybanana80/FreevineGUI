@@ -30,6 +30,7 @@ Operation
 8. The Reset button will perform the same as Clear AND will look for any running Windows Terminal processes on your machie and KILL them (ie: close any Command Prompt windows currently open)
 
 Disclaimer
+
 This project is made as a part time hobby. There will be some bugs along the way.
 It is designed for educational purposes only and does not condone piracy.
 
