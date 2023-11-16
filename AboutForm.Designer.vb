@@ -28,12 +28,13 @@ Partial Class AboutForm
         Label2 = New Label()
         LinkLabel1 = New LinkLabel()
         PictureBox1 = New PictureBox()
+        LinkLabel2 = New LinkLabel()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(317, 141)
+        Button1.Location = New Point(317, 161)
         Button1.Name = "Button1"
         Button1.Size = New Size(75, 30)
         Button1.TabIndex = 0
@@ -54,7 +55,7 @@ Partial Class AboutForm
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(12, 50)
+        Label2.Location = New Point(12, 70)
         Label2.Name = "Label2"
         Label2.Size = New Size(305, 75)
         Label2.TabIndex = 2
@@ -64,7 +65,7 @@ Partial Class AboutForm
         ' 
         LinkLabel1.AutoSize = True
         LinkLabel1.LinkBehavior = LinkBehavior.HoverUnderline
-        LinkLabel1.Location = New Point(12, 135)
+        LinkLabel1.Location = New Point(12, 155)
         LinkLabel1.Name = "LinkLabel1"
         LinkLabel1.Size = New Size(242, 15)
         LinkLabel1.TabIndex = 4
@@ -81,11 +82,22 @@ Partial Class AboutForm
         PictureBox1.TabIndex = 5
         PictureBox1.TabStop = False
         ' 
+        ' LinkLabel2
+        ' 
+        LinkLabel2.AutoSize = True
+        LinkLabel2.Location = New Point(12, 45)
+        LinkLabel2.Name = "LinkLabel2"
+        LinkLabel2.Size = New Size(255, 15)
+        LinkLabel2.TabIndex = 6
+        LinkLabel2.TabStop = True
+        LinkLabel2.Text = "https://github.com/billybanana80/FreevineGUI"
+        ' 
         ' AboutForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(404, 183)
+        ClientSize = New Size(404, 201)
+        Controls.Add(LinkLabel2)
         Controls.Add(PictureBox1)
         Controls.Add(LinkLabel1)
         Controls.Add(Label2)
@@ -108,4 +120,5 @@ Partial Class AboutForm
     Friend WithEvents Label2 As Label
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents LinkLabel2 As LinkLabel
 End Class
