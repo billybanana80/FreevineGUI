@@ -111,6 +111,8 @@ Public Class Form1
                         additionalArguments = "roku"
                     ElseIf BtnABC.Checked Then
                         additionalArguments = "abc"
+                    ElseIf BtnCWTV.Checked Then
+                        additionalArguments = "cwtv"
                         ' Add more conditions for other service-specific options if needed
                     End If
             End Select
@@ -166,6 +168,8 @@ Public Class Form1
                         additionalArguments = "roku"
                     ElseIf BtnABC.Checked Then
                         additionalArguments = "abc"
+                    ElseIf BtnCWTV.Checked Then
+                        additionalArguments = "cwtv"
                         ' Add more conditions for other service-specific options if needed
 
                     End If
@@ -230,6 +234,7 @@ Public Class Form1
         BtnCrackle.Checked = False
         BtnPluto.Checked = False
         BtnRoku.Checked = False
+        BtnCWTV.Checked = False
 
         BtnInfo.Checked = False
         BtnTitles.Checked = False
@@ -305,6 +310,7 @@ Public Class Form1
         BtnCrackle.Checked = False
         BtnPluto.Checked = False
         BtnRoku.Checked = False
+        BtnCWTV.Checked = False
 
         BtnInfo.Checked = False
         BtnTitles.Checked = False
@@ -508,5 +514,16 @@ Public Class Form1
             ' Display an error message if the folder path doesn't exist
             MessageBox.Show("Please set your Freevine folder location in Options", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
+    End Sub
+
+    Private Sub CWTVToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CWTVToolStripMenuItem.Click
+        'Open CWTV
+
+        Dim startexternal As New Process()
+
+        startexternal.StartInfo.FileName = "https://www.cwtv.com/"
+        startexternal.StartInfo.UseShellExecute = True
+
+        startexternal.Start()
     End Sub
 End Class
