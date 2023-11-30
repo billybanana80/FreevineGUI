@@ -50,7 +50,7 @@ Partial Class AboutForm
         Label1.Name = "Label1"
         Label1.Size = New Size(196, 30)
         Label1.TabIndex = 1
-        Label1.Text = "Freevine GUI created by billybanana" & vbCrLf & "v 0.1.1"
+        Label1.Text = "Freevine GUI created by billybanana" & vbCrLf & "v 0.1.2"
         ' 
         ' Label2
         ' 

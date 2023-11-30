@@ -73,6 +73,7 @@ Partial Class Form1
         CBCGemToolStripMenuItem = New ToolStripMenuItem()
         CrackleToolStripMenuItem = New ToolStripMenuItem()
         CTVToolStripMenuItem = New ToolStripMenuItem()
+        CWTVToolStripMenuItem = New ToolStripMenuItem()
         ITVXToolStripMenuItem = New ToolStripMenuItem()
         My5ToolStripMenuItem = New ToolStripMenuItem()
         PlutoToolStripMenuItem = New ToolStripMenuItem()
@@ -88,7 +89,6 @@ Partial Class Form1
         Button4 = New Button()
         TBcompletecommand = New TextBox()
         GroupBox4 = New GroupBox()
-        CWTVToolStripMenuItem = New ToolStripMenuItem()
         GroupBox1.SuspendLayout()
         GroupBox3.SuspendLayout()
         GroupBox2.SuspendLayout()
@@ -551,79 +551,85 @@ Partial Class Form1
         ' ABCIViewToolStripMenuItem
         ' 
         ABCIViewToolStripMenuItem.Name = "ABCIViewToolStripMenuItem"
-        ABCIViewToolStripMenuItem.Size = New Size(180, 22)
+        ABCIViewToolStripMenuItem.Size = New Size(170, 22)
         ABCIViewToolStripMenuItem.Text = "ABC iView"
         ' 
         ' All4ToolStripMenuItem
         ' 
         All4ToolStripMenuItem.Name = "All4ToolStripMenuItem"
-        All4ToolStripMenuItem.Size = New Size(180, 22)
+        All4ToolStripMenuItem.Size = New Size(170, 22)
         All4ToolStripMenuItem.Text = "All 4"
         ' 
         ' BBCIPlayerToolStripMenuItem
         ' 
         BBCIPlayerToolStripMenuItem.Name = "BBCIPlayerToolStripMenuItem"
-        BBCIPlayerToolStripMenuItem.Size = New Size(180, 22)
+        BBCIPlayerToolStripMenuItem.Size = New Size(170, 22)
         BBCIPlayerToolStripMenuItem.Text = "BBC iPlayer"
         ' 
         ' CBCGemToolStripMenuItem
         ' 
         CBCGemToolStripMenuItem.Name = "CBCGemToolStripMenuItem"
-        CBCGemToolStripMenuItem.Size = New Size(180, 22)
+        CBCGemToolStripMenuItem.Size = New Size(170, 22)
         CBCGemToolStripMenuItem.Text = "CBC Gem"
         ' 
         ' CrackleToolStripMenuItem
         ' 
         CrackleToolStripMenuItem.Name = "CrackleToolStripMenuItem"
-        CrackleToolStripMenuItem.Size = New Size(180, 22)
+        CrackleToolStripMenuItem.Size = New Size(170, 22)
         CrackleToolStripMenuItem.Text = "Crackle"
         ' 
         ' CTVToolStripMenuItem
         ' 
         CTVToolStripMenuItem.Name = "CTVToolStripMenuItem"
-        CTVToolStripMenuItem.Size = New Size(180, 22)
+        CTVToolStripMenuItem.Size = New Size(170, 22)
         CTVToolStripMenuItem.Text = "CTV"
+        ' 
+        ' CWTVToolStripMenuItem
+        ' 
+        CWTVToolStripMenuItem.Name = "CWTVToolStripMenuItem"
+        CWTVToolStripMenuItem.Size = New Size(170, 22)
+        CWTVToolStripMenuItem.Text = "CWTV"
         ' 
         ' ITVXToolStripMenuItem
         ' 
         ITVXToolStripMenuItem.Name = "ITVXToolStripMenuItem"
-        ITVXToolStripMenuItem.Size = New Size(180, 22)
+        ITVXToolStripMenuItem.Size = New Size(170, 22)
         ITVXToolStripMenuItem.Text = "ITV"
         ' 
         ' My5ToolStripMenuItem
         ' 
         My5ToolStripMenuItem.Name = "My5ToolStripMenuItem"
-        My5ToolStripMenuItem.Size = New Size(180, 22)
+        My5ToolStripMenuItem.Size = New Size(170, 22)
         My5ToolStripMenuItem.Text = "My 5"
         ' 
         ' PlutoToolStripMenuItem
         ' 
         PlutoToolStripMenuItem.Name = "PlutoToolStripMenuItem"
-        PlutoToolStripMenuItem.Size = New Size(180, 22)
+        PlutoToolStripMenuItem.Size = New Size(170, 22)
         PlutoToolStripMenuItem.Text = "Pluto"
         ' 
         ' TheRokuChannelToolStripMenuItem
         ' 
         TheRokuChannelToolStripMenuItem.Name = "TheRokuChannelToolStripMenuItem"
-        TheRokuChannelToolStripMenuItem.Size = New Size(180, 22)
+        TheRokuChannelToolStripMenuItem.Size = New Size(170, 22)
         TheRokuChannelToolStripMenuItem.Text = "The Roku Channel"
         ' 
         ' STVPlayerToolStripMenuItem
         ' 
         STVPlayerToolStripMenuItem.Name = "STVPlayerToolStripMenuItem"
-        STVPlayerToolStripMenuItem.Size = New Size(180, 22)
+        STVPlayerToolStripMenuItem.Size = New Size(170, 22)
         STVPlayerToolStripMenuItem.Text = "STV Player"
         ' 
         ' TubiTVToolStripMenuItem
         ' 
         TubiTVToolStripMenuItem.Name = "TubiTVToolStripMenuItem"
-        TubiTVToolStripMenuItem.Size = New Size(180, 22)
+        TubiTVToolStripMenuItem.Size = New Size(170, 22)
         TubiTVToolStripMenuItem.Text = "Tubi TV"
         ' 
         ' UKTVPlayToolStripMenuItem
         ' 
         UKTVPlayToolStripMenuItem.Name = "UKTVPlayToolStripMenuItem"
-        UKTVPlayToolStripMenuItem.Size = New Size(180, 22)
+        UKTVPlayToolStripMenuItem.Size = New Size(170, 22)
         UKTVPlayToolStripMenuItem.Text = "UKTV Play"
         ' 
         ' HelpToolStripMenuItem
@@ -673,10 +679,11 @@ Partial Class Form1
         ' 
         ' TBcompletecommand
         ' 
-        TBcompletecommand.Location = New Point(7, 30)
+        TBcompletecommand.Location = New Point(7, 20)
+        TBcompletecommand.Multiline = True
         TBcompletecommand.Name = "TBcompletecommand"
         TBcompletecommand.ReadOnly = True
-        TBcompletecommand.Size = New Size(714, 23)
+        TBcompletecommand.Size = New Size(714, 45)
         TBcompletecommand.TabIndex = 42
         ' 
         ' GroupBox4
@@ -689,12 +696,6 @@ Partial Class Form1
         GroupBox4.TabIndex = 43
         GroupBox4.TabStop = False
         GroupBox4.Text = "Complete Command (info only)"
-        ' 
-        ' CWTVToolStripMenuItem
-        ' 
-        CWTVToolStripMenuItem.Name = "CWTVToolStripMenuItem"
-        CWTVToolStripMenuItem.Size = New Size(180, 22)
-        CWTVToolStripMenuItem.Text = "CWTV"
         ' 
         ' Form1
         ' 

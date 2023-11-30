@@ -60,6 +60,8 @@ Public Class Form1
         ' Determine which option is selected and construct the arguments accordingly
         Dim serviceArguments As String = ""
         Dim additionalArguments As String = ""
+        Dim subtitleArguments As String = ""
+        Dim directoryArguments As String = ""
 
         ' Check if TBfolder2.Text is empty
         If Form2.TBfolder2.Text = "" Then
@@ -78,7 +80,8 @@ Public Class Form1
                 Case BtnMovie.Checked
                     serviceArguments = "--movie"
                 Case BtnSubs.Checked
-                    serviceArguments = "--subtitles"
+                    serviceArguments = "--episode"
+                    subtitleArguments = "--sub-only"
                 Case BtnHelp.Checked
                     serviceArguments = "--help"
                 Case BtnSearch.Checked
@@ -127,15 +130,20 @@ Public Class Form1
                     serviceArguments = "--titles"
                 ' the quotes ensure the path is correctly interpreted even if it contains spaces
                 Case BtnSeason.Checked
-                    serviceArguments = "--save-dir """ + downloadPath + """ --season"
+                    serviceArguments = "--season"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
                 Case BtnComplete.Checked
-                    serviceArguments = "--save-dir """ + downloadPath + """ --complete"
+                    serviceArguments = "--complete"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
                 Case BtnEpisode.Checked
-                    serviceArguments = "--save-dir """ + downloadPath + """ --episode"
+                    serviceArguments = "--episode"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
                 Case BtnMovie.Checked
-                    serviceArguments = "--save-dir """ + downloadPath + """ --movie"
+                    serviceArguments = "--movie"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
                 Case BtnSubs.Checked
-                    serviceArguments = "--save-dir """ + downloadPath + """ --subtitles"
+                    serviceArguments = "--episode"
+                    subtitleArguments = "--sub-only --save-dir """ + downloadPath + """"
                 Case BtnHelp.Checked
                     serviceArguments = "--help"
                 Case BtnSearch.Checked
@@ -193,7 +201,7 @@ Public Class Form1
             Dim quotedTextBoxValue As String = $"{textBoxValue}"
 
             ' Construct the complete command with quoted TextBox value
-            Dim completeCommand As String = $"freevine.py {serviceArguments} {additionalArguments} {quotedTextBoxValue}"
+            Dim completeCommand As String = $"freevine.py {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {directoryArguments}"
 
             ' Display the complete command in TextBox Complete Command
             TBcompletecommand.Text = completeCommand
