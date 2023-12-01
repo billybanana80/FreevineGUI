@@ -18,6 +18,9 @@ Public Class Form1
         ToolTip1.SetToolTip(Button3, "Click to choose Options")
         ToolTip1.SetToolTip(Button4, "Click to view Help")
         ToolTip1.SetToolTip(TBcompletecommand, "Displays the complete string passed through to the Command Prompt")
+        ToolTip1.SetToolTip(GroupBox5, "Choose resolution if you wish to change from default = best")
+        ToolTip1.SetToolTip(GroupBox6, "Choose bitrate if you wish to change from default = best")
+        ToolTip1.SetToolTip(GroupBox1, "Selecting the streaming service is required only for SEARCH function")
 
 
         ' Uncheck all RadioButtons in the groupBox2
@@ -62,6 +65,8 @@ Public Class Form1
         Dim additionalArguments As String = ""
         Dim subtitleArguments As String = ""
         Dim directoryArguments As String = ""
+        Dim resolutionArguments As String = ""
+        Dim bitrateArguments As String = ""
 
         ' Check if TBfolder2.Text is empty
         If Form2.TBfolder2.Text = "" Then
@@ -71,12 +76,176 @@ Public Class Form1
                     serviceArguments = "--info" + " --episode"
                 Case BtnTitles.Checked
                     serviceArguments = "--titles"
+                     ' season/1080/Best
+                Case BtnSeason.Checked And btn1080.Checked And btnBest.Checked
+                    serviceArguments = "--season"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=best"
+                    ' season/1080/Worst
+                Case BtnSeason.Checked And btn1080.Checked And btnWorst.Checked
+                    serviceArguments = "--season"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=worst"
+                    ' season/1080
+                Case BtnSeason.Checked And btn1080.Checked
+                    serviceArguments = "--season"
+                    resolutionArguments = "-sv res=1080"
+                    ' season/720/Best
+                Case BtnSeason.Checked And btn720.Checked And btnBest.Checked
+                    serviceArguments = "--season"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=best"
+                    ' season/720/Worst
+                Case BtnSeason.Checked And btn720.Checked And btnWorst.Checked
+                    serviceArguments = "--season"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=worst"
+                    ' season/720
+                Case BtnSeason.Checked And btn720.Checked
+                    serviceArguments = "--season"
+                    resolutionArguments = "-sv res=720"
+                    ' season/576
+                Case BtnSeason.Checked And btn576.Checked
+                    serviceArguments = "--season"
+                    resolutionArguments = "-sv res=576"
+                    ' season/450
+                Case BtnSeason.Checked And btn450.Checked
+                    serviceArguments = "--season"
+                    resolutionArguments = "-sv res=450"
+                    ' season/360
+                Case BtnSeason.Checked And btn360.Checked
+                    serviceArguments = "--season"
+                    resolutionArguments = "-sv res=360"
+                    ' season
                 Case BtnSeason.Checked
                     serviceArguments = "--season"
+                    ' complete/1080/Best
+                Case BtnComplete.Checked And btn1080.Checked And btnBest.Checked
+                    serviceArguments = "--complete"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=best"
+                    ' complete/1080/Worst
+                Case BtnComplete.Checked And btn1080.Checked And btnWorst.Checked
+                    serviceArguments = "--complete"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=worst"
+                    ' complete/1080
+                Case BtnComplete.Checked And btn1080.Checked
+                    serviceArguments = "--complete"
+                    resolutionArguments = "-sv res=1080"
+                    ' complete/720/Best
+                Case BtnComplete.Checked And btn720.Checked And btnBest.Checked
+                    serviceArguments = "--complete"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=best"
+                    ' complete/720/Worst
+                Case BtnComplete.Checked And btn720.Checked And btnWorst.Checked
+                    serviceArguments = "--complete"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=worst"
+                    ' complete/720
+                Case BtnComplete.Checked And btn720.Checked
+                    serviceArguments = "--complete"
+                    resolutionArguments = "-sv res=720"
+                    ' complete/576
+                Case BtnComplete.Checked And btn576.Checked
+                    serviceArguments = "--complete"
+                    resolutionArguments = "-sv res=576"
+                    ' complete/450
+                Case BtnComplete.Checked And btn450.Checked
+                    serviceArguments = "--complete"
+                    resolutionArguments = "-sv res=450"
+                    ' complete/360
+                Case BtnComplete.Checked And btn360.Checked
+                    serviceArguments = "--complete"
+                    resolutionArguments = "-sv res=360"
+                    ' complete
                 Case BtnComplete.Checked
                     serviceArguments = "--complete"
+                    ' episode/1080/Best
+                Case BtnEpisode.Checked And btn1080.Checked And btnBest.Checked
+                    serviceArguments = "--episode"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=best"
+                    ' episode/1080/Worst
+                Case BtnEpisode.Checked And btn1080.Checked And btnWorst.Checked
+                    serviceArguments = "--episode"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=worst"
+                    ' episode/1080
+                Case BtnEpisode.Checked And btn1080.Checked
+                    serviceArguments = "--episode"
+                    resolutionArguments = "-sv res=1080"
+                    ' episode/720/Best
+                Case BtnEpisode.Checked And btn720.Checked And btnBest.Checked
+                    serviceArguments = "--episode"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=best"
+                    ' episode/720/Worst
+                Case BtnEpisode.Checked And btn720.Checked And btnWorst.Checked
+                    serviceArguments = "--episode"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=worst"
+                    ' episode/720
+                Case BtnEpisode.Checked And btn720.Checked
+                    serviceArguments = "--episode"
+                    resolutionArguments = "-sv res=720"
+                    ' episode/576
+                Case BtnEpisode.Checked And btn576.Checked
+                    serviceArguments = "--episode"
+                    resolutionArguments = "-sv res=576"
+                    ' episode/450
+                Case BtnEpisode.Checked And btn450.Checked
+                    serviceArguments = "--episode"
+                    resolutionArguments = "-sv res=450"
+                    ' episode/360
+                Case BtnEpisode.Checked And btn360.Checked
+                    serviceArguments = "--episode"
+                    resolutionArguments = "-sv res=360"
+                    ' episode
                 Case BtnEpisode.Checked
                     serviceArguments = "--episode"
+                    ' movie/1080/Best
+                Case BtnMovie.Checked And btn1080.Checked And btnBest.Checked
+                    serviceArguments = "--movie"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=best"
+                    ' movie/1080/Worst
+                Case BtnMovie.Checked And btn1080.Checked And btnWorst.Checked
+                    serviceArguments = "--movie"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=worst"
+                    ' movie/1080
+                Case BtnMovie.Checked And btn1080.Checked
+                    serviceArguments = "--movie"
+                    resolutionArguments = "-sv res=1080"
+                    ' movie/720/Best
+                Case BtnMovie.Checked And btn720.Checked And btnBest.Checked
+                    serviceArguments = "--movie"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=best"
+                    ' movie/720/Worst
+                Case BtnMovie.Checked And btn720.Checked And btnWorst.Checked
+                    serviceArguments = "--movie"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=worst"
+                    ' movie/720
+                Case BtnMovie.Checked And btn720.Checked
+                    serviceArguments = "--movie"
+                    resolutionArguments = "-sv res=720"
+                    ' movie/576
+                Case BtnMovie.Checked And btn576.Checked
+                    serviceArguments = "--movie"
+                    resolutionArguments = "-sv res=576"
+                    ' movie/450
+                Case BtnMovie.Checked And btn450.Checked
+                    serviceArguments = "--movie"
+                    resolutionArguments = "-sv res=450"
+                    ' movie/360
+                Case BtnMovie.Checked And btn360.Checked
+                    serviceArguments = "--movie"
+                    resolutionArguments = "-sv res=360"
+                    ' movie
                 Case BtnMovie.Checked
                     serviceArguments = "--movie"
                 Case BtnSubs.Checked
@@ -129,15 +298,215 @@ Public Class Form1
                 Case BtnTitles.Checked
                     serviceArguments = "--titles"
                 ' the quotes ensure the path is correctly interpreted even if it contains spaces
+
+                ' season/1080/Best
+                Case BtnSeason.Checked And btn1080.Checked And btnBest.Checked
+                    serviceArguments = "--season"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=best"
+                    ' season/1080/Worst
+                Case BtnSeason.Checked And btn1080.Checked And btnWorst.Checked
+                    serviceArguments = "--season"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=worst"
+                    ' season/1080
+                Case BtnSeason.Checked And btn1080.Checked
+                    serviceArguments = "--season"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=1080"
+                    ' season/720/Best
+                Case BtnSeason.Checked And btn720.Checked And btnBest.Checked
+                    serviceArguments = "--season"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=best"
+                    ' season/720/Worst
+                Case BtnSeason.Checked And btn720.Checked And btnWorst.Checked
+                    serviceArguments = "--season"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=worst"
+                    ' season/720
+                Case BtnSeason.Checked And btn720.Checked
+                    serviceArguments = "--season"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=720"
+                    ' season/576
+                Case BtnSeason.Checked And btn576.Checked
+                    serviceArguments = "--season"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=576"
+                    ' season/450
+                Case BtnSeason.Checked And btn450.Checked
+                    serviceArguments = "--season"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=450"
+                    ' season/360
+                Case BtnSeason.Checked And btn360.Checked
+                    serviceArguments = "--season"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=360"
+                    ' season
                 Case BtnSeason.Checked
                     serviceArguments = "--season"
                     directoryArguments = "--save-dir """ + downloadPath + """"
+                Case BtnComplete.Checked And btn1080.Checked And btnBest.Checked
+                    serviceArguments = "--complete"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=best"
+                    ' complete/1080/Worst
+                Case BtnComplete.Checked And btn1080.Checked And btnWorst.Checked
+                    serviceArguments = "--complete"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=worst"
+                    ' complete/1080
+                Case BtnComplete.Checked And btn1080.Checked
+                    serviceArguments = "--complete"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=1080"
+                    ' complete/720/Best
+                Case BtnComplete.Checked And btn720.Checked And btnBest.Checked
+                    serviceArguments = "--complete"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=best"
+                    ' complete/720/Worst
+                Case BtnComplete.Checked And btn720.Checked And btnWorst.Checked
+                    serviceArguments = "--complete"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=worst"
+                    ' complete/720
+                Case BtnComplete.Checked And btn720.Checked
+                    serviceArguments = "--complete"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=720"
+                    ' complete/576
+                Case BtnComplete.Checked And btn576.Checked
+                    serviceArguments = "--complete"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=576"
+                    ' complete/450
+                Case BtnComplete.Checked And btn450.Checked
+                    serviceArguments = "--complete"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=450"
+                    ' complete/360
+                Case BtnComplete.Checked And btn360.Checked
+                    serviceArguments = "--complete"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=360"
+                    ' complete
                 Case BtnComplete.Checked
                     serviceArguments = "--complete"
                     directoryArguments = "--save-dir """ + downloadPath + """"
+                    ' Episode/1080/Best
+                Case BtnEpisode.Checked And btn1080.Checked And btnBest.Checked
+                    serviceArguments = "--episode"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=best"
+                     ' Episode/1080/Worst
+                Case BtnEpisode.Checked And btn1080.Checked And btnWorst.Checked
+                    serviceArguments = "--episode"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=worst"
+                     ' Episode/1080
+                Case BtnEpisode.Checked And btn1080.Checked
+                    serviceArguments = "--episode"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=1080"
+                    ' Episode/720/Best
+                Case BtnEpisode.Checked And btn720.Checked And btnBest.Checked
+                    serviceArguments = "--episode"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=best"
+                    ' Episode/720/Worst
+                Case BtnEpisode.Checked And btn720.Checked And btnWorst.Checked
+                    serviceArguments = "--episode"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=worst"
+                     ' Episode/720
+                Case BtnEpisode.Checked And btn720.Checked
+                    serviceArguments = "--episode"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=720"
+                     ' Episode/576
+                Case BtnEpisode.Checked And btn576.Checked
+                    serviceArguments = "--episode"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=576"
+                     ' Episode/450
+                Case BtnEpisode.Checked And btn450.Checked
+                    serviceArguments = "--episode"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=450"
+                     ' Episode/360
+                Case BtnEpisode.Checked And btn360.Checked
+                    serviceArguments = "--episode"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=360"
+                     ' Episode
                 Case BtnEpisode.Checked
                     serviceArguments = "--episode"
                     directoryArguments = "--save-dir """ + downloadPath + """"
+                    ' movie/1080/Best
+                Case BtnMovie.Checked And btn1080.Checked And btnBest.Checked
+                    serviceArguments = "--movie"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=best"
+                    ' movie/1080/Worst
+                Case BtnMovie.Checked And btn1080.Checked And btnWorst.Checked
+                    serviceArguments = "--movie"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=1080"
+                    bitrateArguments = ":for=worst"
+                    ' movie/1080
+                Case BtnMovie.Checked And btn1080.Checked
+                    serviceArguments = "--movie"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=1080"
+                    ' movie/720/Best
+                Case BtnMovie.Checked And btn720.Checked And btnBest.Checked
+                    serviceArguments = "--movie"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=best"
+                    ' movie/720/Worst
+                Case BtnMovie.Checked And btn720.Checked And btnWorst.Checked
+                    serviceArguments = "--movie"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=720"
+                    bitrateArguments = ":for=worst"
+                    ' movie/720
+                Case BtnMovie.Checked And btn720.Checked
+                    serviceArguments = "--movie"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=720"
+                    ' movie/576
+                Case BtnMovie.Checked And btn576.Checked
+                    serviceArguments = "--movie"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=576"
+                    ' movie/450
+                Case BtnMovie.Checked And btn450.Checked
+                    serviceArguments = "--movie"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=450"
+                    ' movie/360
+                Case BtnMovie.Checked And btn360.Checked
+                    serviceArguments = "--movie"
+                    directoryArguments = "--save-dir """ + downloadPath + """"
+                    resolutionArguments = "-sv res=360"
+                    ' movie
                 Case BtnMovie.Checked
                     serviceArguments = "--movie"
                     directoryArguments = "--save-dir """ + downloadPath + """"
@@ -180,6 +549,7 @@ Public Class Form1
                         additionalArguments = "cwtv"
                         ' Add more conditions for other service-specific options if needed
 
+
                     End If
             End Select
 
@@ -201,7 +571,7 @@ Public Class Form1
             Dim quotedTextBoxValue As String = $"{textBoxValue}"
 
             ' Construct the complete command with quoted TextBox value
-            Dim completeCommand As String = $"freevine.py {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {directoryArguments}"
+            Dim completeCommand As String = $"freevine.py {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {resolutionArguments}{bitrateArguments} {directoryArguments}"
 
             ' Display the complete command in TextBox Complete Command
             TBcompletecommand.Text = completeCommand
@@ -253,6 +623,14 @@ Public Class Form1
         BtnSubs.Checked = False
         BtnHelp.Checked = False
         BtnSearch.Checked = False
+
+        btn1080.Checked = False
+        btn720.Checked = False
+        btn576.Checked = False
+        btn450.Checked = False
+        btn360.Checked = False
+        btnBest.Checked = False
+        btnWorst.Checked = False
 
         ' Find all processes with the name "WindowsTerminal.exe"
         Dim processes() As Process = Process.GetProcessesByName("WindowsTerminal")
@@ -330,7 +708,13 @@ Public Class Form1
         BtnHelp.Checked = False
         BtnSearch.Checked = False
 
-
+        btn1080.Checked = False
+        btn720.Checked = False
+        btn576.Checked = False
+        btn450.Checked = False
+        btn360.Checked = False
+        btnBest.Checked = False
+        btnWorst.Checked = False
 
     End Sub
 

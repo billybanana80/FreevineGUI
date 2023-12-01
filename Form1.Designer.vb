@@ -89,12 +89,23 @@ Partial Class Form1
         Button4 = New Button()
         TBcompletecommand = New TextBox()
         GroupBox4 = New GroupBox()
+        GroupBox5 = New GroupBox()
+        btn360 = New RadioButton()
+        btn450 = New RadioButton()
+        btn576 = New RadioButton()
+        btn720 = New RadioButton()
+        btn1080 = New RadioButton()
+        GroupBox6 = New GroupBox()
+        btnWorst = New RadioButton()
+        btnBest = New RadioButton()
         GroupBox1.SuspendLayout()
         GroupBox3.SuspendLayout()
         GroupBox2.SuspendLayout()
         MenuStrip1.SuspendLayout()
         StatusStrip1.SuspendLayout()
         GroupBox4.SuspendLayout()
+        GroupBox5.SuspendLayout()
+        GroupBox6.SuspendLayout()
         SuspendLayout()
         ' 
         ' GroupBox1
@@ -117,7 +128,7 @@ Partial Class Form1
         GroupBox1.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
         GroupBox1.Location = New Point(12, 27)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(370, 240)
+        GroupBox1.Size = New Size(264, 240)
         GroupBox1.TabIndex = 0
         GroupBox1.TabStop = False
         GroupBox1.Text = "Freevine"
@@ -438,12 +449,12 @@ Partial Class Form1
         GroupBox2.Controls.Add(BtnMovie)
         GroupBox2.Controls.Add(BtnSeason)
         GroupBox2.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox2.Location = New Point(388, 27)
+        GroupBox2.Location = New Point(282, 27)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(370, 240)
+        GroupBox2.Size = New Size(314, 240)
         GroupBox2.TabIndex = 23
         GroupBox2.TabStop = False
-        GroupBox2.Text = "Action To Perform"
+        GroupBox2.Text = "Action"
         ' 
         ' BtnSearch
         ' 
@@ -697,11 +708,124 @@ Partial Class Form1
         GroupBox4.TabStop = False
         GroupBox4.Text = "Complete Command (info only)"
         ' 
+        ' GroupBox5
+        ' 
+        GroupBox5.Controls.Add(btn360)
+        GroupBox5.Controls.Add(btn450)
+        GroupBox5.Controls.Add(btn576)
+        GroupBox5.Controls.Add(btn720)
+        GroupBox5.Controls.Add(btn1080)
+        GroupBox5.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
+        GroupBox5.Location = New Point(602, 27)
+        GroupBox5.Name = "GroupBox5"
+        GroupBox5.Size = New Size(156, 166)
+        GroupBox5.TabIndex = 44
+        GroupBox5.TabStop = False
+        GroupBox5.Text = "Resolution (Optional)"
+        ' 
+        ' btn360
+        ' 
+        btn360.AutoSize = True
+        btn360.ForeColor = SystemColors.ControlText
+        btn360.Location = New Point(10, 130)
+        btn360.Name = "btn360"
+        btn360.Size = New Size(67, 19)
+        btn360.TabIndex = 4
+        btn360.TabStop = True
+        btn360.Text = "640x360"
+        btn360.UseVisualStyleBackColor = True
+        ' 
+        ' btn450
+        ' 
+        btn450.AutoSize = True
+        btn450.ForeColor = SystemColors.ControlText
+        btn450.Location = New Point(10, 105)
+        btn450.Name = "btn450"
+        btn450.Size = New Size(67, 19)
+        btn450.TabIndex = 3
+        btn450.TabStop = True
+        btn450.Text = "800x450"
+        btn450.UseVisualStyleBackColor = True
+        ' 
+        ' btn576
+        ' 
+        btn576.AutoSize = True
+        btn576.ForeColor = SystemColors.ControlText
+        btn576.Location = New Point(10, 80)
+        btn576.Name = "btn576"
+        btn576.Size = New Size(73, 19)
+        btn576.TabIndex = 2
+        btn576.TabStop = True
+        btn576.Text = "1024x576"
+        btn576.UseVisualStyleBackColor = True
+        ' 
+        ' btn720
+        ' 
+        btn720.AutoSize = True
+        btn720.ForeColor = SystemColors.ControlText
+        btn720.Location = New Point(10, 55)
+        btn720.Name = "btn720"
+        btn720.Size = New Size(73, 19)
+        btn720.TabIndex = 1
+        btn720.TabStop = True
+        btn720.Text = "1280x720"
+        btn720.UseVisualStyleBackColor = True
+        ' 
+        ' btn1080
+        ' 
+        btn1080.AutoSize = True
+        btn1080.ForeColor = SystemColors.ControlText
+        btn1080.Location = New Point(10, 30)
+        btn1080.Name = "btn1080"
+        btn1080.Size = New Size(79, 19)
+        btn1080.TabIndex = 0
+        btn1080.TabStop = True
+        btn1080.Text = "1920x1080"
+        btn1080.UseVisualStyleBackColor = True
+        ' 
+        ' GroupBox6
+        ' 
+        GroupBox6.Controls.Add(btnWorst)
+        GroupBox6.Controls.Add(btnBest)
+        GroupBox6.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
+        GroupBox6.Location = New Point(602, 199)
+        GroupBox6.Name = "GroupBox6"
+        GroupBox6.Size = New Size(156, 68)
+        GroupBox6.TabIndex = 45
+        GroupBox6.TabStop = False
+        GroupBox6.Text = "Bitrate (Optional)"
+        ' 
+        ' btnWorst
+        ' 
+        btnWorst.AutoSize = True
+        btnWorst.ForeColor = SystemColors.ControlText
+        btnWorst.Location = New Point(63, 28)
+        btnWorst.Name = "btnWorst"
+        btnWorst.Size = New Size(56, 19)
+        btnWorst.TabIndex = 6
+        btnWorst.TabStop = True
+        btnWorst.Text = "Worst"
+        btnWorst.UseVisualStyleBackColor = True
+        ' 
+        ' btnBest
+        ' 
+        btnBest.AutoSize = True
+        btnBest.ForeColor = SystemColors.ControlText
+        btnBest.Location = New Point(10, 28)
+        btnBest.Name = "btnBest"
+        btnBest.Size = New Size(47, 19)
+        btnBest.TabIndex = 5
+        btnBest.TabStop = True
+        btnBest.Text = "Best"
+        btnBest.UseVisualStyleBackColor = True
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(769, 520)
+        Controls.Add(GroupBox6)
+        Controls.Add(GroupBox5)
         Controls.Add(GroupBox4)
         Controls.Add(Button4)
         Controls.Add(StatusStrip1)
@@ -733,6 +857,10 @@ Partial Class Form1
         StatusStrip1.PerformLayout()
         GroupBox4.ResumeLayout(False)
         GroupBox4.PerformLayout()
+        GroupBox5.ResumeLayout(False)
+        GroupBox5.PerformLayout()
+        GroupBox6.ResumeLayout(False)
+        GroupBox6.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -802,4 +930,13 @@ Partial Class Form1
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents BtnCWTV As RadioButton
     Friend WithEvents CWTVToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents btn1080 As RadioButton
+    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents btn360 As RadioButton
+    Friend WithEvents btn450 As RadioButton
+    Friend WithEvents btn576 As RadioButton
+    Friend WithEvents btn720 As RadioButton
+    Friend WithEvents btnWorst As RadioButton
+    Friend WithEvents btnBest As RadioButton
 End Class
