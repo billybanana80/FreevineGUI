@@ -775,10 +775,12 @@ Partial Class Form1
         ' 
         ' rtbOutput
         ' 
+        rtbOutput.BackColor = SystemColors.Window
         rtbOutput.BorderStyle = BorderStyle.None
         rtbOutput.Font = New Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point)
         rtbOutput.Location = New Point(7, 49)
         rtbOutput.Name = "rtbOutput"
+        rtbOutput.ReadOnly = True
         rtbOutput.ScrollBars = RichTextBoxScrollBars.Vertical
         rtbOutput.Size = New Size(866, 229)
         rtbOutput.TabIndex = 43
