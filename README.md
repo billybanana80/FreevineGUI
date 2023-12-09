@@ -12,6 +12,11 @@ The FreevineGUI is a portable executable and does not require to be installed. Y
 When running FreevineGUI for the first tme please set your Freevine folder location ie: that is the Freevine folder from https://github.com/stabbedbybrick/freevine (this is a Mandatory step)
 You may also choose to set your Downloads folder location in the Options (this is an optional step)
 
+Update v0.1.4
+1. modified UI to separate service countries
+2. modiifed UI to separate Download and Search & Information functions
+3. added internal Command Prompt function within the UI, in lieu of passing to external Windows Command console
+   
 Operation
 1. Search
    Choose the streaming service in Option 1 and the Search button in Option 2
