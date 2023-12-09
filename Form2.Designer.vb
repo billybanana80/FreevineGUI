@@ -22,7 +22,7 @@ Partial Class Form2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Form2))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         GroupBox1 = New GroupBox()
         TBfolder = New TextBox()
         BtnBrowse = New Button()
@@ -172,6 +172,7 @@ Partial Class Form2
         MaximizeBox = False
         MinimizeBox = False
         Name = "Form2"
+        ShowInTaskbar = False
         StartPosition = FormStartPosition.CenterScreen
         Text = "Freevine GUI - Options"
         GroupBox1.ResumeLayout(False)

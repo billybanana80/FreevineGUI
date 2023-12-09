@@ -108,6 +108,7 @@ Partial Class AboutForm
         MaximizeBox = False
         MinimizeBox = False
         Name = "AboutForm"
+        ShowInTaskbar = False
         StartPosition = FormStartPosition.CenterScreen
         Text = "About Freevine GUI"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
