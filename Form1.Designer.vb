@@ -94,8 +94,8 @@ Partial Class Form1
         Button4 = New Button()
         TBcompletecommand = New TextBox()
         GroupBox4 = New GroupBox()
-        rtbOutput = New RichTextBox()
         GroupBox5 = New GroupBox()
+        btn2160 = New RadioButton()
         btn540 = New RadioButton()
         btn360 = New RadioButton()
         btn450 = New RadioButton()
@@ -549,7 +549,7 @@ Partial Class Form1
         ' Button2
         ' 
         Button2.ForeColor = SystemColors.ControlText
-        Button2.Location = New Point(807, 730)
+        Button2.Location = New Point(810, 496)
         Button2.Name = "Button2"
         Button2.Size = New Size(75, 30)
         Button2.TabIndex = 25
@@ -559,7 +559,7 @@ Partial Class Form1
         ' Button7
         ' 
         Button7.ForeColor = SystemColors.ControlText
-        Button7.Location = New Point(726, 730)
+        Button7.Location = New Point(729, 496)
         Button7.Name = "Button7"
         Button7.Size = New Size(75, 30)
         Button7.TabIndex = 32
@@ -569,7 +569,7 @@ Partial Class Form1
         ' Button3
         ' 
         Button3.ForeColor = SystemColors.ControlText
-        Button3.Location = New Point(19, 730)
+        Button3.Location = New Point(22, 496)
         Button3.Name = "Button3"
         Button3.Size = New Size(75, 30)
         Button3.TabIndex = 33
@@ -724,7 +724,7 @@ Partial Class Form1
         ' StatusStrip1
         ' 
         StatusStrip1.Items.AddRange(New ToolStripItem() {ToolStripStatusLabel1, ToolStripStatusLabel2})
-        StatusStrip1.Location = New Point(0, 772)
+        StatusStrip1.Location = New Point(0, 535)
         StatusStrip1.Name = "StatusStrip1"
         StatusStrip1.Size = New Size(905, 22)
         StatusStrip1.TabIndex = 39
@@ -746,7 +746,7 @@ Partial Class Form1
         ' Button4
         ' 
         Button4.ForeColor = SystemColors.ControlText
-        Button4.Location = New Point(100, 730)
+        Button4.Location = New Point(103, 496)
         Button4.Name = "Button4"
         Button4.Size = New Size(75, 30)
         Button4.TabIndex = 40
@@ -763,31 +763,18 @@ Partial Class Form1
         ' 
         ' GroupBox4
         ' 
-        GroupBox4.Controls.Add(rtbOutput)
         GroupBox4.Controls.Add(TBcompletecommand)
         GroupBox4.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
         GroupBox4.Location = New Point(12, 429)
         GroupBox4.Name = "GroupBox4"
-        GroupBox4.Size = New Size(882, 290)
+        GroupBox4.Size = New Size(882, 59)
         GroupBox4.TabIndex = 43
         GroupBox4.TabStop = False
-        GroupBox4.Text = "Processing"
-        ' 
-        ' rtbOutput
-        ' 
-        rtbOutput.BackColor = SystemColors.Window
-        rtbOutput.BorderStyle = BorderStyle.None
-        rtbOutput.Font = New Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point)
-        rtbOutput.Location = New Point(7, 49)
-        rtbOutput.Name = "rtbOutput"
-        rtbOutput.ReadOnly = True
-        rtbOutput.ScrollBars = RichTextBoxScrollBars.Vertical
-        rtbOutput.Size = New Size(866, 229)
-        rtbOutput.TabIndex = 43
-        rtbOutput.Text = ""
+        GroupBox4.Text = "Complete Command (info only)"
         ' 
         ' GroupBox5
         ' 
+        GroupBox5.Controls.Add(btn2160)
         GroupBox5.Controls.Add(btn540)
         GroupBox5.Controls.Add(btn360)
         GroupBox5.Controls.Add(btn450)
@@ -797,81 +784,93 @@ Partial Class Form1
         GroupBox5.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
         GroupBox5.Location = New Point(12, 269)
         GroupBox5.Name = "GroupBox5"
-        GroupBox5.Size = New Size(635, 53)
+        GroupBox5.Size = New Size(690, 53)
         GroupBox5.TabIndex = 44
         GroupBox5.TabStop = False
         GroupBox5.Text = "Resolution (Optional)"
+        ' 
+        ' btn2160
+        ' 
+        btn2160.AutoSize = True
+        btn2160.ForeColor = SystemColors.ControlText
+        btn2160.Location = New Point(20, 22)
+        btn2160.Name = "btn2160"
+        btn2160.Size = New Size(85, 19)
+        btn2160.TabIndex = 6
+        btn2160.TabStop = True
+        btn2160.Text = "3840 x 2160"
+        btn2160.UseVisualStyleBackColor = True
         ' 
         ' btn540
         ' 
         btn540.AutoSize = True
         btn540.ForeColor = SystemColors.ControlText
-        btn540.Location = New Point(287, 22)
+        btn540.Location = New Point(401, 22)
         btn540.Name = "btn540"
-        btn540.Size = New Size(67, 19)
+        btn540.Size = New Size(73, 19)
         btn540.TabIndex = 5
         btn540.TabStop = True
-        btn540.Text = "960x540"
+        btn540.Text = "960 x 540"
         btn540.UseVisualStyleBackColor = True
         ' 
         ' btn360
         ' 
         btn360.AutoSize = True
         btn360.ForeColor = SystemColors.ControlText
-        btn360.Location = New Point(467, 22)
+        btn360.Location = New Point(577, 22)
         btn360.Name = "btn360"
-        btn360.Size = New Size(67, 19)
+        btn360.Size = New Size(73, 19)
         btn360.TabIndex = 4
         btn360.TabStop = True
-        btn360.Text = "640x360"
+        btn360.Text = "640 x 360"
         btn360.UseVisualStyleBackColor = True
         ' 
         ' btn450
         ' 
         btn450.AutoSize = True
         btn450.ForeColor = SystemColors.ControlText
-        btn450.Location = New Point(377, 22)
+        btn450.Location = New Point(487, 22)
         btn450.Name = "btn450"
-        btn450.Size = New Size(67, 19)
+        btn450.Size = New Size(73, 19)
         btn450.TabIndex = 3
         btn450.TabStop = True
-        btn450.Text = "800x450"
+        btn450.Text = "800 x 450"
         btn450.UseVisualStyleBackColor = True
         ' 
         ' btn576
         ' 
         btn576.AutoSize = True
         btn576.ForeColor = SystemColors.ControlText
-        btn576.Location = New Point(197, 22)
+        btn576.Location = New Point(309, 22)
         btn576.Name = "btn576"
-        btn576.Size = New Size(73, 19)
+        btn576.Size = New Size(79, 19)
         btn576.TabIndex = 2
         btn576.TabStop = True
-        btn576.Text = "1024x576"
+        btn576.Text = "1024 x 576"
         btn576.UseVisualStyleBackColor = True
         ' 
         ' btn720
         ' 
         btn720.AutoSize = True
         btn720.ForeColor = SystemColors.ControlText
-        btn720.Location = New Point(107, 22)
+        btn720.Location = New Point(218, 22)
         btn720.Name = "btn720"
-        btn720.Size = New Size(73, 19)
+        btn720.Size = New Size(79, 19)
         btn720.TabIndex = 1
         btn720.TabStop = True
-        btn720.Text = "1280x720"
+        btn720.Text = "1280 x 720"
         btn720.UseVisualStyleBackColor = True
         ' 
         ' btn1080
         ' 
         btn1080.AutoSize = True
         btn1080.ForeColor = SystemColors.ControlText
-        btn1080.Location = New Point(17, 22)
+        btn1080.Location = New Point(119, 22)
         btn1080.Name = "btn1080"
-        btn1080.Size = New Size(79, 19)
+        btn1080.Size = New Size(85, 19)
         btn1080.TabIndex = 0
         btn1080.TabStop = True
-        btn1080.Text = "1920x1080"
+        btn1080.Text = "1920 x 1080"
         btn1080.UseVisualStyleBackColor = True
         ' 
         ' GroupBox6
@@ -879,9 +878,9 @@ Partial Class Form1
         GroupBox6.Controls.Add(btnWorst)
         GroupBox6.Controls.Add(btnBest)
         GroupBox6.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox6.Location = New Point(653, 269)
+        GroupBox6.Location = New Point(708, 269)
         GroupBox6.Name = "GroupBox6"
-        GroupBox6.Size = New Size(241, 53)
+        GroupBox6.Size = New Size(186, 53)
         GroupBox6.TabIndex = 45
         GroupBox6.TabStop = False
         GroupBox6.Text = "Bitrate (Optional)"
@@ -890,7 +889,7 @@ Partial Class Form1
         ' 
         btnWorst.AutoSize = True
         btnWorst.ForeColor = SystemColors.ControlText
-        btnWorst.Location = New Point(81, 22)
+        btnWorst.Location = New Point(63, 22)
         btnWorst.Name = "btnWorst"
         btnWorst.Size = New Size(56, 19)
         btnWorst.TabIndex = 6
@@ -902,7 +901,7 @@ Partial Class Form1
         ' 
         btnBest.AutoSize = True
         btnBest.ForeColor = SystemColors.ControlText
-        btnBest.Location = New Point(19, 22)
+        btnBest.Location = New Point(10, 22)
         btnBest.Name = "btnBest"
         btnBest.Size = New Size(47, 19)
         btnBest.TabIndex = 5
@@ -914,7 +913,7 @@ Partial Class Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(905, 794)
+        ClientSize = New Size(905, 557)
         Controls.Add(GroupBox6)
         Controls.Add(GroupBox5)
         Controls.Add(GroupBox4)
@@ -1039,7 +1038,6 @@ Partial Class Form1
     Friend WithEvents btnWorst As RadioButton
     Friend WithEvents btnBest As RadioButton
     Friend WithEvents FreevineExternalCommandPromptToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents rtbOutput As RichTextBox
     Friend WithEvents btn540 As RadioButton
     Friend WithEvents gbAustralia As GroupBox
     Friend WithEvents gbUSA As GroupBox
@@ -1047,4 +1045,5 @@ Partial Class Form1
     Friend WithEvents gbCanada As GroupBox
     Friend WithEvents gbSearch As GroupBox
     Friend WithEvents gbDownload As GroupBox
+    Friend WithEvents btn2160 As RadioButton
 End Class

@@ -37,8 +37,24 @@ Partial Class Form2
         Label2 = New Label()
         FolderBrowserDialog2 = New FolderBrowserDialog()
         Label3 = New Label()
+        GroupBox3 = New GroupBox()
+        btnCreate = New Button()
+        Label7 = New Label()
+        Label6 = New Label()
+        Label5 = New Label()
+        tbPassword = New TextBox()
+        tbUsername = New TextBox()
+        cbService = New ComboBox()
+        Label4 = New Label()
+        GroupBox5 = New GroupBox()
+        btnClientSet = New Button()
+        Label9 = New Label()
+        btnWeb = New RadioButton()
+        btnAndroid = New RadioButton()
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
+        GroupBox3.SuspendLayout()
+        GroupBox5.SuspendLayout()
         SuspendLayout()
         ' 
         ' GroupBox1
@@ -49,21 +65,22 @@ Partial Class Form2
         GroupBox1.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
         GroupBox1.Location = New Point(12, 12)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(500, 100)
+        GroupBox1.Size = New Size(500, 94)
         GroupBox1.TabIndex = 0
         GroupBox1.TabStop = False
         GroupBox1.Text = "Freevine Folder Location (Mandatory)"
         ' 
         ' TBfolder
         ' 
-        TBfolder.Location = New Point(6, 55)
+        TBfolder.Location = New Point(6, 49)
         TBfolder.Name = "TBfolder"
         TBfolder.Size = New Size(396, 23)
         TBfolder.TabIndex = 4
         ' 
         ' BtnBrowse
         ' 
-        BtnBrowse.Location = New Point(416, 50)
+        BtnBrowse.ForeColor = SystemColors.ControlText
+        BtnBrowse.Location = New Point(416, 44)
         BtnBrowse.Name = "BtnBrowse"
         BtnBrowse.Size = New Size(75, 30)
         BtnBrowse.TabIndex = 3
@@ -74,7 +91,7 @@ Partial Class Form2
         ' 
         Label1.AutoSize = True
         Label1.ForeColor = Color.CornflowerBlue
-        Label1.Location = New Point(6, 27)
+        Label1.Location = New Point(6, 21)
         Label1.Name = "Label1"
         Label1.Size = New Size(319, 15)
         Label1.TabIndex = 0
@@ -115,21 +132,22 @@ Partial Class Form2
         GroupBox2.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
         GroupBox2.Location = New Point(11, 118)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(500, 100)
+        GroupBox2.Size = New Size(500, 94)
         GroupBox2.TabIndex = 5
         GroupBox2.TabStop = False
         GroupBox2.Text = "Freevine Downloads Location (Optional)"
         ' 
         ' TBfolder2
         ' 
-        TBfolder2.Location = New Point(6, 55)
+        TBfolder2.Location = New Point(6, 49)
         TBfolder2.Name = "TBfolder2"
         TBfolder2.Size = New Size(396, 23)
         TBfolder2.TabIndex = 4
         ' 
         ' BtnBrowse2
         ' 
-        BtnBrowse2.Location = New Point(416, 50)
+        BtnBrowse2.ForeColor = SystemColors.ControlText
+        BtnBrowse2.Location = New Point(416, 44)
         BtnBrowse2.Name = "BtnBrowse2"
         BtnBrowse2.Size = New Size(75, 30)
         BtnBrowse2.TabIndex = 3
@@ -140,7 +158,7 @@ Partial Class Form2
         ' 
         Label2.AutoSize = True
         Label2.ForeColor = Color.CornflowerBlue
-        Label2.Location = New Point(6, 27)
+        Label2.Location = New Point(6, 21)
         Label2.Name = "Label2"
         Label2.Size = New Size(334, 15)
         Label2.TabIndex = 0
@@ -153,15 +171,166 @@ Partial Class Form2
         Label3.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
         Label3.Location = New Point(17, 223)
         Label3.Name = "Label3"
-        Label3.Size = New Size(396, 15)
+        Label3.Size = New Size(431, 15)
         Label3.TabIndex = 6
-        Label3.Text = "Note: you must restart Freevine GUI after changing either of these options"
+        Label3.Text = "Note: you must restart Freevine GUI after changing either of these options above"
+        ' 
+        ' GroupBox3
+        ' 
+        GroupBox3.Controls.Add(btnCreate)
+        GroupBox3.Controls.Add(Label7)
+        GroupBox3.Controls.Add(Label6)
+        GroupBox3.Controls.Add(Label5)
+        GroupBox3.Controls.Add(tbPassword)
+        GroupBox3.Controls.Add(tbUsername)
+        GroupBox3.Controls.Add(cbService)
+        GroupBox3.Controls.Add(Label4)
+        GroupBox3.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
+        GroupBox3.Location = New Point(12, 287)
+        GroupBox3.Name = "GroupBox3"
+        GroupBox3.Size = New Size(500, 179)
+        GroupBox3.TabIndex = 7
+        GroupBox3.TabStop = False
+        GroupBox3.Text = "Set Service Profile (Optional)"
+        ' 
+        ' btnCreate
+        ' 
+        btnCreate.ForeColor = SystemColors.ControlText
+        btnCreate.Location = New Point(415, 122)
+        btnCreate.Name = "btnCreate"
+        btnCreate.Size = New Size(75, 30)
+        btnCreate.TabIndex = 8
+        btnCreate.Text = "Create"
+        btnCreate.UseVisualStyleBackColor = True
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.ForeColor = SystemColors.ControlText
+        Label7.Location = New Point(6, 130)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(57, 15)
+        Label7.TabIndex = 7
+        Label7.Text = "Password"
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.ForeColor = SystemColors.ControlText
+        Label6.Location = New Point(6, 91)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(60, 15)
+        Label6.TabIndex = 6
+        Label6.Text = "Username"
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.ForeColor = SystemColors.ControlText
+        Label5.Location = New Point(6, 55)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(44, 15)
+        Label5.TabIndex = 5
+        Label5.Text = "Service"
+        ' 
+        ' tbPassword
+        ' 
+        tbPassword.Location = New Point(76, 127)
+        tbPassword.Name = "tbPassword"
+        tbPassword.Size = New Size(279, 23)
+        tbPassword.TabIndex = 4
+        ' 
+        ' tbUsername
+        ' 
+        tbUsername.Location = New Point(76, 88)
+        tbUsername.Name = "tbUsername"
+        tbUsername.Size = New Size(279, 23)
+        tbUsername.TabIndex = 3
+        ' 
+        ' cbService
+        ' 
+        cbService.FormattingEnabled = True
+        cbService.Items.AddRange(New Object() {"ABC", "All4", "BBC", "CBC", "CTV", "CWTV", "ITV", "My 5", "Pluto", "Roku", "STV", "Tubi", "UKTV"})
+        cbService.Location = New Point(76, 52)
+        cbService.Name = "cbService"
+        cbService.Size = New Size(142, 23)
+        cbService.TabIndex = 2
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.ForeColor = Color.CornflowerBlue
+        Label4.Location = New Point(6, 21)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(415, 15)
+        Label4.TabIndex = 1
+        Label4.Text = "Choose the required Service, enter a Username and Password and click Create"
+        ' 
+        ' GroupBox5
+        ' 
+        GroupBox5.Controls.Add(btnClientSet)
+        GroupBox5.Controls.Add(Label9)
+        GroupBox5.Controls.Add(btnWeb)
+        GroupBox5.Controls.Add(btnAndroid)
+        GroupBox5.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
+        GroupBox5.Location = New Point(12, 472)
+        GroupBox5.Name = "GroupBox5"
+        GroupBox5.Size = New Size(500, 88)
+        GroupBox5.TabIndex = 9
+        GroupBox5.TabStop = False
+        GroupBox5.Text = "Set All4 Client (Optional)"
+        ' 
+        ' btnClientSet
+        ' 
+        btnClientSet.ForeColor = SystemColors.ControlText
+        btnClientSet.Location = New Point(415, 40)
+        btnClientSet.Name = "btnClientSet"
+        btnClientSet.Size = New Size(75, 30)
+        btnClientSet.TabIndex = 10
+        btnClientSet.Text = "Set"
+        btnClientSet.UseVisualStyleBackColor = True
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.ForeColor = Color.CornflowerBlue
+        Label9.Location = New Point(6, 21)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(403, 15)
+        Label9.TabIndex = 3
+        Label9.Text = "Switch client to ""android"" or ""web"" to access different streams and click Set"
+        ' 
+        ' btnWeb
+        ' 
+        btnWeb.AutoSize = True
+        btnWeb.ForeColor = SystemColors.ControlText
+        btnWeb.Location = New Point(90, 46)
+        btnWeb.Name = "btnWeb"
+        btnWeb.Size = New Size(49, 19)
+        btnWeb.TabIndex = 1
+        btnWeb.TabStop = True
+        btnWeb.Text = "Web"
+        btnWeb.UseVisualStyleBackColor = True
+        ' 
+        ' btnAndroid
+        ' 
+        btnAndroid.AutoSize = True
+        btnAndroid.ForeColor = SystemColors.ControlText
+        btnAndroid.Location = New Point(16, 46)
+        btnAndroid.Name = "btnAndroid"
+        btnAndroid.Size = New Size(68, 19)
+        btnAndroid.TabIndex = 0
+        btnAndroid.TabStop = True
+        btnAndroid.Text = "Android"
+        btnAndroid.UseVisualStyleBackColor = True
         ' 
         ' Form2
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(523, 293)
+        ClientSize = New Size(523, 573)
+        Controls.Add(GroupBox5)
+        Controls.Add(GroupBox3)
         Controls.Add(Label3)
         Controls.Add(GroupBox2)
         Controls.Add(BtnClear)
@@ -179,6 +348,10 @@ Partial Class Form2
         GroupBox1.PerformLayout()
         GroupBox2.ResumeLayout(False)
         GroupBox2.PerformLayout()
+        GroupBox3.ResumeLayout(False)
+        GroupBox3.PerformLayout()
+        GroupBox5.ResumeLayout(False)
+        GroupBox5.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -197,4 +370,18 @@ Partial Class Form2
     Friend WithEvents Label2 As Label
     Friend WithEvents FolderBrowserDialog2 As FolderBrowserDialog
     Friend WithEvents Label3 As Label
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents tbPassword As TextBox
+    Friend WithEvents tbUsername As TextBox
+    Friend WithEvents cbService As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents btnCreate As Button
+    Friend WithEvents Label7 As Label
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents btnWeb As RadioButton
+    Friend WithEvents btnAndroid As RadioButton
+    Friend WithEvents btnClientSet As Button
+    Friend WithEvents Label9 As Label
 End Class
