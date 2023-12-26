@@ -81,12 +81,27 @@ Public Class Form2
         Dim textUsername As String = tbUsername.Text
         Dim textPassword As String = tbPassword.Text
 
+        ' Load the saved freevine folder path from application settings
+        TBfolder.Text = My.Settings.FolderPath
+
+        ' Get the folder path from TBfolder.Text
+        ' freevine folder
+        Dim folderPath As String = TBfolder.Text
+
         If cbService.Text = "" Or tbUsername.Text = "" Or tbPassword.Text = "" Then
 
             ' Display an error message if not all profile details have been completed
             MessageBox.Show("Please complete ALL profile options before pressing Set", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         Else
+
+            ' Start a new Command Prompt process
+            Dim process As New Process()
+            process.StartInfo.FileName = "cmd.exe"
+
+            ' Set the working directory for the Command Prompt process
+            process.StartInfo.WorkingDirectory = folderPath
+
             ' Construct the complete command with quoted TextBox value
             Dim profileCommand As String = $"freevine.py profile --username " + textUsername + " --password " + textPassword + " --service " + textService
 
@@ -94,8 +109,11 @@ Public Class Form2
             Form1.TextBox1.Text = profileCommand
             Form1.TBcompletecommand.Text = profileCommand
 
-            ' Write the command to the standard input of the process
-            Form1.process2.StandardInput.WriteLine(profileCommand)
+            ' Set the command for the Command Prompt process
+            process.StartInfo.Arguments = $"/k " & profileCommand
+
+            ' Start the process
+            process.Start()
 
 
             ' Clear the Combo box and Text Boxes
@@ -104,6 +122,9 @@ Public Class Form2
             tbPassword.Text = ""
             Form1.TextBox1.Text = ""
         End If
+
+
+
     End Sub
 
 

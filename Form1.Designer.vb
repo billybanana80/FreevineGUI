@@ -105,6 +105,7 @@ Partial Class Form1
         GroupBox6 = New GroupBox()
         btnWorst = New RadioButton()
         btnBest = New RadioButton()
+        btnReset = New Button()
         GroupBox1.SuspendLayout()
         gbUSA.SuspendLayout()
         gbUK.SuspendLayout()
@@ -909,11 +910,22 @@ Partial Class Form1
         btnBest.Text = "Best"
         btnBest.UseVisualStyleBackColor = True
         ' 
+        ' btnReset
+        ' 
+        btnReset.ForeColor = SystemColors.ControlText
+        btnReset.Location = New Point(648, 496)
+        btnReset.Name = "btnReset"
+        btnReset.Size = New Size(75, 30)
+        btnReset.TabIndex = 46
+        btnReset.Text = "Reset"
+        btnReset.UseVisualStyleBackColor = True
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(905, 557)
+        Controls.Add(btnReset)
         Controls.Add(GroupBox6)
         Controls.Add(GroupBox5)
         Controls.Add(GroupBox4)
@@ -1046,4 +1058,5 @@ Partial Class Form1
     Friend WithEvents gbSearch As GroupBox
     Friend WithEvents gbDownload As GroupBox
     Friend WithEvents btn2160 As RadioButton
+    Friend WithEvents btnReset As Button
 End Class

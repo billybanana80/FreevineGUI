@@ -27,6 +27,7 @@ Public Class Form1
 
 
         ToolTip1.SetToolTip(Button7, "Click to clear selected Service & Action")
+        ToolTip1.SetToolTip(btnReset, "Click to kill Command window and clear selected Service & Action")
         ToolTip1.SetToolTip(Button3, "Click to choose Options")
         ToolTip1.SetToolTip(Button4, "Click to view Help")
         ToolTip1.SetToolTip(TBcompletecommand, "Displays the complete string passed through to the Command Prompt")
@@ -984,13 +985,6 @@ Public Class Form1
         btnBest.Checked = False
         btnWorst.Checked = False
 
-        ' Find all processes with the name "WindowsTerminal.exe"
-        Dim processes() As Process = Process.GetProcessesByName("WindowsTerminal")
-
-        ' Iterate through the list of processes and kill each one
-        For Each process As Process In processes
-            process.Kill()
-        Next
 
     End Sub
 
@@ -1223,7 +1217,53 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+        'Clears all the button selections on the form
 
+        TextBox1.Text = ""
+        TBcompletecommand.Text = ""
 
+        BtnABC.Checked = False
+        C4Btn.Checked = False
+        BBCBtn.Checked = False
+        ITVBtn.Checked = False
+        C5Btn.Checked = False
+        STVBtn.Checked = False
+        TubiBtn.Checked = False
+        UKTVBtn.Checked = False
+        BtnCBCGem.Checked = False
+        BtnCTV.Checked = False
+        BtnCrackle.Checked = False
+        BtnPluto.Checked = False
+        BtnRoku.Checked = False
+        BtnCWTV.Checked = False
 
+        BtnInfo.Checked = False
+        BtnTitles.Checked = False
+        BtnSeason.Checked = False
+        BtnComplete.Checked = False
+        BtnEpisode.Checked = False
+        BtnMovie.Checked = False
+        BtnSubs.Checked = False
+        BtnHelp.Checked = False
+        BtnSearch.Checked = False
+
+        btn2160.Checked = False
+        btn1080.Checked = False
+        btn720.Checked = False
+        btn576.Checked = False
+        btn540.Checked = False
+        btn450.Checked = False
+        btn360.Checked = False
+        btnBest.Checked = False
+        btnWorst.Checked = False
+
+        ' Find all processes with the name "WindowsTerminal.exe"
+        Dim processes() As Process = Process.GetProcessesByName("WindowsTerminal")
+
+        ' Iterate through the list of processes and kill each one
+        For Each process As Process In processes
+            process.Kill()
+        Next
+    End Sub
 End Class
