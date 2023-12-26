@@ -6,7 +6,7 @@ Imports System.Drawing
 Imports System.Text.RegularExpressions
 
 Public Class Form1
-    ' Freevine GUI created by billybanana v 0.1.6
+    ' Freevine GUI created by billybanana v 0.1.7
     ' This application does not interact directly with any streaming service.
 
     ' The python Function(s) invoked are created by 
@@ -1265,5 +1265,15 @@ Public Class Form1
         For Each process As Process In processes
             process.Kill()
         Next
+    End Sub
+
+    Private Sub btnFavorites_Click(sender As Object, e As EventArgs) Handles btnFavorites.Click
+        ' Open Favorites form
+        Form3.Show()
+    End Sub
+
+    Private Sub ShowFavoritesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowFavoritesToolStripMenuItem.Click
+        ' Open Favorites form
+        Form3.Show()
     End Sub
 End Class

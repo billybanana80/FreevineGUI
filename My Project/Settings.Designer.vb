@@ -77,6 +77,42 @@ Namespace My
                 Me("FolderPath2") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property ShowName() As String
+            Get
+                Return CType(Me("ShowName"),String)
+            End Get
+            Set
+                Me("ShowName") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Service() As String
+            Get
+                Return CType(Me("Service"),String)
+            End Get
+            Set
+                Me("Service") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property SeriesURL() As String
+            Get
+                Return CType(Me("SeriesURL"),String)
+            End Get
+            Set
+                Me("SeriesURL") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

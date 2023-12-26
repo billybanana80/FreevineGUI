@@ -70,6 +70,8 @@ Partial Class Form1
         ExitToolStripMenuItem = New ToolStripMenuItem()
         OptionsToolStripMenuItem = New ToolStripMenuItem()
         SetFreevineFolderToolStripMenuItem = New ToolStripMenuItem()
+        ShowFavoritesToolStripMenuItem = New ToolStripMenuItem()
+        ToolStripSeparator1 = New ToolStripSeparator()
         FreevineExternalCommandPromptToolStripMenuItem = New ToolStripMenuItem()
         SitesToolStripMenuItem = New ToolStripMenuItem()
         ABCIViewToolStripMenuItem = New ToolStripMenuItem()
@@ -106,6 +108,7 @@ Partial Class Form1
         btnWorst = New RadioButton()
         btnBest = New RadioButton()
         btnReset = New Button()
+        btnFavorites = New Button()
         GroupBox1.SuspendLayout()
         gbUSA.SuspendLayout()
         gbUK.SuspendLayout()
@@ -601,7 +604,7 @@ Partial Class Form1
         ' 
         ' OptionsToolStripMenuItem
         ' 
-        OptionsToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {SetFreevineFolderToolStripMenuItem, FreevineExternalCommandPromptToolStripMenuItem})
+        OptionsToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {SetFreevineFolderToolStripMenuItem, ShowFavoritesToolStripMenuItem, ToolStripSeparator1, FreevineExternalCommandPromptToolStripMenuItem})
         OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
         OptionsToolStripMenuItem.Size = New Size(61, 20)
         OptionsToolStripMenuItem.Text = "Options"
@@ -611,6 +614,17 @@ Partial Class Form1
         SetFreevineFolderToolStripMenuItem.Name = "SetFreevineFolderToolStripMenuItem"
         SetFreevineFolderToolStripMenuItem.Size = New Size(201, 22)
         SetFreevineFolderToolStripMenuItem.Text = "Set Freevine Options"
+        ' 
+        ' ShowFavoritesToolStripMenuItem
+        ' 
+        ShowFavoritesToolStripMenuItem.Name = "ShowFavoritesToolStripMenuItem"
+        ShowFavoritesToolStripMenuItem.Size = New Size(201, 22)
+        ShowFavoritesToolStripMenuItem.Text = "Show Favorites"
+        ' 
+        ' ToolStripSeparator1
+        ' 
+        ToolStripSeparator1.Name = "ToolStripSeparator1"
+        ToolStripSeparator1.Size = New Size(198, 6)
         ' 
         ' FreevineExternalCommandPromptToolStripMenuItem
         ' 
@@ -747,7 +761,7 @@ Partial Class Form1
         ' Button4
         ' 
         Button4.ForeColor = SystemColors.ControlText
-        Button4.Location = New Point(103, 496)
+        Button4.Location = New Point(184, 496)
         Button4.Name = "Button4"
         Button4.Size = New Size(75, 30)
         Button4.TabIndex = 40
@@ -920,11 +934,22 @@ Partial Class Form1
         btnReset.Text = "Reset"
         btnReset.UseVisualStyleBackColor = True
         ' 
+        ' btnFavorites
+        ' 
+        btnFavorites.ForeColor = SystemColors.ControlText
+        btnFavorites.Location = New Point(103, 496)
+        btnFavorites.Name = "btnFavorites"
+        btnFavorites.Size = New Size(75, 30)
+        btnFavorites.TabIndex = 47
+        btnFavorites.Text = "Favorites"
+        btnFavorites.UseVisualStyleBackColor = True
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(905, 557)
+        Controls.Add(btnFavorites)
         Controls.Add(btnReset)
         Controls.Add(GroupBox6)
         Controls.Add(GroupBox5)
@@ -1059,4 +1084,7 @@ Partial Class Form1
     Friend WithEvents gbDownload As GroupBox
     Friend WithEvents btn2160 As RadioButton
     Friend WithEvents btnReset As Button
+    Friend WithEvents ShowFavoritesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents btnFavorites As Button
 End Class
