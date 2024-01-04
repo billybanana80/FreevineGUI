@@ -109,6 +109,12 @@ Partial Class Form1
         btnBest = New RadioButton()
         btnReset = New Button()
         btnFavorites = New Button()
+        addQueue = New Button()
+        GroupBox7 = New GroupBox()
+        rtbQueue = New TextBox()
+        processQueue = New Button()
+        clearQueue = New Button()
+        Label3 = New Label()
         GroupBox1.SuspendLayout()
         gbUSA.SuspendLayout()
         gbUK.SuspendLayout()
@@ -123,6 +129,7 @@ Partial Class Form1
         GroupBox4.SuspendLayout()
         GroupBox5.SuspendLayout()
         GroupBox6.SuspendLayout()
+        GroupBox7.SuspendLayout()
         SuspendLayout()
         ' 
         ' GroupBox1
@@ -553,7 +560,7 @@ Partial Class Form1
         ' Button2
         ' 
         Button2.ForeColor = SystemColors.ControlText
-        Button2.Location = New Point(810, 496)
+        Button2.Location = New Point(807, 697)
         Button2.Name = "Button2"
         Button2.Size = New Size(75, 30)
         Button2.TabIndex = 25
@@ -563,7 +570,7 @@ Partial Class Form1
         ' Button7
         ' 
         Button7.ForeColor = SystemColors.ControlText
-        Button7.Location = New Point(729, 496)
+        Button7.Location = New Point(726, 697)
         Button7.Name = "Button7"
         Button7.Size = New Size(75, 30)
         Button7.TabIndex = 32
@@ -573,7 +580,7 @@ Partial Class Form1
         ' Button3
         ' 
         Button3.ForeColor = SystemColors.ControlText
-        Button3.Location = New Point(22, 496)
+        Button3.Location = New Point(19, 697)
         Button3.Name = "Button3"
         Button3.Size = New Size(75, 30)
         Button3.TabIndex = 33
@@ -739,7 +746,7 @@ Partial Class Form1
         ' StatusStrip1
         ' 
         StatusStrip1.Items.AddRange(New ToolStripItem() {ToolStripStatusLabel1, ToolStripStatusLabel2})
-        StatusStrip1.Location = New Point(0, 535)
+        StatusStrip1.Location = New Point(0, 737)
         StatusStrip1.Name = "StatusStrip1"
         StatusStrip1.Size = New Size(905, 22)
         StatusStrip1.TabIndex = 39
@@ -761,7 +768,7 @@ Partial Class Form1
         ' Button4
         ' 
         Button4.ForeColor = SystemColors.ControlText
-        Button4.Location = New Point(184, 496)
+        Button4.Location = New Point(181, 697)
         Button4.Name = "Button4"
         Button4.Size = New Size(75, 30)
         Button4.TabIndex = 40
@@ -927,7 +934,7 @@ Partial Class Form1
         ' btnReset
         ' 
         btnReset.ForeColor = SystemColors.ControlText
-        btnReset.Location = New Point(648, 496)
+        btnReset.Location = New Point(645, 697)
         btnReset.Name = "btnReset"
         btnReset.Size = New Size(75, 30)
         btnReset.TabIndex = 46
@@ -937,18 +944,86 @@ Partial Class Form1
         ' btnFavorites
         ' 
         btnFavorites.ForeColor = SystemColors.ControlText
-        btnFavorites.Location = New Point(103, 496)
+        btnFavorites.Location = New Point(100, 697)
         btnFavorites.Name = "btnFavorites"
         btnFavorites.Size = New Size(75, 30)
         btnFavorites.TabIndex = 47
         btnFavorites.Text = "Favorites"
         btnFavorites.UseVisualStyleBackColor = True
         ' 
+        ' addQueue
+        ' 
+        addQueue.ForeColor = SystemColors.ControlText
+        addQueue.Location = New Point(795, 64)
+        addQueue.Name = "addQueue"
+        addQueue.Size = New Size(75, 30)
+        addQueue.TabIndex = 48
+        addQueue.Text = "Add"
+        addQueue.UseVisualStyleBackColor = True
+        ' 
+        ' GroupBox7
+        ' 
+        GroupBox7.Controls.Add(rtbQueue)
+        GroupBox7.Controls.Add(processQueue)
+        GroupBox7.Controls.Add(clearQueue)
+        GroupBox7.Controls.Add(Label3)
+        GroupBox7.Controls.Add(addQueue)
+        GroupBox7.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
+        GroupBox7.Location = New Point(12, 494)
+        GroupBox7.Name = "GroupBox7"
+        GroupBox7.Size = New Size(882, 192)
+        GroupBox7.TabIndex = 49
+        GroupBox7.TabStop = False
+        GroupBox7.Text = "Queue (Optional)"
+        ' 
+        ' rtbQueue
+        ' 
+        rtbQueue.BackColor = SystemColors.Window
+        rtbQueue.Location = New Point(7, 45)
+        rtbQueue.Multiline = True
+        rtbQueue.Name = "rtbQueue"
+        rtbQueue.ReadOnly = True
+        rtbQueue.ScrollBars = ScrollBars.Vertical
+        rtbQueue.Size = New Size(777, 133)
+        rtbQueue.TabIndex = 52
+        ' 
+        ' processQueue
+        ' 
+        processQueue.BackColor = Color.SteelBlue
+        processQueue.ForeColor = Color.White
+        processQueue.Location = New Point(795, 136)
+        processQueue.Name = "processQueue"
+        processQueue.Size = New Size(75, 30)
+        processQueue.TabIndex = 51
+        processQueue.Text = "Process"
+        processQueue.UseVisualStyleBackColor = False
+        ' 
+        ' clearQueue
+        ' 
+        clearQueue.ForeColor = SystemColors.ControlText
+        clearQueue.Location = New Point(795, 100)
+        clearQueue.Name = "clearQueue"
+        clearQueue.Size = New Size(75, 30)
+        clearQueue.TabIndex = 50
+        clearQueue.Text = "Clear"
+        clearQueue.UseVisualStyleBackColor = True
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.ForeColor = Color.CornflowerBlue
+        Label3.Location = New Point(7, 25)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(572, 15)
+        Label3.TabIndex = 11
+        Label3.Text = "Click Add to queue the tasks, click Clear to remove the queue contents, click Process to run the queue tasks"
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(905, 557)
+        ClientSize = New Size(905, 759)
+        Controls.Add(GroupBox7)
         Controls.Add(btnFavorites)
         Controls.Add(btnReset)
         Controls.Add(GroupBox6)
@@ -998,6 +1073,8 @@ Partial Class Form1
         GroupBox5.PerformLayout()
         GroupBox6.ResumeLayout(False)
         GroupBox6.PerformLayout()
+        GroupBox7.ResumeLayout(False)
+        GroupBox7.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -1087,4 +1164,10 @@ Partial Class Form1
     Friend WithEvents ShowFavoritesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents btnFavorites As Button
+    Friend WithEvents addQueue As Button
+    Friend WithEvents GroupBox7 As GroupBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents processQueue As Button
+    Friend WithEvents clearQueue As Button
+    Friend WithEvents rtbQueue As TextBox
 End Class

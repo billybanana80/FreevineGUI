@@ -50,7 +50,7 @@ Partial Class AboutForm
         Label1.Name = "Label1"
         Label1.Size = New Size(196, 30)
         Label1.TabIndex = 1
-        Label1.Text = "Freevine GUI created by billybanana" & vbCrLf & "v 0.1.7"
+        Label1.Text = "Freevine GUI created by billybanana" & vbCrLf & "v 0.1.8"
         ' 
         ' Label2
         ' 
@@ -64,6 +64,7 @@ Partial Class AboutForm
         ' LinkLabel1
         ' 
         LinkLabel1.AutoSize = True
+        LinkLabel1.Font = New Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point)
         LinkLabel1.LinkBehavior = LinkBehavior.HoverUnderline
         LinkLabel1.Location = New Point(12, 155)
         LinkLabel1.Name = "LinkLabel1"

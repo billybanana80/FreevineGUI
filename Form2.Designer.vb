@@ -46,15 +46,9 @@ Partial Class Form2
         tbUsername = New TextBox()
         cbService = New ComboBox()
         Label4 = New Label()
-        GroupBox5 = New GroupBox()
-        btnClientSet = New Button()
-        Label9 = New Label()
-        btnWeb = New RadioButton()
-        btnAndroid = New RadioButton()
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
         GroupBox3.SuspendLayout()
-        GroupBox5.SuspendLayout()
         SuspendLayout()
         ' 
         ' GroupBox1
@@ -266,70 +260,11 @@ Partial Class Form2
         Label4.TabIndex = 1
         Label4.Text = "Choose the required Service, enter a Username and Password and click Create"
         ' 
-        ' GroupBox5
-        ' 
-        GroupBox5.Controls.Add(btnClientSet)
-        GroupBox5.Controls.Add(Label9)
-        GroupBox5.Controls.Add(btnWeb)
-        GroupBox5.Controls.Add(btnAndroid)
-        GroupBox5.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox5.Location = New Point(12, 472)
-        GroupBox5.Name = "GroupBox5"
-        GroupBox5.Size = New Size(500, 88)
-        GroupBox5.TabIndex = 9
-        GroupBox5.TabStop = False
-        GroupBox5.Text = "Set All4 Client (Optional)"
-        ' 
-        ' btnClientSet
-        ' 
-        btnClientSet.ForeColor = SystemColors.ControlText
-        btnClientSet.Location = New Point(415, 40)
-        btnClientSet.Name = "btnClientSet"
-        btnClientSet.Size = New Size(75, 30)
-        btnClientSet.TabIndex = 10
-        btnClientSet.Text = "Set"
-        btnClientSet.UseVisualStyleBackColor = True
-        ' 
-        ' Label9
-        ' 
-        Label9.AutoSize = True
-        Label9.ForeColor = Color.CornflowerBlue
-        Label9.Location = New Point(6, 21)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(403, 15)
-        Label9.TabIndex = 3
-        Label9.Text = "Switch client to ""android"" or ""web"" to access different streams and click Set"
-        ' 
-        ' btnWeb
-        ' 
-        btnWeb.AutoSize = True
-        btnWeb.ForeColor = SystemColors.ControlText
-        btnWeb.Location = New Point(90, 46)
-        btnWeb.Name = "btnWeb"
-        btnWeb.Size = New Size(49, 19)
-        btnWeb.TabIndex = 1
-        btnWeb.TabStop = True
-        btnWeb.Text = "Web"
-        btnWeb.UseVisualStyleBackColor = True
-        ' 
-        ' btnAndroid
-        ' 
-        btnAndroid.AutoSize = True
-        btnAndroid.ForeColor = SystemColors.ControlText
-        btnAndroid.Location = New Point(16, 46)
-        btnAndroid.Name = "btnAndroid"
-        btnAndroid.Size = New Size(68, 19)
-        btnAndroid.TabIndex = 0
-        btnAndroid.TabStop = True
-        btnAndroid.Text = "Android"
-        btnAndroid.UseVisualStyleBackColor = True
-        ' 
         ' Form2
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(523, 573)
-        Controls.Add(GroupBox5)
+        ClientSize = New Size(523, 481)
         Controls.Add(GroupBox3)
         Controls.Add(Label3)
         Controls.Add(GroupBox2)
@@ -350,8 +285,6 @@ Partial Class Form2
         GroupBox2.PerformLayout()
         GroupBox3.ResumeLayout(False)
         GroupBox3.PerformLayout()
-        GroupBox5.ResumeLayout(False)
-        GroupBox5.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -379,9 +312,4 @@ Partial Class Form2
     Friend WithEvents Label4 As Label
     Friend WithEvents btnCreate As Button
     Friend WithEvents Label7 As Label
-    Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents btnWeb As RadioButton
-    Friend WithEvents btnAndroid As RadioButton
-    Friend WithEvents btnClientSet As Button
-    Friend WithEvents Label9 As Label
 End Class
