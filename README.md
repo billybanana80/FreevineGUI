@@ -4,7 +4,7 @@ Windows front end GUI for Freevine (created by stabbedbybrick available at GitHu
 This application uses all the underlying Python code created above and will initiate a new Command Prompt window each time your perform an action within Freevine GUI.
 
 Pre-requisites
-1. Freevine v1.0.0+ and all it's requirements as per https://github.com/stabbedbybrick/freevine
+1. Freevine v1.1.1+ and all it's requirements as per https://github.com/stabbedbybrick/freevine
 2. Windows .NET 6.0 Desktop Runtime
 
 Installation
@@ -12,10 +12,8 @@ The FreevineGUI is a portable executable and does not require to be installed. Y
 When running FreevineGUI for the first tme please set your Freevine folder location ie: that is the Freevine folder from https://github.com/stabbedbybrick/freevine (this is a Mandatory step)
 You may also choose to set your Downloads folder location in the Options (this is an optional step)
 
-Update v0.1.4
-1. modified UI to separate service countries
-2. modiifed UI to separate Download and Search & Information functions
-3. added internal Command Prompt function within the UI, in lieu of passing to external Windows Command console
+Update v0.1.8
+1. added a Queue function to allow you to add multiple tasks to a queue and kick off processing when you are ready. The functions looks for the file queue.txt in the root of your Freevine directory. If not found it will create the file the first time. The queue contents will be retained in the application - and visible in the Queue window - at all times until you press Clear to remove the contents.
    
 Operation
 1. Search
@@ -33,6 +31,10 @@ Operation
 6. The Help button will open a Command Prompt at your specified Freevine folder location and run the Help option
 7. The Clear button will remove all selected options and related search/complete command info all at once.
 8. The Reset button will perform the same as Clear AND will look for any running Windows Terminal processes on your machie and KILL them (ie: close any Command Prompt windows currently open)
+9. Set Service Profile to allow freevine to create a profile with your own Username and Password for a particular service (only required for All4 at this time).
+10. Favorites button will display list of your series that you can save as a Favorite. Highlight a row and click Copy to send the series URL to the main window
+11. Queue function allows you to queue multiple tasks and run them all at once when you choose.
+12. Sites menu will open the chosen streaming service in your default web browser.
 
 Disclaimer
 
