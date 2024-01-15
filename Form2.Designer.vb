@@ -46,9 +46,13 @@ Partial Class Form2
         tbUsername = New TextBox()
         cbService = New ComboBox()
         Label4 = New Label()
+        GroupBox4 = New GroupBox()
+        Label8 = New Label()
+        BtnClearCache = New Button()
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
         GroupBox3.SuspendLayout()
+        GroupBox4.SuspendLayout()
         SuspendLayout()
         ' 
         ' GroupBox1
@@ -244,7 +248,7 @@ Partial Class Form2
         ' cbService
         ' 
         cbService.FormattingEnabled = True
-        cbService.Items.AddRange(New Object() {"ABC", "All4", "BBC", "CBC", "CTV", "CWTV", "ITV", "My 5", "Pluto", "Roku", "STV", "Tubi", "UKTV"})
+        cbService.Items.AddRange(New Object() {"ABC", "All4", "BBC", "CBC", "CTV", "CWTV", "ITV", "My 5", "Plex", "Pluto", "Roku", "STV", "SVT", "TV4", "Tubi", "UKTV"})
         cbService.Location = New Point(76, 52)
         cbService.Name = "cbService"
         cbService.Size = New Size(142, 23)
@@ -260,11 +264,44 @@ Partial Class Form2
         Label4.TabIndex = 1
         Label4.Text = "Choose the required Service, enter a Username and Password and click Create"
         ' 
+        ' GroupBox4
+        ' 
+        GroupBox4.Controls.Add(BtnClearCache)
+        GroupBox4.Controls.Add(Label8)
+        GroupBox4.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
+        GroupBox4.Location = New Point(12, 472)
+        GroupBox4.Name = "GroupBox4"
+        GroupBox4.Size = New Size(499, 77)
+        GroupBox4.TabIndex = 8
+        GroupBox4.TabStop = False
+        GroupBox4.Text = "Clear Cache (Optional)"
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.ForeColor = Color.CornflowerBlue
+        Label8.Location = New Point(6, 21)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(215, 15)
+        Label8.TabIndex = 0
+        Label8.Text = "Click Clear to clear the download cache"
+        ' 
+        ' BtnClearCache
+        ' 
+        BtnClearCache.ForeColor = SystemColors.ControlText
+        BtnClearCache.Location = New Point(415, 26)
+        BtnClearCache.Name = "BtnClearCache"
+        BtnClearCache.Size = New Size(75, 30)
+        BtnClearCache.TabIndex = 9
+        BtnClearCache.Text = "Clear"
+        BtnClearCache.UseVisualStyleBackColor = True
+        ' 
         ' Form2
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(523, 481)
+        ClientSize = New Size(523, 561)
+        Controls.Add(GroupBox4)
         Controls.Add(GroupBox3)
         Controls.Add(Label3)
         Controls.Add(GroupBox2)
@@ -285,6 +322,8 @@ Partial Class Form2
         GroupBox2.PerformLayout()
         GroupBox3.ResumeLayout(False)
         GroupBox3.PerformLayout()
+        GroupBox4.ResumeLayout(False)
+        GroupBox4.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -312,4 +351,7 @@ Partial Class Form2
     Friend WithEvents Label4 As Label
     Friend WithEvents btnCreate As Button
     Friend WithEvents Label7 As Label
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents BtnClearCache As Button
+    Friend WithEvents Label8 As Label
 End Class

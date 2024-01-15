@@ -7,7 +7,7 @@ Imports System.Text.RegularExpressions
 Imports System.IO
 
 Public Class Form1
-    ' Freevine GUI created by billybanana v 0.1.8
+    ' Freevine GUI created by billybanana v 0.1.9
     ' This application does not interact directly with any streaming service.
 
     ' The python Function(s) invoked are created by 
@@ -39,6 +39,19 @@ Public Class Form1
         ToolTip1.SetToolTip(addQueue, "Click to add the task to queue")
         ToolTip1.SetToolTip(clearQueue, "Click to clear all tasks from queue")
         ToolTip1.SetToolTip(processQueue, "Click to launch all tasks in queue")
+
+        Dim tooltipText As String = "Select the country to use Hola Proxy" & Environment.NewLine & Environment.NewLine &
+                            "au - Australia" & Environment.NewLine &
+                            "ca - Canada" & Environment.NewLine &
+                            "dk - Denmark" & Environment.NewLine &
+                            "gb - Great Britain" & Environment.NewLine &
+                            "nz - New Zealand" & Environment.NewLine &
+                            "se - Sweden" & Environment.NewLine &
+                            "uk - United Kingdom" & Environment.NewLine &
+                            "us - United States"
+
+        ToolTip1.SetToolTip(GroupBox9, tooltipText)
+
 
 
         ' Uncheck all RadioButtons in the groupBox2
@@ -143,6 +156,7 @@ Public Class Form1
         Dim resolutionArguments As String = ""
         Dim bitrateArguments As String = ""
         Dim getArguments As String = ""
+        Dim proxyArguments As String = ""
 
 
         ' Check if TBfolder2.Text is empty
@@ -476,6 +490,10 @@ Public Class Form1
                         additionalArguments = "my5"
                     ElseIf STVBtn.Checked Then
                         additionalArguments = "stv"
+                    ElseIf SVTBtn.Checked Then
+                        additionalArguments = "svt"
+                    ElseIf tv4Btn.Checked Then
+                        additionalArguments = "tv4"
                     ElseIf TubiBtn.Checked Then
                         additionalArguments = "tubi"
                     ElseIf UKTVBtn.Checked Then
@@ -486,6 +504,8 @@ Public Class Form1
                         additionalArguments = "ctv"
                     ElseIf BtnCrackle.Checked Then
                         additionalArguments = "crackle"
+                    ElseIf BtnPlex.Checked Then
+                        additionalArguments = "plex"
                     ElseIf BtnPluto.Checked Then
                         additionalArguments = "pluto"
                     ElseIf BtnRoku.Checked Then
@@ -495,6 +515,7 @@ Public Class Form1
                     ElseIf BtnCWTV.Checked Then
                         additionalArguments = "cwtv"
                         ' Add more conditions for other service-specific options if needed
+
                     End If
             End Select
 
@@ -886,6 +907,10 @@ Public Class Form1
                         additionalArguments = "my5"
                     ElseIf STVBtn.Checked Then
                         additionalArguments = "stv"
+                    ElseIf SVTBtn.Checked Then
+                        additionalArguments = "svt"
+                    ElseIf tv4Btn.Checked Then
+                        additionalArguments = "tv4"
                     ElseIf TubiBtn.Checked Then
                         additionalArguments = "tubi"
                     ElseIf UKTVBtn.Checked Then
@@ -896,6 +921,8 @@ Public Class Form1
                         additionalArguments = "ctv"
                     ElseIf BtnCrackle.Checked Then
                         additionalArguments = "crackle"
+                    ElseIf BtnPlex.Checked Then
+                        additionalArguments = "plex"
                     ElseIf BtnPluto.Checked Then
                         additionalArguments = "pluto"
                     ElseIf BtnRoku.Checked Then
@@ -906,12 +933,10 @@ Public Class Form1
                         additionalArguments = "cwtv"
                         ' Add more conditions for other service-specific options if needed
 
-
                     End If
             End Select
 
         End If
-
 
 
         ' Check if the folder path exists
@@ -928,8 +953,34 @@ Public Class Form1
             Dim textBoxValue As String = GroupBox3.Controls("TextBox1").Text
             Dim quotedTextBoxValue As String = $"{textBoxValue}"
 
+            ' Check if ComboBox1.Text is empty
+            If ComboBox1.Text = "" Then
+                proxyArguments = ""
+            Else
+                ' Handle proxyArguments based on ComboBox1.Text
+                Select Case ComboBox1.Text
+                    Case "au - Australia"
+                        proxyArguments = "--proxy AU"
+                    Case "ca - Canada"
+                        proxyArguments = "--proxy CA"
+                    Case "dk - Denmark"
+                        proxyArguments = "--proxy DK"
+                    Case "gb - Great Britain"
+                        proxyArguments = "--proxy GB"
+                    Case "nz - New Zealand"
+                        proxyArguments = "--proxy NZ"
+                    Case "se - Sweden"
+                        proxyArguments = "--proxy SE"
+                    Case "uk - United Kingdom"
+                        proxyArguments = "--proxy UK"
+                    Case "us - United States"
+                        proxyArguments = "--proxy US"
+                        ' Add more cases as needed
+                End Select
+            End If
+
             ' Construct the complete command with quoted TextBox value
-            Dim completeCommand As String = $"freevine.py {getArguments} {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {resolutionArguments}{bitrateArguments} {directoryArguments}"
+            Dim completeCommand As String = $"freevine.py {getArguments} {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {resolutionArguments}{bitrateArguments} {proxyArguments} {directoryArguments}"
 
             ' Display the complete command in TextBox Complete Command
             TBcompletecommand.Text = completeCommand
@@ -973,14 +1024,17 @@ Public Class Form1
         ITVBtn.Checked = False
         C5Btn.Checked = False
         STVBtn.Checked = False
+        SVTBtn.Checked = False
         TubiBtn.Checked = False
         UKTVBtn.Checked = False
         BtnCBCGem.Checked = False
         BtnCTV.Checked = False
         BtnCrackle.Checked = False
+        BtnPlex.Checked = False
         BtnPluto.Checked = False
         BtnRoku.Checked = False
         BtnCWTV.Checked = False
+        tv4Btn.Checked = False
 
         BtnInfo.Checked = False
         BtnTitles.Checked = False
@@ -991,6 +1045,7 @@ Public Class Form1
         BtnSubs.Checked = False
         BtnHelp.Checked = False
         BtnSearch.Checked = False
+        ComboBox1.SelectedIndex = -1
 
         btn2160.Checked = False
         btn1080.Checked = False
@@ -1246,14 +1301,17 @@ Public Class Form1
         ITVBtn.Checked = False
         C5Btn.Checked = False
         STVBtn.Checked = False
+        SVTBtn.Checked = False
         TubiBtn.Checked = False
         UKTVBtn.Checked = False
         BtnCBCGem.Checked = False
         BtnCTV.Checked = False
         BtnCrackle.Checked = False
+        BtnPlex.Checked = False
         BtnPluto.Checked = False
         BtnRoku.Checked = False
         BtnCWTV.Checked = False
+        tv4Btn.Checked = False
 
         BtnInfo.Checked = False
         BtnTitles.Checked = False
@@ -1264,6 +1322,7 @@ Public Class Form1
         BtnSubs.Checked = False
         BtnHelp.Checked = False
         BtnSearch.Checked = False
+        ComboBox1.SelectedIndex = -1
 
         btn2160.Checked = False
         btn1080.Checked = False
@@ -1324,6 +1383,7 @@ Public Class Form1
         Dim resolutionArguments As String = ""
         Dim bitrateArguments As String = ""
         Dim getArguments As String = ""
+        Dim proxyArguments As String = ""
 
 
         ' Check if TBfolder2.Text is empty
@@ -1657,6 +1717,10 @@ Public Class Form1
                         additionalArguments = "my5"
                     ElseIf STVBtn.Checked Then
                         additionalArguments = "stv"
+                    ElseIf tv4Btn.Checked Then
+                        additionalArguments = "tv4"
+                    ElseIf SVTBtn.Checked Then
+                        additionalArguments = "svt"
                     ElseIf TubiBtn.Checked Then
                         additionalArguments = "tubi"
                     ElseIf UKTVBtn.Checked Then
@@ -1667,6 +1731,8 @@ Public Class Form1
                         additionalArguments = "ctv"
                     ElseIf BtnCrackle.Checked Then
                         additionalArguments = "crackle"
+                    ElseIf BtnPlex.Checked Then
+                        additionalArguments = "plex"
                     ElseIf BtnPluto.Checked Then
                         additionalArguments = "pluto"
                     ElseIf BtnRoku.Checked Then
@@ -1676,6 +1742,8 @@ Public Class Form1
                     ElseIf BtnCWTV.Checked Then
                         additionalArguments = "cwtv"
                         ' Add more conditions for other service-specific options if needed
+
+
                     End If
             End Select
 
@@ -2067,6 +2135,10 @@ Public Class Form1
                         additionalArguments = "my5"
                     ElseIf STVBtn.Checked Then
                         additionalArguments = "stv"
+                    ElseIf SVTBtn.Checked Then
+                        additionalArguments = "svt"
+                    ElseIf tv4Btn.Checked Then
+                        additionalArguments = "tv4"
                     ElseIf TubiBtn.Checked Then
                         additionalArguments = "tubi"
                     ElseIf UKTVBtn.Checked Then
@@ -2077,6 +2149,8 @@ Public Class Form1
                         additionalArguments = "ctv"
                     ElseIf BtnCrackle.Checked Then
                         additionalArguments = "crackle"
+                    ElseIf BtnPlex.Checked Then
+                        additionalArguments = "plex"
                     ElseIf BtnPluto.Checked Then
                         additionalArguments = "pluto"
                     ElseIf BtnRoku.Checked Then
@@ -2087,39 +2161,65 @@ Public Class Form1
                         additionalArguments = "cwtv"
                         ' Add more conditions for other service-specific options if needed
 
-
                     End If
 
             End Select
 
         End If
 
+
         ' Check if the folder path exists
         If System.IO.Directory.Exists(folderPath) Then
 
-                ' Quote the TextBox value and include it in the arguments
-                Dim textBoxValue As String = GroupBox3.Controls("TextBox1").Text
-                Dim quotedTextBoxValue As String = $"{textBoxValue}"
+            ' Quote the TextBox value and include it in the arguments
+            Dim textBoxValue As String = GroupBox3.Controls("TextBox1").Text
+            Dim quotedTextBoxValue As String = $"{textBoxValue}"
 
-                ' Construct the complete command with quoted TextBox value
-                Dim completeCommand As String = $"{getArguments} {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {resolutionArguments}{bitrateArguments} {directoryArguments}"
-
-                ' Update the queue content (add new entry or modify as needed)
-                Dim newQueueEntry As String = completeCommand
-
-                ' Append the new entry to the end of the list
-                queueEntries.Add(newQueueEntry)
-
-                ' Write the modified content back to the queue.txt file
-                File.WriteAllLines(queuePath, queueEntries)
-
-                ' Update the RichTextBox with the updated content
-                UpdateRichTextBox()
-
+            ' Check if ComboBox1.Text is empty
+            If ComboBox1.Text = "" Then
+                proxyArguments = ""
             Else
-                ' Display an error message if the folder path doesn't exist
-                MessageBox.Show("Please set your Freevine folder location in Options", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                ' Handle proxyArguments based on ComboBox1.Text
+                Select Case ComboBox1.Text
+                    Case "au - Australia"
+                        proxyArguments = "--proxy AU"
+                    Case "ca - Canada"
+                        proxyArguments = "--proxy CA"
+                    Case "dk - Denmark"
+                        proxyArguments = "--proxy DK"
+                    Case "gb - Great Britain"
+                        proxyArguments = "--proxy GB"
+                    Case "nz - New Zealand"
+                        proxyArguments = "--proxy NZ"
+                    Case "se - Sweden"
+                        proxyArguments = "--proxy SE"
+                    Case "uk - United Kingdom"
+                        proxyArguments = "--proxy UK"
+                    Case "us - United States"
+                        proxyArguments = "--proxy US"
+                        ' Add more cases as needed
+                End Select
             End If
+
+            ' Construct the complete command with quoted TextBox value
+            Dim completeCommand As String = $"{getArguments} {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {resolutionArguments}{bitrateArguments} {proxyArguments} {directoryArguments}"
+
+            ' Update the queue content (add new entry or modify as needed)
+            Dim newQueueEntry As String = completeCommand
+
+            ' Append the new entry to the end of the list
+            queueEntries.Add(newQueueEntry)
+
+            ' Write the modified content back to the queue.txt file
+            File.WriteAllLines(queuePath, queueEntries)
+
+            ' Update the RichTextBox with the updated content
+            UpdateRichTextBox()
+
+        Else
+            ' Display an error message if the folder path doesn't exist
+            MessageBox.Show("Please set your Freevine folder location in Options", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
 
 
     End Sub
@@ -2187,6 +2287,70 @@ Public Class Form1
 
             ' Set the command for the Command Prompt process
             process.StartInfo.Arguments = processCommand
+
+            ' Start the process
+            process.Start()
+
+        Else
+            ' Display an error message if the folder path doesn't exist
+            MessageBox.Show("Please set your Freevine folder location in Options", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
+    Private Sub SVTPlayToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SVTPlayToolStripMenuItem.Click
+        'Open SVT Player
+
+        Dim startexternal As New Process()
+
+        startexternal.StartInfo.FileName = "https://www.svtplay.se/"
+        startexternal.StartInfo.UseShellExecute = True
+
+        startexternal.Start()
+    End Sub
+
+    Private Sub PlexTVToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PlexTVToolStripMenuItem.Click
+        'Open Plex TV
+
+        Dim startexternal As New Process()
+
+        startexternal.StartInfo.FileName = "https://www.plex.tv/"
+        startexternal.StartInfo.UseShellExecute = True
+
+        startexternal.Start()
+    End Sub
+
+    Private Sub TV4PlayToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TV4PlayToolStripMenuItem.Click
+        'Open TV4 Play
+
+        Dim startexternal As New Process()
+
+        startexternal.StartInfo.FileName = "https://www.tv4play.se/"
+        startexternal.StartInfo.UseShellExecute = True
+
+        startexternal.Start()
+    End Sub
+
+    Private Sub ClearCacheToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearCacheToolStripMenuItem.Click
+        'Run the clear cache command
+
+        ' Load the saved folder path from application settings
+        Form2.TBfolder.Text = My.Settings.FolderPath
+
+        ' Get the folder path from TBfolder.Text
+        Dim folderPath As String = Form2.TBfolder.Text
+
+        ' Check if the folder path exists
+        If System.IO.Directory.Exists(folderPath) Then
+
+            ' Start a new Command Prompt process
+            Dim process As New Process()
+            process.StartInfo.FileName = "cmd.exe"
+
+            ' Set the working directory for the Command Prompt process
+            process.StartInfo.WorkingDirectory = folderPath
+
+            ' Construct the complete command with quoted TextBox value
+            process.StartInfo.Arguments = $"/k python freevine.py clear-cache"
 
             ' Start the process
             process.Start()

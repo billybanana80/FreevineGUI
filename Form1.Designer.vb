@@ -25,7 +25,11 @@ Partial Class Form1
         components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         GroupBox1 = New GroupBox()
+        GroupBox8 = New GroupBox()
+        tv4Btn = New RadioButton()
+        SVTBtn = New RadioButton()
         gbUSA = New GroupBox()
+        BtnPlex = New RadioButton()
         BtnCrackle = New RadioButton()
         BtnCWTV = New RadioButton()
         BtnPluto = New RadioButton()
@@ -69,6 +73,7 @@ Partial Class Form1
         FileToolStripMenuItem = New ToolStripMenuItem()
         ExitToolStripMenuItem = New ToolStripMenuItem()
         OptionsToolStripMenuItem = New ToolStripMenuItem()
+        ClearCacheToolStripMenuItem = New ToolStripMenuItem()
         SetFreevineFolderToolStripMenuItem = New ToolStripMenuItem()
         ShowFavoritesToolStripMenuItem = New ToolStripMenuItem()
         ToolStripSeparator1 = New ToolStripSeparator()
@@ -83,10 +88,13 @@ Partial Class Form1
         CWTVToolStripMenuItem = New ToolStripMenuItem()
         ITVXToolStripMenuItem = New ToolStripMenuItem()
         My5ToolStripMenuItem = New ToolStripMenuItem()
+        PlexTVToolStripMenuItem = New ToolStripMenuItem()
         PlutoToolStripMenuItem = New ToolStripMenuItem()
         TheRokuChannelToolStripMenuItem = New ToolStripMenuItem()
         STVPlayerToolStripMenuItem = New ToolStripMenuItem()
+        SVTPlayToolStripMenuItem = New ToolStripMenuItem()
         TubiTVToolStripMenuItem = New ToolStripMenuItem()
+        TV4PlayToolStripMenuItem = New ToolStripMenuItem()
         UKTVPlayToolStripMenuItem = New ToolStripMenuItem()
         HelpToolStripMenuItem = New ToolStripMenuItem()
         AboutToolStripMenuItem = New ToolStripMenuItem()
@@ -115,7 +123,11 @@ Partial Class Form1
         processQueue = New Button()
         clearQueue = New Button()
         Label3 = New Label()
+        GroupBox9 = New GroupBox()
+        ComboBox1 = New ComboBox()
+        Label5 = New Label()
         GroupBox1.SuspendLayout()
+        GroupBox8.SuspendLayout()
         gbUSA.SuspendLayout()
         gbUK.SuspendLayout()
         gbCanada.SuspendLayout()
@@ -130,10 +142,12 @@ Partial Class Form1
         GroupBox5.SuspendLayout()
         GroupBox6.SuspendLayout()
         GroupBox7.SuspendLayout()
+        GroupBox9.SuspendLayout()
         SuspendLayout()
         ' 
         ' GroupBox1
         ' 
+        GroupBox1.Controls.Add(GroupBox8)
         GroupBox1.Controls.Add(gbUSA)
         GroupBox1.Controls.Add(gbUK)
         GroupBox1.Controls.Add(gbCanada)
@@ -142,25 +156,71 @@ Partial Class Form1
         GroupBox1.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
         GroupBox1.Location = New Point(12, 27)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(482, 236)
+        GroupBox1.Size = New Size(598, 236)
         GroupBox1.TabIndex = 0
         GroupBox1.TabStop = False
         GroupBox1.Text = "Service"
         ' 
+        ' GroupBox8
+        ' 
+        GroupBox8.Controls.Add(tv4Btn)
+        GroupBox8.Controls.Add(SVTBtn)
+        GroupBox8.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
+        GroupBox8.Location = New Point(244, 43)
+        GroupBox8.Name = "GroupBox8"
+        GroupBox8.Size = New Size(110, 182)
+        GroupBox8.TabIndex = 21
+        GroupBox8.TabStop = False
+        GroupBox8.Text = "Europe"
+        ' 
+        ' tv4Btn
+        ' 
+        tv4Btn.AutoSize = True
+        tv4Btn.ForeColor = Color.Black
+        tv4Btn.Location = New Point(10, 47)
+        tv4Btn.Name = "tv4Btn"
+        tv4Btn.Size = New Size(69, 19)
+        tv4Btn.TabIndex = 13
+        tv4Btn.Text = "TV4 Play"
+        tv4Btn.UseVisualStyleBackColor = True
+        ' 
+        ' SVTBtn
+        ' 
+        SVTBtn.AutoSize = True
+        SVTBtn.ForeColor = Color.Black
+        SVTBtn.Location = New Point(10, 22)
+        SVTBtn.Name = "SVTBtn"
+        SVTBtn.Size = New Size(69, 19)
+        SVTBtn.TabIndex = 12
+        SVTBtn.Text = "SVT Play"
+        SVTBtn.UseVisualStyleBackColor = True
+        ' 
         ' gbUSA
         ' 
+        gbUSA.Controls.Add(BtnPlex)
         gbUSA.Controls.Add(BtnCrackle)
         gbUSA.Controls.Add(BtnCWTV)
         gbUSA.Controls.Add(BtnPluto)
         gbUSA.Controls.Add(BtnRoku)
         gbUSA.Controls.Add(TubiBtn)
         gbUSA.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        gbUSA.Location = New Point(362, 43)
+        gbUSA.Location = New Point(478, 43)
         gbUSA.Name = "gbUSA"
         gbUSA.Size = New Size(110, 182)
         gbUSA.TabIndex = 20
         gbUSA.TabStop = False
         gbUSA.Text = "USA"
+        ' 
+        ' BtnPlex
+        ' 
+        BtnPlex.AutoSize = True
+        BtnPlex.ForeColor = Color.Black
+        BtnPlex.Location = New Point(10, 72)
+        BtnPlex.Name = "BtnPlex"
+        BtnPlex.Size = New Size(47, 19)
+        BtnPlex.TabIndex = 17
+        BtnPlex.Text = "Plex"
+        BtnPlex.UseVisualStyleBackColor = True
         ' 
         ' BtnCrackle
         ' 
@@ -188,7 +248,7 @@ Partial Class Form1
         ' 
         BtnPluto.AutoSize = True
         BtnPluto.ForeColor = Color.Black
-        BtnPluto.Location = New Point(10, 72)
+        BtnPluto.Location = New Point(10, 97)
         BtnPluto.Name = "BtnPluto"
         BtnPluto.Size = New Size(53, 19)
         BtnPluto.TabIndex = 15
@@ -199,7 +259,7 @@ Partial Class Form1
         ' 
         BtnRoku.AutoSize = True
         BtnRoku.ForeColor = Color.Black
-        BtnRoku.Location = New Point(10, 97)
+        BtnRoku.Location = New Point(10, 122)
         BtnRoku.Name = "BtnRoku"
         BtnRoku.Size = New Size(52, 19)
         BtnRoku.TabIndex = 10
@@ -210,7 +270,7 @@ Partial Class Form1
         ' 
         TubiBtn.AutoSize = True
         TubiBtn.ForeColor = Color.Black
-        TubiBtn.Location = New Point(10, 122)
+        TubiBtn.Location = New Point(10, 147)
         TubiBtn.Name = "TubiBtn"
         TubiBtn.Size = New Size(48, 19)
         TubiBtn.TabIndex = 6
@@ -226,7 +286,7 @@ Partial Class Form1
         gbUK.Controls.Add(STVBtn)
         gbUK.Controls.Add(UKTVBtn)
         gbUK.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        gbUK.Location = New Point(244, 43)
+        gbUK.Location = New Point(360, 43)
         gbUK.Name = "gbUK"
         gbUK.Size = New Size(110, 182)
         gbUK.TabIndex = 19
@@ -352,7 +412,7 @@ Partial Class Form1
         gbAustralia.Size = New Size(110, 182)
         gbAustralia.TabIndex = 17
         gbAustralia.TabStop = False
-        gbAustralia.Text = "Australia"
+        gbAustralia.Text = "Australia/NZ"
         ' 
         ' BtnABC
         ' 
@@ -467,7 +527,7 @@ Partial Class Form1
         ' 
         BtnGo.BackColor = Color.SteelBlue
         BtnGo.ForeColor = Color.White
-        BtnGo.Location = New Point(795, 45)
+        BtnGo.Location = New Point(914, 45)
         BtnGo.Name = "BtnGo"
         BtnGo.Size = New Size(75, 30)
         BtnGo.TabIndex = 13
@@ -478,7 +538,7 @@ Partial Class Form1
         ' 
         TextBox1.Location = New Point(6, 50)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(778, 23)
+        TextBox1.Size = New Size(887, 23)
         TextBox1.TabIndex = 11
         ' 
         ' Label2
@@ -499,7 +559,7 @@ Partial Class Form1
         GroupBox3.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
         GroupBox3.Location = New Point(12, 328)
         GroupBox3.Name = "GroupBox3"
-        GroupBox3.Size = New Size(882, 95)
+        GroupBox3.Size = New Size(998, 95)
         GroupBox3.TabIndex = 1
         GroupBox3.TabStop = False
         GroupBox3.Text = "Take Action"
@@ -510,7 +570,7 @@ Partial Class Form1
         GroupBox2.Controls.Add(gbDownload)
         GroupBox2.Controls.Add(Label4)
         GroupBox2.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox2.Location = New Point(500, 27)
+        GroupBox2.Location = New Point(616, 27)
         GroupBox2.Name = "GroupBox2"
         GroupBox2.Size = New Size(394, 236)
         GroupBox2.TabIndex = 23
@@ -560,7 +620,7 @@ Partial Class Form1
         ' Button2
         ' 
         Button2.ForeColor = SystemColors.ControlText
-        Button2.Location = New Point(807, 697)
+        Button2.Location = New Point(926, 697)
         Button2.Name = "Button2"
         Button2.Size = New Size(75, 30)
         Button2.TabIndex = 25
@@ -570,7 +630,7 @@ Partial Class Form1
         ' Button7
         ' 
         Button7.ForeColor = SystemColors.ControlText
-        Button7.Location = New Point(726, 697)
+        Button7.Location = New Point(845, 697)
         Button7.Name = "Button7"
         Button7.Size = New Size(75, 30)
         Button7.TabIndex = 32
@@ -592,7 +652,7 @@ Partial Class Form1
         MenuStrip1.Items.AddRange(New ToolStripItem() {FileToolStripMenuItem, OptionsToolStripMenuItem, SitesToolStripMenuItem, HelpToolStripMenuItem})
         MenuStrip1.Location = New Point(0, 0)
         MenuStrip1.Name = "MenuStrip1"
-        MenuStrip1.Size = New Size(905, 24)
+        MenuStrip1.Size = New Size(1023, 24)
         MenuStrip1.TabIndex = 36
         MenuStrip1.Text = "MenuStrip1"
         ' 
@@ -611,10 +671,16 @@ Partial Class Form1
         ' 
         ' OptionsToolStripMenuItem
         ' 
-        OptionsToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {SetFreevineFolderToolStripMenuItem, ShowFavoritesToolStripMenuItem, ToolStripSeparator1, FreevineExternalCommandPromptToolStripMenuItem})
+        OptionsToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClearCacheToolStripMenuItem, SetFreevineFolderToolStripMenuItem, ShowFavoritesToolStripMenuItem, ToolStripSeparator1, FreevineExternalCommandPromptToolStripMenuItem})
         OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
         OptionsToolStripMenuItem.Size = New Size(61, 20)
         OptionsToolStripMenuItem.Text = "Options"
+        ' 
+        ' ClearCacheToolStripMenuItem
+        ' 
+        ClearCacheToolStripMenuItem.Name = "ClearCacheToolStripMenuItem"
+        ClearCacheToolStripMenuItem.Size = New Size(201, 22)
+        ClearCacheToolStripMenuItem.Text = "Clear Cache"
         ' 
         ' SetFreevineFolderToolStripMenuItem
         ' 
@@ -641,7 +707,7 @@ Partial Class Form1
         ' 
         ' SitesToolStripMenuItem
         ' 
-        SitesToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ABCIViewToolStripMenuItem, All4ToolStripMenuItem, BBCIPlayerToolStripMenuItem, CBCGemToolStripMenuItem, CrackleToolStripMenuItem, CTVToolStripMenuItem, CWTVToolStripMenuItem, ITVXToolStripMenuItem, My5ToolStripMenuItem, PlutoToolStripMenuItem, TheRokuChannelToolStripMenuItem, STVPlayerToolStripMenuItem, TubiTVToolStripMenuItem, UKTVPlayToolStripMenuItem})
+        SitesToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ABCIViewToolStripMenuItem, All4ToolStripMenuItem, BBCIPlayerToolStripMenuItem, CBCGemToolStripMenuItem, CrackleToolStripMenuItem, CTVToolStripMenuItem, CWTVToolStripMenuItem, ITVXToolStripMenuItem, My5ToolStripMenuItem, PlexTVToolStripMenuItem, PlutoToolStripMenuItem, TheRokuChannelToolStripMenuItem, STVPlayerToolStripMenuItem, SVTPlayToolStripMenuItem, TubiTVToolStripMenuItem, TV4PlayToolStripMenuItem, UKTVPlayToolStripMenuItem})
         SitesToolStripMenuItem.Name = "SitesToolStripMenuItem"
         SitesToolStripMenuItem.Size = New Size(43, 20)
         SitesToolStripMenuItem.Text = "Sites"
@@ -700,6 +766,12 @@ Partial Class Form1
         My5ToolStripMenuItem.Size = New Size(170, 22)
         My5ToolStripMenuItem.Text = "My 5"
         ' 
+        ' PlexTVToolStripMenuItem
+        ' 
+        PlexTVToolStripMenuItem.Name = "PlexTVToolStripMenuItem"
+        PlexTVToolStripMenuItem.Size = New Size(170, 22)
+        PlexTVToolStripMenuItem.Text = "Plex"
+        ' 
         ' PlutoToolStripMenuItem
         ' 
         PlutoToolStripMenuItem.Name = "PlutoToolStripMenuItem"
@@ -718,11 +790,23 @@ Partial Class Form1
         STVPlayerToolStripMenuItem.Size = New Size(170, 22)
         STVPlayerToolStripMenuItem.Text = "STV Player"
         ' 
+        ' SVTPlayToolStripMenuItem
+        ' 
+        SVTPlayToolStripMenuItem.Name = "SVTPlayToolStripMenuItem"
+        SVTPlayToolStripMenuItem.Size = New Size(170, 22)
+        SVTPlayToolStripMenuItem.Text = "SVT Play"
+        ' 
         ' TubiTVToolStripMenuItem
         ' 
         TubiTVToolStripMenuItem.Name = "TubiTVToolStripMenuItem"
         TubiTVToolStripMenuItem.Size = New Size(170, 22)
         TubiTVToolStripMenuItem.Text = "Tubi TV"
+        ' 
+        ' TV4PlayToolStripMenuItem
+        ' 
+        TV4PlayToolStripMenuItem.Name = "TV4PlayToolStripMenuItem"
+        TV4PlayToolStripMenuItem.Size = New Size(170, 22)
+        TV4PlayToolStripMenuItem.Text = "TV4 Play"
         ' 
         ' UKTVPlayToolStripMenuItem
         ' 
@@ -748,7 +832,7 @@ Partial Class Form1
         StatusStrip1.Items.AddRange(New ToolStripItem() {ToolStripStatusLabel1, ToolStripStatusLabel2})
         StatusStrip1.Location = New Point(0, 737)
         StatusStrip1.Name = "StatusStrip1"
-        StatusStrip1.Size = New Size(905, 22)
+        StatusStrip1.Size = New Size(1023, 22)
         StatusStrip1.TabIndex = 39
         StatusStrip1.Text = "StatusStrip1"
         ' 
@@ -780,7 +864,7 @@ Partial Class Form1
         TBcompletecommand.Location = New Point(7, 20)
         TBcompletecommand.Name = "TBcompletecommand"
         TBcompletecommand.ReadOnly = True
-        TBcompletecommand.Size = New Size(866, 23)
+        TBcompletecommand.Size = New Size(982, 23)
         TBcompletecommand.TabIndex = 42
         ' 
         ' GroupBox4
@@ -789,7 +873,7 @@ Partial Class Form1
         GroupBox4.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
         GroupBox4.Location = New Point(12, 429)
         GroupBox4.Name = "GroupBox4"
-        GroupBox4.Size = New Size(882, 59)
+        GroupBox4.Size = New Size(998, 59)
         GroupBox4.TabIndex = 43
         GroupBox4.TabStop = False
         GroupBox4.Text = "Complete Command (info only)"
@@ -806,7 +890,7 @@ Partial Class Form1
         GroupBox5.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
         GroupBox5.Location = New Point(12, 269)
         GroupBox5.Name = "GroupBox5"
-        GroupBox5.Size = New Size(690, 53)
+        GroupBox5.Size = New Size(614, 53)
         GroupBox5.TabIndex = 44
         GroupBox5.TabStop = False
         GroupBox5.Text = "Resolution (Optional)"
@@ -827,7 +911,7 @@ Partial Class Form1
         ' 
         btn540.AutoSize = True
         btn540.ForeColor = SystemColors.ControlText
-        btn540.Location = New Point(401, 22)
+        btn540.Location = New Point(372, 22)
         btn540.Name = "btn540"
         btn540.Size = New Size(73, 19)
         btn540.TabIndex = 5
@@ -839,7 +923,7 @@ Partial Class Form1
         ' 
         btn360.AutoSize = True
         btn360.ForeColor = SystemColors.ControlText
-        btn360.Location = New Point(577, 22)
+        btn360.Location = New Point(530, 22)
         btn360.Name = "btn360"
         btn360.Size = New Size(73, 19)
         btn360.TabIndex = 4
@@ -851,7 +935,7 @@ Partial Class Form1
         ' 
         btn450.AutoSize = True
         btn450.ForeColor = SystemColors.ControlText
-        btn450.Location = New Point(487, 22)
+        btn450.Location = New Point(451, 22)
         btn450.Name = "btn450"
         btn450.Size = New Size(73, 19)
         btn450.TabIndex = 3
@@ -863,7 +947,7 @@ Partial Class Form1
         ' 
         btn576.AutoSize = True
         btn576.ForeColor = SystemColors.ControlText
-        btn576.Location = New Point(309, 22)
+        btn576.Location = New Point(287, 22)
         btn576.Name = "btn576"
         btn576.Size = New Size(79, 19)
         btn576.TabIndex = 2
@@ -875,7 +959,7 @@ Partial Class Form1
         ' 
         btn720.AutoSize = True
         btn720.ForeColor = SystemColors.ControlText
-        btn720.Location = New Point(218, 22)
+        btn720.Location = New Point(202, 22)
         btn720.Name = "btn720"
         btn720.Size = New Size(79, 19)
         btn720.TabIndex = 1
@@ -887,7 +971,7 @@ Partial Class Form1
         ' 
         btn1080.AutoSize = True
         btn1080.ForeColor = SystemColors.ControlText
-        btn1080.Location = New Point(119, 22)
+        btn1080.Location = New Point(111, 22)
         btn1080.Name = "btn1080"
         btn1080.Size = New Size(85, 19)
         btn1080.TabIndex = 0
@@ -900,9 +984,9 @@ Partial Class Form1
         GroupBox6.Controls.Add(btnWorst)
         GroupBox6.Controls.Add(btnBest)
         GroupBox6.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox6.Location = New Point(708, 269)
+        GroupBox6.Location = New Point(632, 269)
         GroupBox6.Name = "GroupBox6"
-        GroupBox6.Size = New Size(186, 53)
+        GroupBox6.Size = New Size(125, 53)
         GroupBox6.TabIndex = 45
         GroupBox6.TabStop = False
         GroupBox6.Text = "Bitrate (Optional)"
@@ -934,7 +1018,7 @@ Partial Class Form1
         ' btnReset
         ' 
         btnReset.ForeColor = SystemColors.ControlText
-        btnReset.Location = New Point(645, 697)
+        btnReset.Location = New Point(764, 697)
         btnReset.Name = "btnReset"
         btnReset.Size = New Size(75, 30)
         btnReset.TabIndex = 46
@@ -954,7 +1038,7 @@ Partial Class Form1
         ' addQueue
         ' 
         addQueue.ForeColor = SystemColors.ControlText
-        addQueue.Location = New Point(795, 64)
+        addQueue.Location = New Point(914, 63)
         addQueue.Name = "addQueue"
         addQueue.Size = New Size(75, 30)
         addQueue.TabIndex = 48
@@ -971,7 +1055,7 @@ Partial Class Form1
         GroupBox7.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
         GroupBox7.Location = New Point(12, 494)
         GroupBox7.Name = "GroupBox7"
-        GroupBox7.Size = New Size(882, 192)
+        GroupBox7.Size = New Size(998, 192)
         GroupBox7.TabIndex = 49
         GroupBox7.TabStop = False
         GroupBox7.Text = "Queue (Optional)"
@@ -984,14 +1068,14 @@ Partial Class Form1
         rtbQueue.Name = "rtbQueue"
         rtbQueue.ReadOnly = True
         rtbQueue.ScrollBars = ScrollBars.Vertical
-        rtbQueue.Size = New Size(777, 133)
+        rtbQueue.Size = New Size(886, 133)
         rtbQueue.TabIndex = 52
         ' 
         ' processQueue
         ' 
         processQueue.BackColor = Color.SteelBlue
         processQueue.ForeColor = Color.White
-        processQueue.Location = New Point(795, 136)
+        processQueue.Location = New Point(914, 135)
         processQueue.Name = "processQueue"
         processQueue.Size = New Size(75, 30)
         processQueue.TabIndex = 51
@@ -1001,7 +1085,7 @@ Partial Class Form1
         ' clearQueue
         ' 
         clearQueue.ForeColor = SystemColors.ControlText
-        clearQueue.Location = New Point(795, 100)
+        clearQueue.Location = New Point(914, 99)
         clearQueue.Name = "clearQueue"
         clearQueue.Size = New Size(75, 30)
         clearQueue.TabIndex = 50
@@ -1018,11 +1102,43 @@ Partial Class Form1
         Label3.TabIndex = 11
         Label3.Text = "Click Add to queue the tasks, click Clear to remove the queue contents, click Process to run the queue tasks"
         ' 
+        ' GroupBox9
+        ' 
+        GroupBox9.Controls.Add(ComboBox1)
+        GroupBox9.Controls.Add(Label5)
+        GroupBox9.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
+        GroupBox9.Location = New Point(763, 269)
+        GroupBox9.Name = "GroupBox9"
+        GroupBox9.Size = New Size(247, 53)
+        GroupBox9.TabIndex = 50
+        GroupBox9.TabStop = False
+        GroupBox9.Text = "Hola Proxy (Optional)"
+        ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Items.AddRange(New Object() {"au - Australia", "ca - Canada", "dk - Denmark", "gb - Great Britain", "nz - New Zealand", "se - Sweden", "uk - United Kingdom", "us - United States"})
+        ComboBox1.Location = New Point(96, 21)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(142, 23)
+        ComboBox1.TabIndex = 1
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.ForeColor = SystemColors.ControlText
+        Label5.Location = New Point(7, 24)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(84, 15)
+        Label5.TabIndex = 0
+        Label5.Text = "Select Country"
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(905, 759)
+        ClientSize = New Size(1023, 759)
+        Controls.Add(GroupBox9)
         Controls.Add(GroupBox7)
         Controls.Add(btnFavorites)
         Controls.Add(btnReset)
@@ -1047,6 +1163,8 @@ Partial Class Form1
         Text = "Freevine GUI"
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
+        GroupBox8.ResumeLayout(False)
+        GroupBox8.PerformLayout()
         gbUSA.ResumeLayout(False)
         gbUSA.PerformLayout()
         gbUK.ResumeLayout(False)
@@ -1075,6 +1193,8 @@ Partial Class Form1
         GroupBox6.PerformLayout()
         GroupBox7.ResumeLayout(False)
         GroupBox7.PerformLayout()
+        GroupBox9.ResumeLayout(False)
+        GroupBox9.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -1170,4 +1290,15 @@ Partial Class Form1
     Friend WithEvents processQueue As Button
     Friend WithEvents clearQueue As Button
     Friend WithEvents rtbQueue As TextBox
+    Friend WithEvents GroupBox8 As GroupBox
+    Friend WithEvents SVTBtn As RadioButton
+    Friend WithEvents SVTPlayToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BtnPlex As RadioButton
+    Friend WithEvents PlexTVToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tv4Btn As RadioButton
+    Friend WithEvents TV4PlayToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GroupBox9 As GroupBox
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents ClearCacheToolStripMenuItem As ToolStripMenuItem
 End Class

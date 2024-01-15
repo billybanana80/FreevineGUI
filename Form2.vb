@@ -127,5 +127,34 @@ Public Class Form2
 
     End Sub
 
+    Private Sub BtnClearCache_Click(sender As Object, e As EventArgs) Handles BtnClearCache.Click
+        'Run the clear cache command
 
+        ' Load the saved folder path from application settings
+        TBfolder.Text = My.Settings.FolderPath
+
+        ' Get the folder path from TBfolder.Text
+        Dim folderPath As String = TBfolder.Text
+
+        ' Check if the folder path exists
+        If System.IO.Directory.Exists(folderPath) Then
+
+            ' Start a new Command Prompt process
+            Dim process As New Process()
+            process.StartInfo.FileName = "cmd.exe"
+
+            ' Set the working directory for the Command Prompt process
+            process.StartInfo.WorkingDirectory = folderPath
+
+            ' Construct the complete command with quoted TextBox value
+            process.StartInfo.Arguments = $"/k python freevine.py clear-cache"
+
+            ' Start the process
+            process.Start()
+
+        Else
+            ' Display an error message if the folder path doesn't exist
+            MessageBox.Show("Please set your Freevine folder location in Options", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
 End Class
