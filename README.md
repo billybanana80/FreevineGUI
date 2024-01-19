@@ -4,7 +4,7 @@ Windows front end GUI for Freevine (created by stabbedbybrick available at GitHu
 This application uses all the underlying Python code created above and will initiate a new Command Prompt window each time your perform an action within Freevine GUI.
 
 Pre-requisites
-1. Freevine v1.1.1+ and all it's requirements as per https://github.com/stabbedbybrick/freevine
+1. Freevine v1.1.2 and all it's requirements as per https://github.com/stabbedbybrick/freevine
 2. Windows .NET 6.0 Desktop Runtime
 
 Installation
@@ -12,8 +12,12 @@ The FreevineGUI is a portable executable and does not require to be installed. Y
 When running FreevineGUI for the first tme please set your Freevine folder location ie: that is the Freevine folder from https://github.com/stabbedbybrick/freevine (this is a Mandatory step)
 You may also choose to set your Downloads folder location in the Options (this is an optional step)
 
-Update v0.1.8
-1. added a Queue function to allow you to add multiple tasks to a queue and kick off processing when you are ready. The functions looks for the file queue.txt in the root of your Freevine directory. If not found it will create the file the first time. The queue contents will be retained in the application - and visible in the Queue window - at all times until you press Clear to remove the contents.
+Update v0.1.9
+1. added support for SVT Play
+2. added support for Plex TV
+3. added support for TV4Play
+4. added Hola Proxy option
+5. added Clear Cache option
    
 Operation
 1. Search
