@@ -31,33 +31,33 @@ Partial Class Form3
         btnClear2 = New Button()
         Label2 = New Label()
         DataGridView1 = New DataGridView()
-        Label1 = New Label()
         ShowNameColumn = New DataGridViewTextBoxColumn()
         ServiceColumn = New DataGridViewComboBoxColumn()
         SeriesURLColumn = New DataGridViewTextBoxColumn()
+        Label1 = New Label()
+        BtnImport = New Button()
+        BtnExport = New Button()
+        SaveFileDialog1 = New SaveFileDialog()
+        OpenFileDialog1 = New OpenFileDialog()
         GroupBox1.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' GroupBox1
         ' 
-        GroupBox1.Controls.Add(btnClose2)
-        GroupBox1.Controls.Add(btnCopy)
-        GroupBox1.Controls.Add(btnSave2)
-        GroupBox1.Controls.Add(btnClear2)
         GroupBox1.Controls.Add(Label2)
         GroupBox1.Controls.Add(DataGridView1)
         GroupBox1.Controls.Add(Label1)
         GroupBox1.Location = New Point(12, 12)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(868, 479)
+        GroupBox1.Size = New Size(870, 479)
         GroupBox1.TabIndex = 0
         GroupBox1.TabStop = False
         GroupBox1.Text = "Favorites"
         ' 
         ' btnClose2
         ' 
-        btnClose2.Location = New Point(780, 29)
+        btnClose2.Location = New Point(793, 499)
         btnClose2.Name = "btnClose2"
         btnClose2.Size = New Size(75, 30)
         btnClose2.TabIndex = 6
@@ -68,7 +68,7 @@ Partial Class Form3
         ' 
         btnCopy.BackColor = Color.SteelBlue
         btnCopy.ForeColor = Color.White
-        btnCopy.Location = New Point(699, 29)
+        btnCopy.Location = New Point(712, 499)
         btnCopy.Name = "btnCopy"
         btnCopy.Size = New Size(75, 30)
         btnCopy.TabIndex = 5
@@ -77,7 +77,7 @@ Partial Class Form3
         ' 
         ' btnSave2
         ' 
-        btnSave2.Location = New Point(618, 29)
+        btnSave2.Location = New Point(631, 499)
         btnSave2.Name = "btnSave2"
         btnSave2.Size = New Size(75, 30)
         btnSave2.TabIndex = 4
@@ -86,7 +86,7 @@ Partial Class Form3
         ' 
         ' btnClear2
         ' 
-        btnClear2.Location = New Point(537, 29)
+        btnClear2.Location = New Point(550, 499)
         btnClear2.Name = "btnClear2"
         btnClear2.Size = New Size(75, 30)
         btnClear2.TabIndex = 3
@@ -120,8 +120,28 @@ Partial Class Form3
         DataGridView1.Location = New Point(13, 76)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowTemplate.Height = 25
-        DataGridView1.Size = New Size(842, 385)
+        DataGridView1.Size = New Size(843, 385)
         DataGridView1.TabIndex = 1
+        ' 
+        ' ShowNameColumn
+        ' 
+        ShowNameColumn.HeaderText = "Show Name"
+        ShowNameColumn.Name = "ShowNameColumn"
+        ShowNameColumn.Width = 200
+        ' 
+        ' ServiceColumn
+        ' 
+        ServiceColumn.HeaderText = "Service"
+        ServiceColumn.Items.AddRange(New Object() {"ABC iView", "All 4", "BBC iPlayer", "CBC Gem", "Crackle", "CTV", "CWTV", "ITV", "My 5", "Plex", "Pluto", "Roku", "STV", "SVT Play", "Tubi", "TV4 Play", "UKTV Play"})
+        ServiceColumn.Name = "ServiceColumn"
+        ServiceColumn.Resizable = DataGridViewTriState.True
+        ServiceColumn.SortMode = DataGridViewColumnSortMode.Automatic
+        ' 
+        ' SeriesURLColumn
+        ' 
+        SeriesURLColumn.HeaderText = "Series URL"
+        SeriesURLColumn.Name = "SeriesURLColumn"
+        SeriesURLColumn.Width = 500
         ' 
         ' Label1
         ' 
@@ -133,31 +153,39 @@ Partial Class Form3
         Label1.TabIndex = 0
         Label1.Text = "Click on the * to add a new favorite series, click Save to keep, click Clear to delete all "
         ' 
-        ' ShowNameColumn
+        ' BtnImport
         ' 
-        ShowNameColumn.HeaderText = "Show Name"
-        ShowNameColumn.Name = "ShowNameColumn"
-        ShowNameColumn.Width = 200
+        BtnImport.Location = New Point(106, 499)
+        BtnImport.Name = "BtnImport"
+        BtnImport.Size = New Size(75, 30)
+        BtnImport.TabIndex = 6
+        BtnImport.Text = "Import"
+        BtnImport.UseVisualStyleBackColor = True
         ' 
-        ' ServiceColumn
+        ' BtnExport
         ' 
-        ServiceColumn.HeaderText = "Service"
-        ServiceColumn.Items.AddRange(New Object() {"ABC iView", "All 4", "BBC iPlayer", "CBC Gem", "Crackle", "CTV", "CWTV", "ITV", "My 5", "Pluto", "Roku", "STV", "SVT Play", "Tubi", "TV4 Play", "UKTV Play"})
-        ServiceColumn.Name = "ServiceColumn"
-        ServiceColumn.Resizable = DataGridViewTriState.True
-        ServiceColumn.SortMode = DataGridViewColumnSortMode.Automatic
+        BtnExport.Location = New Point(25, 499)
+        BtnExport.Name = "BtnExport"
+        BtnExport.Size = New Size(75, 30)
+        BtnExport.TabIndex = 5
+        BtnExport.Text = "Export"
+        BtnExport.UseVisualStyleBackColor = True
         ' 
-        ' SeriesURLColumn
+        ' OpenFileDialog1
         ' 
-        SeriesURLColumn.HeaderText = "Series URL"
-        SeriesURLColumn.Name = "SeriesURLColumn"
-        SeriesURLColumn.Width = 500
+        OpenFileDialog1.FileName = "OpenFileDialog1"
         ' 
         ' Form3
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(892, 503)
+        ClientSize = New Size(896, 538)
+        Controls.Add(btnClose2)
+        Controls.Add(btnCopy)
+        Controls.Add(BtnImport)
+        Controls.Add(btnSave2)
+        Controls.Add(BtnExport)
+        Controls.Add(btnClear2)
         Controls.Add(GroupBox1)
         FormBorderStyle = FormBorderStyle.FixedSingle
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
@@ -181,7 +209,11 @@ Partial Class Form3
     Friend WithEvents btnCopy As Button
     Friend WithEvents btnSave2 As Button
     Friend WithEvents btnClear2 As Button
+    Friend WithEvents BtnImport As Button
+    Friend WithEvents BtnExport As Button
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents ShowNameColumn As DataGridViewTextBoxColumn
     Friend WithEvents ServiceColumn As DataGridViewComboBoxColumn
     Friend WithEvents SeriesURLColumn As DataGridViewTextBoxColumn
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

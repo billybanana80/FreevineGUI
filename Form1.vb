@@ -7,7 +7,7 @@ Imports System.Text.RegularExpressions
 Imports System.IO
 
 Public Class Form1
-    ' Freevine GUI created by billybanana v 0.1.9
+    ' Freevine GUI created by billybanana v 1.0.0
     ' This application does not interact directly with any streaming service.
 
     ' The python Function(s) invoked are created by 
@@ -157,7 +157,11 @@ Public Class Form1
         Dim bitrateArguments As String = ""
         Dim getArguments As String = ""
         Dim proxyArguments As String = ""
-
+        Dim audioArguments As String = ""
+        Dim nocacheArguments As String = ""
+        Dim appendidArguments As String = ""
+        Dim fnArguments As String = ""
+        Dim secondsArguments As String = ""
 
         ' Check if TBfolder2.Text is empty
         If Form2.TBfolder2.Text = "" Then
@@ -979,8 +983,45 @@ Public Class Form1
                 End Select
             End If
 
+            ' Check if Audio Stream is empty
+            If tbAudio.Text = "" Then
+                audioArguments = ""
+            Else
+                ' Specify the Audio Stream entered
+                audioArguments = "-sa id=" + tbAudio.Text
+            End If
+
+            ' Check if No Cache Option is checked
+            If Btnnocache.Checked = False Then
+                nocacheArguments = ""
+            Else
+                nocacheArguments = "--no-cache"
+            End If
+
+            ' Check if Append ID Option is checked
+            If Btnappendid.Checked = False Then
+                appendidArguments = ""
+            Else
+                appendidArguments = "--append-id"
+            End If
+
+            ' Check if Force Numbering Option is checked
+            If Btnfn.Checked = False Then
+                fnArguments = ""
+            Else
+                fnArguments = "-fn"
+            End If
+
+            ' Check if Add Sleep Option is empty
+            If tbSeconds.Text = "" Then
+                secondsArguments = ""
+            Else
+                ' Specify the number of seconds entered
+                secondsArguments = "--slowdown " + tbSeconds.Text
+            End If
+
             ' Construct the complete command with quoted TextBox value
-            Dim completeCommand As String = $"freevine.py {getArguments} {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {resolutionArguments}{bitrateArguments} {proxyArguments} {directoryArguments}"
+            Dim completeCommand As String = $"freevine.py {getArguments} {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {resolutionArguments}{bitrateArguments} {audioArguments} {nocacheArguments} {appendidArguments} {fnArguments} {secondsArguments} {proxyArguments} {directoryArguments}"
 
             ' Display the complete command in TextBox Complete Command
             TBcompletecommand.Text = completeCommand
@@ -1017,6 +1058,8 @@ Public Class Form1
 
         TextBox1.Text = ""
         TBcompletecommand.Text = ""
+        tbAudio.Text = ""
+        tbSeconds.Text = ""
 
         BtnABC.Checked = False
         C4Btn.Checked = False
@@ -1056,7 +1099,9 @@ Public Class Form1
         btn360.Checked = False
         btnBest.Checked = False
         btnWorst.Checked = False
-
+        Btnnocache.Checked = False
+        Btnappendid.Checked = False
+        Btnfn.Checked = False
 
     End Sub
 
@@ -1294,6 +1339,8 @@ Public Class Form1
 
         TextBox1.Text = ""
         TBcompletecommand.Text = ""
+        tbAudio.Text = ""
+        tbSeconds.Text = ""
 
         BtnABC.Checked = False
         C4Btn.Checked = False
@@ -1333,6 +1380,9 @@ Public Class Form1
         btn360.Checked = False
         btnBest.Checked = False
         btnWorst.Checked = False
+        Btnnocache.Checked = False
+        Btnappendid.Checked = False
+        Btnfn.Checked = False
 
         ' Find all processes with the name "WindowsTerminal.exe"
         Dim processes() As Process = Process.GetProcessesByName("WindowsTerminal")
@@ -1384,7 +1434,11 @@ Public Class Form1
         Dim bitrateArguments As String = ""
         Dim getArguments As String = ""
         Dim proxyArguments As String = ""
-
+        Dim audioArguments As String = ""
+        Dim nocacheArguments As String = ""
+        Dim appendidArguments As String = ""
+        Dim fnArguments As String = ""
+        Dim secondsArguments As String = ""
 
         ' Check if TBfolder2.Text is empty
         If Form2.TBfolder2.Text = "" Then
@@ -2201,8 +2255,45 @@ Public Class Form1
                 End Select
             End If
 
+            ' Check if Audio Stream is empty
+            If tbAudio.Text = "" Then
+                audioArguments = ""
+            Else
+                ' Specify the Audio Stream entered
+                audioArguments = "-sa id=" + tbAudio.Text
+            End If
+
+            ' Check if No Cache Option is checked
+            If Btnnocache.Checked = False Then
+                nocacheArguments = ""
+            Else
+                nocacheArguments = "--no-cache"
+            End If
+
+            ' Check if Append ID Option is checked
+            If Btnappendid.Checked = False Then
+                appendidArguments = ""
+            Else
+                appendidArguments = "--append-id"
+            End If
+
+            ' Check if Force Numbering Option is checked
+            If Btnfn.Checked = False Then
+                fnArguments = ""
+            Else
+                fnArguments = "-fn"
+            End If
+
+            ' Check if Add Sleep Option is empty
+            If tbSeconds.Text = "" Then
+                secondsArguments = ""
+            Else
+                ' Specify the number of seconds entered
+                secondsArguments = "--slowdown " + tbSeconds.Text
+            End If
+
             ' Construct the complete command with quoted TextBox value
-            Dim completeCommand As String = $"{getArguments} {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {resolutionArguments}{bitrateArguments} {proxyArguments} {directoryArguments}"
+            Dim completeCommand As String = $"{getArguments} {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {resolutionArguments}{bitrateArguments} {audioArguments} {nocacheArguments} {appendidArguments} {fnArguments} {secondsArguments} {proxyArguments} {directoryArguments}"
 
             ' Update the queue content (add new entry or modify as needed)
             Dim newQueueEntry As String = completeCommand
