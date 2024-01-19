@@ -4,7 +4,7 @@ Windows front end GUI for Freevine (created by stabbedbybrick available at GitHu
 This application uses all the underlying Python code created above and will initiate a new Command Prompt window each time your perform an action within Freevine GUI.
 
 Pre-requisites
-1. Freevine v1.1.2 and all it's requirements as per https://github.com/stabbedbybrick/freevine
+1. Freevine v1.1.4 and all it's requirements as per https://github.com/stabbedbybrick/freevine
 2. Windows .NET 6.0 Desktop Runtime
 
 Installation
