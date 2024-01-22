@@ -47,12 +47,28 @@ Partial Class Form2
         cbService = New ComboBox()
         Label4 = New Label()
         GroupBox4 = New GroupBox()
-        Label8 = New Label()
         BtnClearCache = New Button()
+        Label8 = New Label()
+        GroupBox5 = New GroupBox()
+        Label14 = New Label()
+        lblCurrentProxy = New Label()
+        Label13 = New Label()
+        Label12 = New Label()
+        BtnSetProxy = New Button()
+        tbWPassword = New TextBox()
+        tbWUsername = New TextBox()
+        Label10 = New Label()
+        Label11 = New Label()
+        tbCustomProxy = New TextBox()
+        btnCustom = New RadioButton()
+        btnWindscribe = New RadioButton()
+        btnHola = New RadioButton()
+        Label9 = New Label()
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
         GroupBox3.SuspendLayout()
         GroupBox4.SuspendLayout()
+        GroupBox5.SuspendLayout()
         SuspendLayout()
         ' 
         ' GroupBox1
@@ -88,10 +104,11 @@ Partial Class Form2
         ' Label1
         ' 
         Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
         Label1.ForeColor = Color.CornflowerBlue
         Label1.Location = New Point(6, 21)
         Label1.Name = "Label1"
-        Label1.Size = New Size(319, 15)
+        Label1.Size = New Size(311, 15)
         Label1.TabIndex = 0
         Label1.Text = "Choose the location of your Freevine folder, then click Save"
         ' 
@@ -155,10 +172,11 @@ Partial Class Form2
         ' Label2
         ' 
         Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
         Label2.ForeColor = Color.CornflowerBlue
         Label2.Location = New Point(6, 21)
         Label2.Name = "Label2"
-        Label2.Size = New Size(334, 15)
+        Label2.Size = New Size(326, 15)
         Label2.TabIndex = 0
         Label2.Text = "Choose the location of your Downloads folder, then click Save"
         ' 
@@ -248,7 +266,7 @@ Partial Class Form2
         ' cbService
         ' 
         cbService.FormattingEnabled = True
-        cbService.Items.AddRange(New Object() {"ABC", "All4", "BBC", "CBC", "CTV", "CWTV", "ITV", "My 5", "Plex", "Pluto", "Roku", "STV", "SVT", "TV4", "Tubi", "UKTV"})
+        cbService.Items.AddRange(New Object() {"ABC", "All4", "BBC", "CBC", "CTV", "CWTV", "ITV", "My 5", "Plex", "Pluto", "Roku", "STV", "SVT", "Tubi", "TV4", "TVNZ", "UKTV"})
         cbService.Location = New Point(76, 52)
         cbService.Name = "cbService"
         cbService.Size = New Size(142, 23)
@@ -257,10 +275,11 @@ Partial Class Form2
         ' Label4
         ' 
         Label4.AutoSize = True
+        Label4.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
         Label4.ForeColor = Color.CornflowerBlue
         Label4.Location = New Point(6, 21)
         Label4.Name = "Label4"
-        Label4.Size = New Size(415, 15)
+        Label4.Size = New Size(414, 15)
         Label4.TabIndex = 1
         Label4.Text = "Choose the required Service, enter a Username and Password and click Create"
         ' 
@@ -269,22 +288,12 @@ Partial Class Form2
         GroupBox4.Controls.Add(BtnClearCache)
         GroupBox4.Controls.Add(Label8)
         GroupBox4.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox4.Location = New Point(12, 472)
+        GroupBox4.Location = New Point(11, 698)
         GroupBox4.Name = "GroupBox4"
-        GroupBox4.Size = New Size(499, 77)
+        GroupBox4.Size = New Size(499, 67)
         GroupBox4.TabIndex = 8
         GroupBox4.TabStop = False
         GroupBox4.Text = "Clear Cache (Optional)"
-        ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.ForeColor = Color.CornflowerBlue
-        Label8.Location = New Point(6, 21)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(215, 15)
-        Label8.TabIndex = 0
-        Label8.Text = "Click Clear to clear the download cache"
         ' 
         ' BtnClearCache
         ' 
@@ -296,11 +305,185 @@ Partial Class Form2
         BtnClearCache.Text = "Clear"
         BtnClearCache.UseVisualStyleBackColor = True
         ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        Label8.ForeColor = Color.CornflowerBlue
+        Label8.Location = New Point(6, 21)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(212, 15)
+        Label8.TabIndex = 0
+        Label8.Text = "Click Clear to clear the download cache"
+        ' 
+        ' GroupBox5
+        ' 
+        GroupBox5.Controls.Add(Label14)
+        GroupBox5.Controls.Add(lblCurrentProxy)
+        GroupBox5.Controls.Add(Label13)
+        GroupBox5.Controls.Add(Label12)
+        GroupBox5.Controls.Add(BtnSetProxy)
+        GroupBox5.Controls.Add(tbWPassword)
+        GroupBox5.Controls.Add(tbWUsername)
+        GroupBox5.Controls.Add(Label10)
+        GroupBox5.Controls.Add(Label11)
+        GroupBox5.Controls.Add(tbCustomProxy)
+        GroupBox5.Controls.Add(btnCustom)
+        GroupBox5.Controls.Add(btnWindscribe)
+        GroupBox5.Controls.Add(btnHola)
+        GroupBox5.Controls.Add(Label9)
+        GroupBox5.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
+        GroupBox5.Location = New Point(12, 472)
+        GroupBox5.Name = "GroupBox5"
+        GroupBox5.Size = New Size(500, 220)
+        GroupBox5.TabIndex = 9
+        GroupBox5.TabStop = False
+        GroupBox5.Text = "Set Proxy Options (Optional)"
+        ' 
+        ' Label14
+        ' 
+        Label14.AutoSize = True
+        Label14.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        Label14.Location = New Point(101, 192)
+        Label14.Name = "Label14"
+        Label14.Size = New Size(229, 15)
+        Label14.TabIndex = 16
+        Label14.Text = "eg: https://username:password@host:port"
+        ' 
+        ' lblCurrentProxy
+        ' 
+        lblCurrentProxy.AutoSize = True
+        lblCurrentProxy.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        lblCurrentProxy.Location = New Point(420, 21)
+        lblCurrentProxy.Name = "lblCurrentProxy"
+        lblCurrentProxy.Size = New Size(39, 15)
+        lblCurrentProxy.TabIndex = 15
+        lblCurrentProxy.Text = "Proxy"
+        ' 
+        ' Label13
+        ' 
+        Label13.AutoSize = True
+        Label13.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        Label13.Location = New Point(313, 21)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(113, 15)
+        Label13.TabIndex = 14
+        Label13.Text = "Current set Proxy is: "
+        ' 
+        ' Label12
+        ' 
+        Label12.AutoSize = True
+        Label12.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        Label12.Location = New Point(88, 68)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(203, 15)
+        Label12.TabIndex = 13
+        Label12.Text = "(Username and Password is required)"
+        ' 
+        ' BtnSetProxy
+        ' 
+        BtnSetProxy.ForeColor = SystemColors.ControlText
+        BtnSetProxy.Location = New Point(415, 159)
+        BtnSetProxy.Name = "BtnSetProxy"
+        BtnSetProxy.Size = New Size(75, 30)
+        BtnSetProxy.TabIndex = 12
+        BtnSetProxy.Text = "Set"
+        BtnSetProxy.UseVisualStyleBackColor = True
+        ' 
+        ' tbWPassword
+        ' 
+        tbWPassword.Location = New Point(101, 125)
+        tbWPassword.Name = "tbWPassword"
+        tbWPassword.Size = New Size(279, 23)
+        tbWPassword.TabIndex = 11
+        ' 
+        ' tbWUsername
+        ' 
+        tbWUsername.Location = New Point(101, 88)
+        tbWUsername.Name = "tbWUsername"
+        tbWUsername.Size = New Size(279, 23)
+        tbWUsername.TabIndex = 10
+        ' 
+        ' Label10
+        ' 
+        Label10.AutoSize = True
+        Label10.ForeColor = SystemColors.ControlText
+        Label10.Location = New Point(26, 132)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(57, 15)
+        Label10.TabIndex = 9
+        Label10.Text = "Password"
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.ForeColor = SystemColors.ControlText
+        Label11.Location = New Point(26, 93)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(60, 15)
+        Label11.TabIndex = 8
+        Label11.Text = "Username"
+        ' 
+        ' tbCustomProxy
+        ' 
+        tbCustomProxy.Location = New Point(101, 166)
+        tbCustomProxy.Name = "tbCustomProxy"
+        tbCustomProxy.Size = New Size(279, 23)
+        tbCustomProxy.TabIndex = 6
+        ' 
+        ' btnCustom
+        ' 
+        btnCustom.AutoSize = True
+        btnCustom.ForeColor = SystemColors.ControlText
+        btnCustom.Location = New Point(9, 166)
+        btnCustom.Name = "btnCustom"
+        btnCustom.Size = New Size(67, 19)
+        btnCustom.TabIndex = 5
+        btnCustom.TabStop = True
+        btnCustom.Text = "Custom"
+        btnCustom.UseVisualStyleBackColor = True
+        ' 
+        ' btnWindscribe
+        ' 
+        btnWindscribe.AutoSize = True
+        btnWindscribe.ForeColor = SystemColors.ControlText
+        btnWindscribe.Location = New Point(9, 66)
+        btnWindscribe.Name = "btnWindscribe"
+        btnWindscribe.Size = New Size(84, 19)
+        btnWindscribe.TabIndex = 4
+        btnWindscribe.TabStop = True
+        btnWindscribe.Text = "Windscribe"
+        btnWindscribe.UseVisualStyleBackColor = True
+        ' 
+        ' btnHola
+        ' 
+        btnHola.AutoSize = True
+        btnHola.ForeColor = SystemColors.ControlText
+        btnHola.Location = New Point(9, 41)
+        btnHola.Name = "btnHola"
+        btnHola.Size = New Size(50, 19)
+        btnHola.TabIndex = 3
+        btnHola.TabStop = True
+        btnHola.Text = "Hola"
+        btnHola.UseVisualStyleBackColor = True
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        Label9.ForeColor = Color.CornflowerBlue
+        Label9.Location = New Point(6, 21)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(211, 15)
+        Label9.TabIndex = 2
+        Label9.Text = "Choose the required proxy and click Set"
+        ' 
         ' Form2
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(523, 561)
+        ClientSize = New Size(523, 778)
+        Controls.Add(GroupBox5)
         Controls.Add(GroupBox4)
         Controls.Add(GroupBox3)
         Controls.Add(Label3)
@@ -324,6 +507,8 @@ Partial Class Form2
         GroupBox3.PerformLayout()
         GroupBox4.ResumeLayout(False)
         GroupBox4.PerformLayout()
+        GroupBox5.ResumeLayout(False)
+        GroupBox5.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -354,4 +539,19 @@ Partial Class Form2
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents BtnClearCache As Button
     Friend WithEvents Label8 As Label
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents btnCustom As RadioButton
+    Friend WithEvents btnWindscribe As RadioButton
+    Friend WithEvents btnHola As RadioButton
+    Friend WithEvents Label9 As Label
+    Friend WithEvents tbCustomProxy As TextBox
+    Friend WithEvents BtnSetProxy As Button
+    Friend WithEvents tbWPassword As TextBox
+    Friend WithEvents tbWUsername As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents lblCurrentProxy As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label14 As Label
 End Class

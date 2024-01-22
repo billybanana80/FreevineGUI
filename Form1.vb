@@ -7,7 +7,7 @@ Imports System.Text.RegularExpressions
 Imports System.IO
 
 Public Class Form1
-    ' Freevine GUI created by billybanana v 1.0.0
+    ' Freevine GUI created by billybanana v 1.1.0
     ' This application does not interact directly with any streaming service.
 
     ' The python Function(s) invoked are created by 
@@ -39,20 +39,7 @@ Public Class Form1
         ToolTip1.SetToolTip(addQueue, "Click to add the task to queue")
         ToolTip1.SetToolTip(clearQueue, "Click to clear all tasks from queue")
         ToolTip1.SetToolTip(processQueue, "Click to launch all tasks in queue")
-
-        Dim tooltipText As String = "Select the country to use Hola Proxy" & Environment.NewLine & Environment.NewLine &
-                            "au - Australia" & Environment.NewLine &
-                            "ca - Canada" & Environment.NewLine &
-                            "dk - Denmark" & Environment.NewLine &
-                            "gb - Great Britain" & Environment.NewLine &
-                            "nz - New Zealand" & Environment.NewLine &
-                            "se - Sweden" & Environment.NewLine &
-                            "uk - United Kingdom" & Environment.NewLine &
-                            "us - United States"
-
-        ToolTip1.SetToolTip(GroupBox9, tooltipText)
-
-
+        ToolTip1.SetToolTip(GroupBox9, "Select the dropdown box to choose a Proxy")
 
         ' Uncheck all RadioButtons in the groupBox2
         For Each radioButton As RadioButton In GroupBox2.Controls.OfType(Of RadioButton)()
@@ -134,6 +121,54 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub ComboBox1_DropDown(sender As Object, e As EventArgs) Handles ComboBox1.DropDown
+        ' Show the Freevine folder location in TBfolder
+        ' Load the saved folder path from application settings
+        Form2.TBfolder.Text = My.Settings.FolderPath
+
+        ' Specify the path to the config.yaml file
+        Dim filePath As String = Form2.TBfolder.Text + "\config.yaml"
+
+        If File.Exists(filePath) Then
+            ' Read the content of the config.yaml file
+            Dim fileContent As String = File.ReadAllText(filePath)
+
+            ' Extract the proxy value from the config.yaml file
+            Dim proxyValue As String = GetConfigValue(fileContent, "proxy")
+
+            ' Populate the dropdown list based on the proxy value
+            If proxyValue = "hola" Then
+                ' Options for Hola proxy
+                ComboBox1.Items.Clear()
+                ComboBox1.Items.AddRange({"au - Australia", "ca - Canada", "dk - Denmark", "gb - Great Britain", "nz - New Zealand", "se - Sweden", "uk - United Kingdom", "us - United States"})
+            ElseIf proxyValue = "windscribe" Then
+                ' Options for Windscribe proxy
+                ComboBox1.Items.Clear()
+                ComboBox1.Items.AddRange({"ca - Canada", "uk - United Kingdom", "us - United States"})
+            Else
+                ' Display the Custom text after "proxy:" as an option
+                Dim otherOption As String = proxyValue.Trim()
+                If Not String.IsNullOrEmpty(otherOption) Then
+                    ComboBox1.Items.Clear()
+                    ComboBox1.Items.Add(otherOption)
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Function GetConfigValue(fileContent As String, key As String) As String
+        ' Extract the value associated with the specified key from the YAML content
+        ' This is a simple example and may need to be adapted based on the actual structure of your YAML file
+        Dim regex As New Regex($"{key}: (.+)")
+        Dim match As Match = regex.Match(fileContent)
+
+        If match.Success Then
+            Return match.Groups(1).Value.Trim()
+        Else
+            Return String.Empty
+        End If
+    End Function
+
 
 
     Private Sub BtnGo_Click(sender As Object, e As EventArgs) Handles BtnGo.Click
@@ -162,6 +197,12 @@ Public Class Form1
         Dim appendidArguments As String = ""
         Dim fnArguments As String = ""
         Dim secondsArguments As String = ""
+        Dim nomuxArguments As String = ""
+        Dim nomuxsubsArguments As String = ""
+        Dim savefilenameArguments As String = ""
+        Dim shakaArguments As String = ""
+        Dim threadsArguments As String = ""
+        Dim ncArguments As String = ""
 
         ' Check if TBfolder2.Text is empty
         If Form2.TBfolder2.Text = "" Then
@@ -518,6 +559,8 @@ Public Class Form1
                         additionalArguments = "abc"
                     ElseIf BtnCWTV.Checked Then
                         additionalArguments = "cwtv"
+                    ElseIf BtnTVNZ.Checked Then
+                        additionalArguments = "tvnz"
                         ' Add more conditions for other service-specific options if needed
 
                     End If
@@ -935,6 +978,8 @@ Public Class Form1
                         additionalArguments = "abc"
                     ElseIf BtnCWTV.Checked Then
                         additionalArguments = "cwtv"
+                    ElseIf BtnTVNZ.Checked Then
+                        additionalArguments = "tvnz"
                         ' Add more conditions for other service-specific options if needed
 
                     End If
@@ -992,7 +1037,7 @@ Public Class Form1
             End If
 
             ' Check if No Cache Option is checked
-            If Btnnocache.Checked = False Then
+            If CBnocache.Checked = False Then
                 nocacheArguments = ""
             Else
                 nocacheArguments = "--no-cache"
@@ -1020,8 +1065,53 @@ Public Class Form1
                 secondsArguments = "--slowdown " + tbSeconds.Text
             End If
 
+            ' Check if No Mux Option is checked
+            If Btnnomux.Checked = False Then
+                nomuxArguments = ""
+            Else
+                nomuxArguments = "--no-mux"
+            End If
+
+            ' Check if No Mux Subtitles Option is checked
+            If Btnnomuxsubs.Checked = False Then
+                nomuxsubsArguments = ""
+            Else
+                nomuxsubsArguments = "--sub-no-mux"
+            End If
+
+            ' Check if Save File Name Option is empty
+            If tbSaveFileName.Text = "" Then
+                savefilenameArguments = ""
+            Else
+                ' Specify the number of seconds entered
+                savefilenameArguments = "--save-name " + tbSaveFileName.Text
+            End If
+
+            ' Check if Use Shaka Packager Option is checked
+            If Btnshaka.Checked = False Then
+                shakaArguments = ""
+            Else
+                shakaArguments = "--use-shaka-packager"
+            End If
+
+            ' Check if Threads Option is empty
+            If tbThreads.Text = "" Then
+                threadsArguments = ""
+            Else
+                ' Specify the number of threads entered
+                threadsArguments = "--threads " + tbThreads.Text
+            End If
+
+            ' Check if N_m3u8DL-RE Option is empty
+            If tbNCommand.Text = "" Then
+                ncArguments = ""
+            Else
+                ' Specify the additional command
+                ncArguments = "--threads " + tbNCommand.Text
+            End If
+
             ' Construct the complete command with quoted TextBox value
-            Dim completeCommand As String = $"freevine.py {getArguments} {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {resolutionArguments}{bitrateArguments} {audioArguments} {nocacheArguments} {appendidArguments} {fnArguments} {secondsArguments} {proxyArguments} {directoryArguments}"
+            Dim completeCommand As String = $"freevine.py {getArguments} {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {resolutionArguments}{bitrateArguments} {audioArguments} {nocacheArguments} {appendidArguments} {fnArguments} {secondsArguments} {proxyArguments} {nomuxArguments} {nomuxsubsArguments} {shakaArguments} {threadsArguments} {ncArguments} {savefilenameArguments} {directoryArguments}"
 
             ' Display the complete command in TextBox Complete Command
             TBcompletecommand.Text = completeCommand
@@ -1060,6 +1150,9 @@ Public Class Form1
         TBcompletecommand.Text = ""
         tbAudio.Text = ""
         tbSeconds.Text = ""
+        tbSaveFileName.Text = ""
+        tbThreads.Text = ""
+        tbNCommand.Text = ""
 
         BtnABC.Checked = False
         C4Btn.Checked = False
@@ -1078,6 +1171,7 @@ Public Class Form1
         BtnRoku.Checked = False
         BtnCWTV.Checked = False
         tv4Btn.Checked = False
+        BtnTVNZ.Checked = False
 
         BtnInfo.Checked = False
         BtnTitles.Checked = False
@@ -1099,9 +1193,12 @@ Public Class Form1
         btn360.Checked = False
         btnBest.Checked = False
         btnWorst.Checked = False
-        Btnnocache.Checked = False
+        CBnocache.Checked = False
         Btnappendid.Checked = False
         Btnfn.Checked = False
+        Btnnomux.Checked = False
+        Btnnomuxsubs.Checked = False
+        Btnshaka.Checked = False
 
     End Sub
 
@@ -1341,6 +1438,9 @@ Public Class Form1
         TBcompletecommand.Text = ""
         tbAudio.Text = ""
         tbSeconds.Text = ""
+        tbSaveFileName.Text = ""
+        tbThreads.Text = ""
+        tbNCommand.Text = ""
 
         BtnABC.Checked = False
         C4Btn.Checked = False
@@ -1359,6 +1459,7 @@ Public Class Form1
         BtnRoku.Checked = False
         BtnCWTV.Checked = False
         tv4Btn.Checked = False
+        BtnTVNZ.Checked = False
 
         BtnInfo.Checked = False
         BtnTitles.Checked = False
@@ -1380,9 +1481,12 @@ Public Class Form1
         btn360.Checked = False
         btnBest.Checked = False
         btnWorst.Checked = False
-        Btnnocache.Checked = False
+        CBnocache.Checked = False
         Btnappendid.Checked = False
         Btnfn.Checked = False
+        Btnnomux.Checked = False
+        Btnnomuxsubs.Checked = False
+        Btnshaka.Checked = False
 
         ' Find all processes with the name "WindowsTerminal.exe"
         Dim processes() As Process = Process.GetProcessesByName("WindowsTerminal")
@@ -1439,6 +1543,12 @@ Public Class Form1
         Dim appendidArguments As String = ""
         Dim fnArguments As String = ""
         Dim secondsArguments As String = ""
+        Dim nomuxArguments As String = ""
+        Dim nomuxsubsArguments As String = ""
+        Dim savefilenameArguments As String = ""
+        Dim shakaArguments As String = ""
+        Dim threadsArguments As String = ""
+        Dim ncArguments As String = ""
 
         ' Check if TBfolder2.Text is empty
         If Form2.TBfolder2.Text = "" Then
@@ -1795,6 +1905,8 @@ Public Class Form1
                         additionalArguments = "abc"
                     ElseIf BtnCWTV.Checked Then
                         additionalArguments = "cwtv"
+                    ElseIf BtnTVNZ.Checked Then
+                        additionalArguments = "tvnz"
                         ' Add more conditions for other service-specific options if needed
 
 
@@ -2213,6 +2325,8 @@ Public Class Form1
                         additionalArguments = "abc"
                     ElseIf BtnCWTV.Checked Then
                         additionalArguments = "cwtv"
+                    ElseIf BtnTVNZ.Checked Then
+                        additionalArguments = "tvnz"
                         ' Add more conditions for other service-specific options if needed
 
                     End If
@@ -2264,7 +2378,7 @@ Public Class Form1
             End If
 
             ' Check if No Cache Option is checked
-            If Btnnocache.Checked = False Then
+            If CBnocache.Checked = False Then
                 nocacheArguments = ""
             Else
                 nocacheArguments = "--no-cache"
@@ -2292,8 +2406,53 @@ Public Class Form1
                 secondsArguments = "--slowdown " + tbSeconds.Text
             End If
 
+            ' Check if No Mux Option is checked
+            If Btnnomux.Checked = False Then
+                nomuxArguments = ""
+            Else
+                nomuxArguments = "--no-mux"
+            End If
+
+            ' Check if No Mux Subtitles Option is checked
+            If Btnnomuxsubs.Checked = False Then
+                nomuxsubsArguments = ""
+            Else
+                nomuxsubsArguments = "--sub-no-mux"
+            End If
+
+            ' Check if Save File Name Option is empty
+            If tbSaveFileName.Text = "" Then
+                savefilenameArguments = ""
+            Else
+                ' Specify the number of seconds entered
+                savefilenameArguments = "--save-name " + tbSaveFileName.Text
+            End If
+
+            ' Check if Use Shaka Packager Option is checked
+            If Btnshaka.Checked = False Then
+                shakaArguments = ""
+            Else
+                shakaArguments = "--use-shaka-packager"
+            End If
+
+            ' Check if Threads Option is empty
+            If tbThreads.Text = "" Then
+                threadsArguments = ""
+            Else
+                ' Specify the number of threads entered
+                threadsArguments = "--threads " + tbThreads.Text
+            End If
+
+            ' Check if N_m3u8DL-RE Option is empty
+            If tbNCommand.Text = "" Then
+                ncArguments = ""
+            Else
+                ' Specify the additional command
+                ncArguments = "--threads " + tbNCommand.Text
+            End If
+
             ' Construct the complete command with quoted TextBox value
-            Dim completeCommand As String = $"{getArguments} {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {resolutionArguments}{bitrateArguments} {audioArguments} {nocacheArguments} {appendidArguments} {fnArguments} {secondsArguments} {proxyArguments} {directoryArguments}"
+            Dim completeCommand As String = $"{getArguments} {serviceArguments} {additionalArguments} {quotedTextBoxValue} {subtitleArguments} {resolutionArguments}{bitrateArguments} {audioArguments} {nocacheArguments} {appendidArguments} {fnArguments} {secondsArguments} {proxyArguments} {nomuxArguments} {nomuxsubsArguments} {shakaArguments} {threadsArguments} {ncArguments} {savefilenameArguments} {directoryArguments}"
 
             ' Update the queue content (add new entry or modify as needed)
             Dim newQueueEntry As String = completeCommand
@@ -2348,6 +2507,7 @@ Public Class Form1
             'Clear the main command text box
             TextBox1.Text = ""
             TBcompletecommand.Text = ""
+
         End If
     End Sub
 
@@ -2446,6 +2606,56 @@ Public Class Form1
             ' Start the process
             process.Start()
 
+        Else
+            ' Display an error message if the folder path doesn't exist
+            MessageBox.Show("Please set your Freevine folder location in Options", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
+    Private Sub TVNZToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TVNZToolStripMenuItem.Click
+        'Open TVNZ
+
+        Dim startexternal As New Process()
+
+        startexternal.StartInfo.FileName = "https://www.tvnz.co.nz/"
+        startexternal.StartInfo.UseShellExecute = True
+
+        startexternal.Start()
+    End Sub
+
+    Private Sub TestCDMToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TestCDMToolStripMenuItem.Click
+        ' Open CDM and Test your CDM in the Command Prompt
+        ' Load the saved folder path from application settings
+        Form2.TBfolder.Text = My.Settings.FolderPath
+
+        ' Get the folder path from TBfolder.Text
+        Dim folderPath As String = Form2.TBfolder.Text + "\utils\wvd"
+
+        ' Check if the folder path exists
+        If System.IO.Directory.Exists(folderPath) Then
+            ' Get files with the .wvd extension in the specified directory
+            Dim wvdFiles As String() = Directory.GetFiles(folderPath, "*.wvd")
+
+            If wvdFiles.Length > 0 Then
+                ' Take the first .wvd file (you can modify this logic as needed)
+                Dim wvdFilePath As String = wvdFiles(0)
+
+                ' Start a new Command Prompt process
+                Dim process As New Process()
+                process.StartInfo.FileName = "cmd.exe"
+
+                ' Set the working directory for the Command Prompt process
+                process.StartInfo.WorkingDirectory = folderPath
+
+                ' Construct the complete command with quoted TextBox value
+                process.StartInfo.Arguments = $"/k pywidevine test ""{wvdFilePath}"""
+
+                ' Start the process
+                process.Start()
+            Else
+                ' Display an error message if no .wvd files are found
+                MessageBox.Show("No .wvd files found in the specified directory", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         Else
             ' Display an error message if the folder path doesn't exist
             MessageBox.Show("Please set your Freevine folder location in Options", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

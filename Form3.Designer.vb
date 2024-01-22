@@ -25,20 +25,20 @@ Partial Class Form3
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form3))
         GroupBox1 = New GroupBox()
+        Label2 = New Label()
+        DataGridView1 = New DataGridView()
+        Label1 = New Label()
         btnClose2 = New Button()
         btnCopy = New Button()
         btnSave2 = New Button()
         btnClear2 = New Button()
-        Label2 = New Label()
-        DataGridView1 = New DataGridView()
-        ShowNameColumn = New DataGridViewTextBoxColumn()
-        ServiceColumn = New DataGridViewComboBoxColumn()
-        SeriesURLColumn = New DataGridViewTextBoxColumn()
-        Label1 = New Label()
         BtnImport = New Button()
         BtnExport = New Button()
         SaveFileDialog1 = New SaveFileDialog()
         OpenFileDialog1 = New OpenFileDialog()
+        ShowNameColumn = New DataGridViewTextBoxColumn()
+        ServiceColumn = New DataGridViewComboBoxColumn()
+        SeriesURLColumn = New DataGridViewTextBoxColumn()
         GroupBox1.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -54,6 +54,46 @@ Partial Class Form3
         GroupBox1.TabIndex = 0
         GroupBox1.TabStop = False
         GroupBox1.Text = "Favorites"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.ForeColor = Color.CornflowerBlue
+        Label2.Location = New Point(6, 44)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(389, 15)
+        Label2.TabIndex = 2
+        Label2.Text = "Select a row and click Copy to add the Series URL to the main Command"
+        ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.BackgroundColor = SystemColors.Control
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = SystemColors.Control
+        DataGridViewCellStyle1.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = Color.CornflowerBlue
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {ShowNameColumn, ServiceColumn, SeriesURLColumn})
+        DataGridView1.GridColor = SystemColors.WindowFrame
+        DataGridView1.Location = New Point(13, 76)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.RowTemplate.Height = 25
+        DataGridView1.Size = New Size(843, 385)
+        DataGridView1.TabIndex = 1
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.ForeColor = Color.CornflowerBlue
+        Label1.Location = New Point(6, 20)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(450, 15)
+        Label1.TabIndex = 0
+        Label1.Text = "Click on the * to add a new favorite series, click Save to keep, click Clear to delete all "
         ' 
         ' btnClose2
         ' 
@@ -93,66 +133,6 @@ Partial Class Form3
         btnClear2.Text = "Clear"
         btnClear2.UseVisualStyleBackColor = True
         ' 
-        ' Label2
-        ' 
-        Label2.AutoSize = True
-        Label2.ForeColor = Color.CornflowerBlue
-        Label2.Location = New Point(6, 44)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(389, 15)
-        Label2.TabIndex = 2
-        Label2.Text = "Select a row and click Copy to add the Series URL to the main Command"
-        ' 
-        ' DataGridView1
-        ' 
-        DataGridView1.BackgroundColor = SystemColors.Control
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = SystemColors.Control
-        DataGridViewCellStyle1.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = Color.CornflowerBlue
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {ShowNameColumn, ServiceColumn, SeriesURLColumn})
-        DataGridView1.GridColor = SystemColors.WindowFrame
-        DataGridView1.Location = New Point(13, 76)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.RowTemplate.Height = 25
-        DataGridView1.Size = New Size(843, 385)
-        DataGridView1.TabIndex = 1
-        ' 
-        ' ShowNameColumn
-        ' 
-        ShowNameColumn.HeaderText = "Show Name"
-        ShowNameColumn.Name = "ShowNameColumn"
-        ShowNameColumn.Width = 200
-        ' 
-        ' ServiceColumn
-        ' 
-        ServiceColumn.HeaderText = "Service"
-        ServiceColumn.Items.AddRange(New Object() {"ABC iView", "All 4", "BBC iPlayer", "CBC Gem", "Crackle", "CTV", "CWTV", "ITV", "My 5", "Plex", "Pluto", "Roku", "STV", "SVT Play", "Tubi", "TV4 Play", "UKTV Play"})
-        ServiceColumn.Name = "ServiceColumn"
-        ServiceColumn.Resizable = DataGridViewTriState.True
-        ServiceColumn.SortMode = DataGridViewColumnSortMode.Automatic
-        ' 
-        ' SeriesURLColumn
-        ' 
-        SeriesURLColumn.HeaderText = "Series URL"
-        SeriesURLColumn.Name = "SeriesURLColumn"
-        SeriesURLColumn.Width = 500
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.ForeColor = Color.CornflowerBlue
-        Label1.Location = New Point(6, 20)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(450, 15)
-        Label1.TabIndex = 0
-        Label1.Text = "Click on the * to add a new favorite series, click Save to keep, click Clear to delete all "
-        ' 
         ' BtnImport
         ' 
         BtnImport.Location = New Point(106, 499)
@@ -174,6 +154,26 @@ Partial Class Form3
         ' OpenFileDialog1
         ' 
         OpenFileDialog1.FileName = "OpenFileDialog1"
+        ' 
+        ' ShowNameColumn
+        ' 
+        ShowNameColumn.HeaderText = "Show Name"
+        ShowNameColumn.Name = "ShowNameColumn"
+        ShowNameColumn.Width = 200
+        ' 
+        ' ServiceColumn
+        ' 
+        ServiceColumn.HeaderText = "Service"
+        ServiceColumn.Items.AddRange(New Object() {"ABC iView", "All 4", "BBC iPlayer", "CBC Gem", "Crackle", "CTV", "CWTV", "ITV", "My 5", "Plex", "Pluto", "Roku", "STV", "SVT Play", "Tubi", "TV4 Play", "TVNZ", "UKTV Play"})
+        ServiceColumn.Name = "ServiceColumn"
+        ServiceColumn.Resizable = DataGridViewTriState.True
+        ServiceColumn.SortMode = DataGridViewColumnSortMode.Automatic
+        ' 
+        ' SeriesURLColumn
+        ' 
+        SeriesURLColumn.HeaderText = "Series URL"
+        SeriesURLColumn.Name = "SeriesURLColumn"
+        SeriesURLColumn.Width = 500
         ' 
         ' Form3
         ' 
@@ -212,8 +212,8 @@ Partial Class Form3
     Friend WithEvents BtnImport As Button
     Friend WithEvents BtnExport As Button
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents ShowNameColumn As DataGridViewTextBoxColumn
     Friend WithEvents ServiceColumn As DataGridViewComboBoxColumn
     Friend WithEvents SeriesURLColumn As DataGridViewTextBoxColumn
-    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

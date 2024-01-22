@@ -47,6 +47,7 @@ Partial Class Form1
         BtnCTV = New RadioButton()
         Label1 = New Label()
         gbAustralia = New GroupBox()
+        BtnTVNZ = New RadioButton()
         BtnABC = New RadioButton()
         BtnHelp = New RadioButton()
         BtnSubs = New RadioButton()
@@ -95,6 +96,7 @@ Partial Class Form1
         SVTPlayToolStripMenuItem = New ToolStripMenuItem()
         TubiTVToolStripMenuItem = New ToolStripMenuItem()
         TV4PlayToolStripMenuItem = New ToolStripMenuItem()
+        TVNZToolStripMenuItem = New ToolStripMenuItem()
         UKTVPlayToolStripMenuItem = New ToolStripMenuItem()
         HelpToolStripMenuItem = New ToolStripMenuItem()
         AboutToolStripMenuItem = New ToolStripMenuItem()
@@ -105,6 +107,7 @@ Partial Class Form1
         TBcompletecommand = New TextBox()
         GroupBox4 = New GroupBox()
         GroupBox5 = New GroupBox()
+        Label9 = New Label()
         btn2160 = New RadioButton()
         btn540 = New RadioButton()
         btn360 = New RadioButton()
@@ -113,6 +116,7 @@ Partial Class Form1
         btn720 = New RadioButton()
         btn1080 = New RadioButton()
         GroupBox6 = New GroupBox()
+        Label10 = New Label()
         btnWorst = New RadioButton()
         btnBest = New RadioButton()
         btnReset = New Button()
@@ -124,19 +128,38 @@ Partial Class Form1
         clearQueue = New Button()
         Label3 = New Label()
         GroupBox9 = New GroupBox()
+        Label11 = New Label()
         ComboBox1 = New ComboBox()
         Label5 = New Label()
         GroupBox10 = New GroupBox()
+        Label13 = New Label()
+        Label8 = New Label()
         tbAudio = New TextBox()
         GroupBox11 = New GroupBox()
-        Btnnocache = New RadioButton()
-        GroupBox12 = New GroupBox()
-        Btnappendid = New RadioButton()
-        GroupBox13 = New GroupBox()
-        Btnfn = New RadioButton()
+        Label12 = New Label()
+        Btnshaka = New CheckBox()
+        Btnnomuxsubs = New CheckBox()
+        Btnnomux = New CheckBox()
+        Btnfn = New CheckBox()
+        Btnappendid = New CheckBox()
+        CBnocache = New CheckBox()
         GroupBox14 = New GroupBox()
-        tbSeconds = New TextBox()
+        Label16 = New Label()
         Label6 = New Label()
+        tbSeconds = New TextBox()
+        GroupBox12 = New GroupBox()
+        Label15 = New Label()
+        tbSaveFileName = New TextBox()
+        Label7 = New Label()
+        GroupBox13 = New GroupBox()
+        Label17 = New Label()
+        Label14 = New Label()
+        tbThreads = New TextBox()
+        GroupBox15 = New GroupBox()
+        Label18 = New Label()
+        Label19 = New Label()
+        tbNCommand = New TextBox()
+        TestCDMToolStripMenuItem = New ToolStripMenuItem()
         GroupBox1.SuspendLayout()
         GroupBox8.SuspendLayout()
         gbUSA.SuspendLayout()
@@ -156,13 +179,15 @@ Partial Class Form1
         GroupBox9.SuspendLayout()
         GroupBox10.SuspendLayout()
         GroupBox11.SuspendLayout()
+        GroupBox14.SuspendLayout()
         GroupBox12.SuspendLayout()
         GroupBox13.SuspendLayout()
-        GroupBox14.SuspendLayout()
+        GroupBox15.SuspendLayout()
         SuspendLayout()
         ' 
         ' GroupBox1
         ' 
+        GroupBox1.BackColor = SystemColors.ButtonFace
         GroupBox1.Controls.Add(GroupBox8)
         GroupBox1.Controls.Add(gbUSA)
         GroupBox1.Controls.Add(gbUK)
@@ -412,15 +437,17 @@ Partial Class Form1
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.ForeColor = Color.CornflowerBlue
+        Label1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.ForeColor = Color.ForestGreen
         Label1.Location = New Point(7, 22)
         Label1.Name = "Label1"
-        Label1.Size = New Size(318, 15)
+        Label1.Size = New Size(319, 15)
         Label1.TabIndex = 7
         Label1.Text = "1. Select the streaming service (Mandatory for Search Only)"
         ' 
         ' gbAustralia
         ' 
+        gbAustralia.Controls.Add(BtnTVNZ)
         gbAustralia.Controls.Add(BtnABC)
         gbAustralia.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
         gbAustralia.Location = New Point(10, 43)
@@ -429,6 +456,17 @@ Partial Class Form1
         gbAustralia.TabIndex = 17
         gbAustralia.TabStop = False
         gbAustralia.Text = "Australia/NZ"
+        ' 
+        ' BtnTVNZ
+        ' 
+        BtnTVNZ.AutoSize = True
+        BtnTVNZ.ForeColor = Color.Black
+        BtnTVNZ.Location = New Point(10, 47)
+        BtnTVNZ.Name = "BtnTVNZ"
+        BtnTVNZ.Size = New Size(54, 19)
+        BtnTVNZ.TabIndex = 10
+        BtnTVNZ.Text = "TVNZ"
+        BtnTVNZ.UseVisualStyleBackColor = True
         ' 
         ' BtnABC
         ' 
@@ -532,18 +570,19 @@ Partial Class Form1
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.ForeColor = Color.CornflowerBlue
+        Label4.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label4.ForeColor = Color.ForestGreen
         Label4.Location = New Point(7, 22)
         Label4.Name = "Label4"
-        Label4.Size = New Size(166, 15)
+        Label4.Size = New Size(168, 15)
         Label4.TabIndex = 14
         Label4.Text = "2. Select the action to perform"
         ' 
         ' BtnGo
         ' 
-        BtnGo.BackColor = Color.SteelBlue
+        BtnGo.BackColor = Color.ForestGreen
         BtnGo.ForeColor = Color.White
-        BtnGo.Location = New Point(914, 45)
+        BtnGo.Location = New Point(914, 39)
         BtnGo.Name = "BtnGo"
         BtnGo.Size = New Size(75, 30)
         BtnGo.TabIndex = 13
@@ -552,7 +591,7 @@ Partial Class Form1
         ' 
         ' TextBox1
         ' 
-        TextBox1.Location = New Point(6, 50)
+        TextBox1.Location = New Point(6, 44)
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(887, 23)
         TextBox1.TabIndex = 11
@@ -560,10 +599,11 @@ Partial Class Form1
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.ForeColor = Color.CornflowerBlue
-        Label2.Location = New Point(7, 25)
+        Label2.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.ForeColor = Color.ForestGreen
+        Label2.Location = New Point(7, 22)
         Label2.Name = "Label2"
-        Label2.Size = New Size(415, 15)
+        Label2.Size = New Size(419, 15)
         Label2.TabIndex = 10
         Label2.Text = "3. Type/paste the Series or Episode URL (or your Search criteria), then press Go"
         ' 
@@ -573,15 +613,16 @@ Partial Class Form1
         GroupBox3.Controls.Add(TextBox1)
         GroupBox3.Controls.Add(BtnGo)
         GroupBox3.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox3.Location = New Point(12, 387)
+        GroupBox3.Location = New Point(12, 269)
         GroupBox3.Name = "GroupBox3"
-        GroupBox3.Size = New Size(998, 95)
+        GroupBox3.Size = New Size(998, 85)
         GroupBox3.TabIndex = 1
         GroupBox3.TabStop = False
-        GroupBox3.Text = "Take Action"
+        GroupBox3.Text = "Process"
         ' 
         ' GroupBox2
         ' 
+        GroupBox2.BackColor = SystemColors.ButtonFace
         GroupBox2.Controls.Add(gbSearch)
         GroupBox2.Controls.Add(gbDownload)
         GroupBox2.Controls.Add(Label4)
@@ -636,7 +677,7 @@ Partial Class Form1
         ' Button2
         ' 
         Button2.ForeColor = SystemColors.ControlText
-        Button2.Location = New Point(926, 756)
+        Button2.Location = New Point(926, 848)
         Button2.Name = "Button2"
         Button2.Size = New Size(75, 30)
         Button2.TabIndex = 25
@@ -646,7 +687,7 @@ Partial Class Form1
         ' Button7
         ' 
         Button7.ForeColor = SystemColors.ControlText
-        Button7.Location = New Point(845, 756)
+        Button7.Location = New Point(845, 848)
         Button7.Name = "Button7"
         Button7.Size = New Size(75, 30)
         Button7.TabIndex = 32
@@ -656,7 +697,7 @@ Partial Class Form1
         ' Button3
         ' 
         Button3.ForeColor = SystemColors.ControlText
-        Button3.Location = New Point(19, 756)
+        Button3.Location = New Point(19, 848)
         Button3.Name = "Button3"
         Button3.Size = New Size(75, 30)
         Button3.TabIndex = 33
@@ -687,7 +728,7 @@ Partial Class Form1
         ' 
         ' OptionsToolStripMenuItem
         ' 
-        OptionsToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClearCacheToolStripMenuItem, SetFreevineFolderToolStripMenuItem, ShowFavoritesToolStripMenuItem, ToolStripSeparator1, FreevineExternalCommandPromptToolStripMenuItem})
+        OptionsToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClearCacheToolStripMenuItem, SetFreevineFolderToolStripMenuItem, ShowFavoritesToolStripMenuItem, ToolStripSeparator1, FreevineExternalCommandPromptToolStripMenuItem, TestCDMToolStripMenuItem})
         OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
         OptionsToolStripMenuItem.Size = New Size(61, 20)
         OptionsToolStripMenuItem.Text = "Options"
@@ -723,7 +764,7 @@ Partial Class Form1
         ' 
         ' SitesToolStripMenuItem
         ' 
-        SitesToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ABCIViewToolStripMenuItem, All4ToolStripMenuItem, BBCIPlayerToolStripMenuItem, CBCGemToolStripMenuItem, CrackleToolStripMenuItem, CTVToolStripMenuItem, CWTVToolStripMenuItem, ITVXToolStripMenuItem, My5ToolStripMenuItem, PlexTVToolStripMenuItem, PlutoToolStripMenuItem, TheRokuChannelToolStripMenuItem, STVPlayerToolStripMenuItem, SVTPlayToolStripMenuItem, TubiTVToolStripMenuItem, TV4PlayToolStripMenuItem, UKTVPlayToolStripMenuItem})
+        SitesToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ABCIViewToolStripMenuItem, All4ToolStripMenuItem, BBCIPlayerToolStripMenuItem, CBCGemToolStripMenuItem, CrackleToolStripMenuItem, CTVToolStripMenuItem, CWTVToolStripMenuItem, ITVXToolStripMenuItem, My5ToolStripMenuItem, PlexTVToolStripMenuItem, PlutoToolStripMenuItem, TheRokuChannelToolStripMenuItem, STVPlayerToolStripMenuItem, SVTPlayToolStripMenuItem, TubiTVToolStripMenuItem, TV4PlayToolStripMenuItem, TVNZToolStripMenuItem, UKTVPlayToolStripMenuItem})
         SitesToolStripMenuItem.Name = "SitesToolStripMenuItem"
         SitesToolStripMenuItem.Size = New Size(43, 20)
         SitesToolStripMenuItem.Text = "Sites"
@@ -824,6 +865,12 @@ Partial Class Form1
         TV4PlayToolStripMenuItem.Size = New Size(170, 22)
         TV4PlayToolStripMenuItem.Text = "TV4 Play"
         ' 
+        ' TVNZToolStripMenuItem
+        ' 
+        TVNZToolStripMenuItem.Name = "TVNZToolStripMenuItem"
+        TVNZToolStripMenuItem.Size = New Size(170, 22)
+        TVNZToolStripMenuItem.Text = "TVNZ"
+        ' 
         ' UKTVPlayToolStripMenuItem
         ' 
         UKTVPlayToolStripMenuItem.Name = "UKTVPlayToolStripMenuItem"
@@ -846,7 +893,7 @@ Partial Class Form1
         ' StatusStrip1
         ' 
         StatusStrip1.Items.AddRange(New ToolStripItem() {ToolStripStatusLabel1, ToolStripStatusLabel2})
-        StatusStrip1.Location = New Point(0, 798)
+        StatusStrip1.Location = New Point(0, 887)
         StatusStrip1.Name = "StatusStrip1"
         StatusStrip1.Size = New Size(1023, 22)
         StatusStrip1.TabIndex = 39
@@ -868,7 +915,7 @@ Partial Class Form1
         ' Button4
         ' 
         Button4.ForeColor = SystemColors.ControlText
-        Button4.Location = New Point(181, 756)
+        Button4.Location = New Point(181, 848)
         Button4.Name = "Button4"
         Button4.Size = New Size(75, 30)
         Button4.TabIndex = 40
@@ -887,15 +934,16 @@ Partial Class Form1
         ' 
         GroupBox4.Controls.Add(TBcompletecommand)
         GroupBox4.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox4.Location = New Point(12, 488)
+        GroupBox4.Location = New Point(12, 612)
         GroupBox4.Name = "GroupBox4"
-        GroupBox4.Size = New Size(998, 59)
+        GroupBox4.Size = New Size(998, 56)
         GroupBox4.TabIndex = 43
         GroupBox4.TabStop = False
         GroupBox4.Text = "Complete Command (info only)"
         ' 
         ' GroupBox5
         ' 
+        GroupBox5.Controls.Add(Label9)
         GroupBox5.Controls.Add(btn2160)
         GroupBox5.Controls.Add(btn540)
         GroupBox5.Controls.Add(btn360)
@@ -904,18 +952,29 @@ Partial Class Form1
         GroupBox5.Controls.Add(btn720)
         GroupBox5.Controls.Add(btn1080)
         GroupBox5.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox5.Location = New Point(12, 269)
+        GroupBox5.Location = New Point(12, 360)
         GroupBox5.Name = "GroupBox5"
-        GroupBox5.Size = New Size(598, 53)
+        GroupBox5.Size = New Size(598, 78)
         GroupBox5.TabIndex = 44
         GroupBox5.TabStop = False
         GroupBox5.Text = "Resolution (Optional)"
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        Label9.ForeColor = Color.CornflowerBlue
+        Label9.Location = New Point(6, 22)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(302, 15)
+        Label9.TabIndex = 7
+        Label9.Text = "Select the video resolution (default is Best if not selected)"
         ' 
         ' btn2160
         ' 
         btn2160.AutoSize = True
         btn2160.ForeColor = SystemColors.ControlText
-        btn2160.Location = New Point(10, 22)
+        btn2160.Location = New Point(10, 46)
         btn2160.Name = "btn2160"
         btn2160.Size = New Size(85, 19)
         btn2160.TabIndex = 6
@@ -927,7 +986,7 @@ Partial Class Form1
         ' 
         btn540.AutoSize = True
         btn540.ForeColor = SystemColors.ControlText
-        btn540.Location = New Point(362, 22)
+        btn540.Location = New Point(362, 46)
         btn540.Name = "btn540"
         btn540.Size = New Size(73, 19)
         btn540.TabIndex = 5
@@ -939,7 +998,7 @@ Partial Class Form1
         ' 
         btn360.AutoSize = True
         btn360.ForeColor = SystemColors.ControlText
-        btn360.Location = New Point(520, 22)
+        btn360.Location = New Point(520, 46)
         btn360.Name = "btn360"
         btn360.Size = New Size(73, 19)
         btn360.TabIndex = 4
@@ -951,7 +1010,7 @@ Partial Class Form1
         ' 
         btn450.AutoSize = True
         btn450.ForeColor = SystemColors.ControlText
-        btn450.Location = New Point(441, 22)
+        btn450.Location = New Point(441, 46)
         btn450.Name = "btn450"
         btn450.Size = New Size(73, 19)
         btn450.TabIndex = 3
@@ -963,7 +1022,7 @@ Partial Class Form1
         ' 
         btn576.AutoSize = True
         btn576.ForeColor = SystemColors.ControlText
-        btn576.Location = New Point(277, 22)
+        btn576.Location = New Point(277, 46)
         btn576.Name = "btn576"
         btn576.Size = New Size(79, 19)
         btn576.TabIndex = 2
@@ -975,7 +1034,7 @@ Partial Class Form1
         ' 
         btn720.AutoSize = True
         btn720.ForeColor = SystemColors.ControlText
-        btn720.Location = New Point(192, 22)
+        btn720.Location = New Point(192, 46)
         btn720.Name = "btn720"
         btn720.Size = New Size(79, 19)
         btn720.TabIndex = 1
@@ -987,7 +1046,7 @@ Partial Class Form1
         ' 
         btn1080.AutoSize = True
         btn1080.ForeColor = SystemColors.ControlText
-        btn1080.Location = New Point(101, 22)
+        btn1080.Location = New Point(101, 46)
         btn1080.Name = "btn1080"
         btn1080.Size = New Size(85, 19)
         btn1080.TabIndex = 0
@@ -997,21 +1056,33 @@ Partial Class Form1
         ' 
         ' GroupBox6
         ' 
+        GroupBox6.Controls.Add(Label10)
         GroupBox6.Controls.Add(btnWorst)
         GroupBox6.Controls.Add(btnBest)
         GroupBox6.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox6.Location = New Point(616, 269)
+        GroupBox6.Location = New Point(616, 360)
         GroupBox6.Name = "GroupBox6"
-        GroupBox6.Size = New Size(145, 53)
+        GroupBox6.Size = New Size(145, 78)
         GroupBox6.TabIndex = 45
         GroupBox6.TabStop = False
         GroupBox6.Text = "Video Bitrate (Optional)"
+        ' 
+        ' Label10
+        ' 
+        Label10.AutoSize = True
+        Label10.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        Label10.ForeColor = Color.CornflowerBlue
+        Label10.Location = New Point(6, 22)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(106, 15)
+        Label10.TabIndex = 7
+        Label10.Text = "Select video bitrate"
         ' 
         ' btnWorst
         ' 
         btnWorst.AutoSize = True
         btnWorst.ForeColor = SystemColors.ControlText
-        btnWorst.Location = New Point(63, 22)
+        btnWorst.Location = New Point(65, 46)
         btnWorst.Name = "btnWorst"
         btnWorst.Size = New Size(56, 19)
         btnWorst.TabIndex = 6
@@ -1023,7 +1094,7 @@ Partial Class Form1
         ' 
         btnBest.AutoSize = True
         btnBest.ForeColor = SystemColors.ControlText
-        btnBest.Location = New Point(10, 22)
+        btnBest.Location = New Point(12, 46)
         btnBest.Name = "btnBest"
         btnBest.Size = New Size(47, 19)
         btnBest.TabIndex = 5
@@ -1034,7 +1105,7 @@ Partial Class Form1
         ' btnReset
         ' 
         btnReset.ForeColor = SystemColors.ControlText
-        btnReset.Location = New Point(764, 756)
+        btnReset.Location = New Point(764, 848)
         btnReset.Name = "btnReset"
         btnReset.Size = New Size(75, 30)
         btnReset.TabIndex = 46
@@ -1044,7 +1115,7 @@ Partial Class Form1
         ' btnFavorites
         ' 
         btnFavorites.ForeColor = SystemColors.ControlText
-        btnFavorites.Location = New Point(100, 756)
+        btnFavorites.Location = New Point(100, 848)
         btnFavorites.Name = "btnFavorites"
         btnFavorites.Size = New Size(75, 30)
         btnFavorites.TabIndex = 47
@@ -1054,7 +1125,7 @@ Partial Class Form1
         ' addQueue
         ' 
         addQueue.ForeColor = SystemColors.ControlText
-        addQueue.Location = New Point(914, 63)
+        addQueue.Location = New Point(914, 46)
         addQueue.Name = "addQueue"
         addQueue.Size = New Size(75, 30)
         addQueue.TabIndex = 48
@@ -1069,9 +1140,9 @@ Partial Class Form1
         GroupBox7.Controls.Add(Label3)
         GroupBox7.Controls.Add(addQueue)
         GroupBox7.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox7.Location = New Point(12, 553)
+        GroupBox7.Location = New Point(12, 677)
         GroupBox7.Name = "GroupBox7"
-        GroupBox7.Size = New Size(998, 192)
+        GroupBox7.Size = New Size(998, 164)
         GroupBox7.TabIndex = 49
         GroupBox7.TabStop = False
         GroupBox7.Text = "Queue (Optional)"
@@ -1084,14 +1155,14 @@ Partial Class Form1
         rtbQueue.Name = "rtbQueue"
         rtbQueue.ReadOnly = True
         rtbQueue.ScrollBars = ScrollBars.Vertical
-        rtbQueue.Size = New Size(886, 133)
+        rtbQueue.Size = New Size(886, 105)
         rtbQueue.TabIndex = 52
         ' 
         ' processQueue
         ' 
         processQueue.BackColor = Color.SteelBlue
         processQueue.ForeColor = Color.White
-        processQueue.Location = New Point(914, 135)
+        processQueue.Location = New Point(914, 118)
         processQueue.Name = "processQueue"
         processQueue.Size = New Size(75, 30)
         processQueue.TabIndex = 51
@@ -1101,7 +1172,7 @@ Partial Class Form1
         ' clearQueue
         ' 
         clearQueue.ForeColor = SystemColors.ControlText
-        clearQueue.Location = New Point(914, 99)
+        clearQueue.Location = New Point(914, 82)
         clearQueue.Name = "clearQueue"
         clearQueue.Size = New Size(75, 30)
         clearQueue.TabIndex = 50
@@ -1111,168 +1182,370 @@ Partial Class Form1
         ' Label3
         ' 
         Label3.AutoSize = True
+        Label3.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
         Label3.ForeColor = Color.CornflowerBlue
-        Label3.Location = New Point(7, 25)
+        Label3.Location = New Point(7, 22)
         Label3.Name = "Label3"
-        Label3.Size = New Size(572, 15)
+        Label3.Size = New Size(561, 15)
         Label3.TabIndex = 11
         Label3.Text = "Click Add to queue the tasks, click Clear to remove the queue contents, click Process to run the queue tasks"
         ' 
         ' GroupBox9
         ' 
+        GroupBox9.Controls.Add(Label11)
         GroupBox9.Controls.Add(ComboBox1)
         GroupBox9.Controls.Add(Label5)
         GroupBox9.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox9.Location = New Point(767, 328)
+        GroupBox9.Location = New Point(334, 528)
         GroupBox9.Name = "GroupBox9"
-        GroupBox9.Size = New Size(243, 53)
+        GroupBox9.Size = New Size(320, 78)
         GroupBox9.TabIndex = 50
         GroupBox9.TabStop = False
-        GroupBox9.Text = "Hola Proxy (Optional)"
+        GroupBox9.Text = "Proxy (Optional)"
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.ForeColor = SystemColors.ControlText
+        Label11.Location = New Point(6, 46)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(101, 15)
+        Label11.TabIndex = 2
+        Label11.Text = "ID/Country Name"
         ' 
         ' ComboBox1
         ' 
         ComboBox1.FormattingEnabled = True
-        ComboBox1.Items.AddRange(New Object() {"au - Australia", "ca - Canada", "dk - Denmark", "gb - Great Britain", "nz - New Zealand", "se - Sweden", "uk - United Kingdom", "us - United States"})
-        ComboBox1.Location = New Point(92, 21)
+        ComboBox1.Location = New Point(113, 42)
         ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(142, 23)
+        ComboBox1.Size = New Size(194, 23)
         ComboBox1.TabIndex = 1
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.ForeColor = SystemColors.ControlText
-        Label5.Location = New Point(6, 24)
+        Label5.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        Label5.ForeColor = Color.CornflowerBlue
+        Label5.Location = New Point(6, 22)
         Label5.Name = "Label5"
-        Label5.Size = New Size(84, 15)
+        Label5.Size = New Size(252, 15)
         Label5.TabIndex = 0
-        Label5.Text = "Select Country"
+        Label5.Text = "Select Country or Custom Value to use as Proxy"
         ' 
         ' GroupBox10
         ' 
+        GroupBox10.Controls.Add(Label13)
+        GroupBox10.Controls.Add(Label8)
         GroupBox10.Controls.Add(tbAudio)
         GroupBox10.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox10.Location = New Point(767, 269)
+        GroupBox10.Location = New Point(767, 360)
         GroupBox10.Name = "GroupBox10"
-        GroupBox10.Size = New Size(243, 53)
+        GroupBox10.Size = New Size(243, 78)
         GroupBox10.TabIndex = 51
         GroupBox10.TabStop = False
         GroupBox10.Text = "Audio Stream (Optional)"
         ' 
+        ' Label13
+        ' 
+        Label13.AutoSize = True
+        Label13.ForeColor = SystemColors.ControlText
+        Label13.Location = New Point(6, 47)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(93, 15)
+        Label13.TabIndex = 9
+        Label13.Text = "Stream name/ID"
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        Label8.ForeColor = Color.CornflowerBlue
+        Label8.Location = New Point(6, 22)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(181, 15)
+        Label8.TabIndex = 8
+        Label8.Text = "Enter audio stream from Title Info"
+        ' 
         ' tbAudio
         ' 
-        tbAudio.Location = New Point(10, 20)
+        tbAudio.Location = New Point(108, 42)
         tbAudio.Name = "tbAudio"
-        tbAudio.Size = New Size(224, 23)
+        tbAudio.Size = New Size(126, 23)
         tbAudio.TabIndex = 0
         ' 
         ' GroupBox11
         ' 
-        GroupBox11.Controls.Add(Btnnocache)
+        GroupBox11.Controls.Add(Label12)
+        GroupBox11.Controls.Add(Btnshaka)
+        GroupBox11.Controls.Add(Btnnomuxsubs)
+        GroupBox11.Controls.Add(Btnnomux)
+        GroupBox11.Controls.Add(Btnfn)
+        GroupBox11.Controls.Add(Btnappendid)
+        GroupBox11.Controls.Add(CBnocache)
         GroupBox11.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox11.Location = New Point(12, 328)
+        GroupBox11.Location = New Point(12, 444)
         GroupBox11.Name = "GroupBox11"
-        GroupBox11.Size = New Size(148, 53)
+        GroupBox11.Size = New Size(642, 78)
         GroupBox11.TabIndex = 52
         GroupBox11.TabStop = False
-        GroupBox11.Text = "Ignore Cache (Optional)"
+        GroupBox11.Text = "Additional Commands (Optional)"
         ' 
-        ' Btnnocache
+        ' Label12
         ' 
-        Btnnocache.AutoSize = True
-        Btnnocache.ForeColor = SystemColors.ControlText
-        Btnnocache.Location = New Point(10, 22)
-        Btnnocache.Name = "Btnnocache"
-        Btnnocache.Size = New Size(73, 19)
-        Btnnocache.TabIndex = 5
-        Btnnocache.TabStop = True
-        Btnnocache.Text = "no cache"
-        Btnnocache.UseVisualStyleBackColor = True
+        Label12.AutoSize = True
+        Label12.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        Label12.ForeColor = Color.CornflowerBlue
+        Label12.Location = New Point(6, 22)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(239, 15)
+        Label12.TabIndex = 15
+        Label12.Text = "Select any additional commands as required"
         ' 
-        ' GroupBox12
+        ' Btnshaka
         ' 
-        GroupBox12.Controls.Add(Btnappendid)
-        GroupBox12.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox12.Location = New Point(166, 328)
-        GroupBox12.Name = "GroupBox12"
-        GroupBox12.Size = New Size(169, 53)
-        GroupBox12.TabIndex = 53
-        GroupBox12.TabStop = False
-        GroupBox12.Text = "Append Video ID (Optional)"
+        Btnshaka.AutoSize = True
+        Btnshaka.ForeColor = SystemColors.ControlText
+        Btnshaka.Location = New Point(529, 46)
+        Btnshaka.Name = "Btnshaka"
+        Btnshaka.Size = New Size(108, 19)
+        Btnshaka.TabIndex = 14
+        Btnshaka.Text = "Shaka Packager"
+        Btnshaka.UseVisualStyleBackColor = True
         ' 
-        ' Btnappendid
+        ' Btnnomuxsubs
         ' 
-        Btnappendid.AutoSize = True
-        Btnappendid.ForeColor = SystemColors.ControlText
-        Btnappendid.Location = New Point(10, 22)
-        Btnappendid.Name = "Btnappendid"
-        Btnappendid.Size = New Size(78, 19)
-        Btnappendid.TabIndex = 5
-        Btnappendid.TabStop = True
-        Btnappendid.Text = "append id"
-        Btnappendid.UseVisualStyleBackColor = True
+        Btnnomuxsubs.AutoSize = True
+        Btnnomuxsubs.ForeColor = SystemColors.ControlText
+        Btnnomuxsubs.Location = New Point(407, 46)
+        Btnnomuxsubs.Name = "Btnnomuxsubs"
+        Btnnomuxsubs.Size = New Size(117, 19)
+        Btnnomuxsubs.TabIndex = 13
+        Btnnomuxsubs.Text = "No Mux Subtitles"
+        Btnnomuxsubs.UseVisualStyleBackColor = True
         ' 
-        ' GroupBox13
+        ' Btnnomux
         ' 
-        GroupBox13.Controls.Add(Btnfn)
-        GroupBox13.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox13.Location = New Point(341, 328)
-        GroupBox13.Name = "GroupBox13"
-        GroupBox13.Size = New Size(187, 53)
-        GroupBox13.TabIndex = 54
-        GroupBox13.TabStop = False
-        GroupBox13.Text = "Force Numbering (Optional)"
+        Btnnomux.AutoSize = True
+        Btnnomux.ForeColor = SystemColors.ControlText
+        Btnnomux.Location = New Point(333, 46)
+        Btnnomux.Name = "Btnnomux"
+        Btnnomux.Size = New Size(69, 19)
+        Btnnomux.TabIndex = 12
+        Btnnomux.Text = "No Mux"
+        Btnnomux.UseVisualStyleBackColor = True
         ' 
         ' Btnfn
         ' 
         Btnfn.AutoSize = True
         Btnfn.ForeColor = SystemColors.ControlText
-        Btnfn.Location = New Point(10, 22)
+        Btnfn.Location = New Point(101, 46)
         Btnfn.Name = "Btnfn"
-        Btnfn.Size = New Size(114, 19)
-        Btnfn.TabIndex = 5
-        Btnfn.TabStop = True
-        Btnfn.Text = "force numbering"
+        Btnfn.Size = New Size(119, 19)
+        Btnfn.TabIndex = 11
+        Btnfn.Text = "Force Numbering"
         Btnfn.UseVisualStyleBackColor = True
+        ' 
+        ' Btnappendid
+        ' 
+        Btnappendid.AutoSize = True
+        Btnappendid.ForeColor = SystemColors.ControlText
+        Btnappendid.Location = New Point(10, 46)
+        Btnappendid.Name = "Btnappendid"
+        Btnappendid.Size = New Size(82, 19)
+        Btnappendid.TabIndex = 0
+        Btnappendid.Text = "Append ID"
+        Btnappendid.UseVisualStyleBackColor = True
+        ' 
+        ' CBnocache
+        ' 
+        CBnocache.AutoSize = True
+        CBnocache.ForeColor = SystemColors.ControlText
+        CBnocache.Location = New Point(229, 46)
+        CBnocache.Name = "CBnocache"
+        CBnocache.Size = New Size(96, 19)
+        CBnocache.TabIndex = 10
+        CBnocache.Text = "Ignore Cache"
+        CBnocache.UseVisualStyleBackColor = True
         ' 
         ' GroupBox14
         ' 
+        GroupBox14.Controls.Add(Label16)
         GroupBox14.Controls.Add(Label6)
         GroupBox14.Controls.Add(tbSeconds)
         GroupBox14.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
-        GroupBox14.Location = New Point(534, 328)
+        GroupBox14.Location = New Point(12, 528)
         GroupBox14.Name = "GroupBox14"
-        GroupBox14.Size = New Size(227, 53)
+        GroupBox14.Size = New Size(155, 78)
         GroupBox14.TabIndex = 55
         GroupBox14.TabStop = False
-        GroupBox14.Text = "Add Sleep (in Seconds) (Optional)"
+        GroupBox14.Text = "Add Sleep (Optional)"
         ' 
-        ' tbSeconds
+        ' Label16
         ' 
-        tbSeconds.Location = New Point(131, 21)
-        tbSeconds.Name = "tbSeconds"
-        tbSeconds.Size = New Size(85, 23)
-        tbSeconds.TabIndex = 6
+        Label16.AutoSize = True
+        Label16.ForeColor = SystemColors.ControlText
+        Label16.Location = New Point(7, 49)
+        Label16.Name = "Label16"
+        Label16.Size = New Size(51, 15)
+        Label16.TabIndex = 8
+        Label16.Text = "Seconds"
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.ForeColor = SystemColors.ControlText
-        Label6.Location = New Point(10, 24)
+        Label6.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        Label6.ForeColor = Color.CornflowerBlue
+        Label6.Location = New Point(6, 22)
         Label6.Name = "Label6"
-        Label6.Size = New Size(111, 15)
+        Label6.Size = New Size(139, 15)
         Label6.TabIndex = 7
-        Label6.Text = "Number of seconds"
+        Label6.Text = "Enter no of seconds delay"
+        ' 
+        ' tbSeconds
+        ' 
+        tbSeconds.Location = New Point(70, 42)
+        tbSeconds.Name = "tbSeconds"
+        tbSeconds.Size = New Size(78, 23)
+        tbSeconds.TabIndex = 6
+        ' 
+        ' GroupBox12
+        ' 
+        GroupBox12.Controls.Add(Label15)
+        GroupBox12.Controls.Add(tbSaveFileName)
+        GroupBox12.Controls.Add(Label7)
+        GroupBox12.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
+        GroupBox12.Location = New Point(660, 528)
+        GroupBox12.Name = "GroupBox12"
+        GroupBox12.Size = New Size(350, 78)
+        GroupBox12.TabIndex = 56
+        GroupBox12.TabStop = False
+        GroupBox12.Text = "Save File Name (Optional)"
+        ' 
+        ' Label15
+        ' 
+        Label15.AutoSize = True
+        Label15.ForeColor = SystemColors.ControlText
+        Label15.Location = New Point(7, 49)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(39, 15)
+        Label15.TabIndex = 3
+        Label15.Text = "Name"
+        ' 
+        ' tbSaveFileName
+        ' 
+        tbSaveFileName.Location = New Point(78, 42)
+        tbSaveFileName.Name = "tbSaveFileName"
+        tbSaveFileName.Size = New Size(263, 23)
+        tbSaveFileName.TabIndex = 1
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        Label7.ForeColor = Color.CornflowerBlue
+        Label7.Location = New Point(6, 22)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(163, 15)
+        Label7.TabIndex = 0
+        Label7.Text = "Enter the file name to Save As"
+        ' 
+        ' GroupBox13
+        ' 
+        GroupBox13.Controls.Add(Label17)
+        GroupBox13.Controls.Add(Label14)
+        GroupBox13.Controls.Add(tbThreads)
+        GroupBox13.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
+        GroupBox13.Location = New Point(173, 528)
+        GroupBox13.Name = "GroupBox13"
+        GroupBox13.Size = New Size(155, 78)
+        GroupBox13.TabIndex = 57
+        GroupBox13.TabStop = False
+        GroupBox13.Text = "Threads (Optional)"
+        ' 
+        ' Label17
+        ' 
+        Label17.AutoSize = True
+        Label17.ForeColor = SystemColors.ControlText
+        Label17.Location = New Point(6, 49)
+        Label17.Name = "Label17"
+        Label17.Size = New Size(48, 15)
+        Label17.TabIndex = 9
+        Label17.Text = "Threads"
+        ' 
+        ' Label14
+        ' 
+        Label14.AutoSize = True
+        Label14.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        Label14.ForeColor = Color.CornflowerBlue
+        Label14.Location = New Point(6, 22)
+        Label14.Name = "Label14"
+        Label14.Size = New Size(106, 15)
+        Label14.TabIndex = 7
+        Label14.Text = "Enter no of threads"
+        ' 
+        ' tbThreads
+        ' 
+        tbThreads.Location = New Point(70, 42)
+        tbThreads.Name = "tbThreads"
+        tbThreads.Size = New Size(78, 23)
+        tbThreads.TabIndex = 6
+        ' 
+        ' GroupBox15
+        ' 
+        GroupBox15.Controls.Add(Label18)
+        GroupBox15.Controls.Add(Label19)
+        GroupBox15.Controls.Add(tbNCommand)
+        GroupBox15.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
+        GroupBox15.Location = New Point(660, 444)
+        GroupBox15.Name = "GroupBox15"
+        GroupBox15.Size = New Size(350, 78)
+        GroupBox15.TabIndex = 58
+        GroupBox15.TabStop = False
+        GroupBox15.Text = "N_m3u8DL-RE Add Command (Optional)"
+        ' 
+        ' Label18
+        ' 
+        Label18.AutoSize = True
+        Label18.ForeColor = SystemColors.ControlText
+        Label18.Location = New Point(6, 47)
+        Label18.Name = "Label18"
+        Label18.Size = New Size(64, 15)
+        Label18.TabIndex = 9
+        Label18.Text = "Command"
+        ' 
+        ' Label19
+        ' 
+        Label19.AutoSize = True
+        Label19.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        Label19.ForeColor = Color.CornflowerBlue
+        Label19.Location = New Point(6, 22)
+        Label19.Name = "Label19"
+        Label19.Size = New Size(303, 15)
+        Label19.TabIndex = 8
+        Label19.Text = "Enter any additional commands to add to N_m3u8DL-RE"
+        ' 
+        ' tbNCommand
+        ' 
+        tbNCommand.Location = New Point(78, 42)
+        tbNCommand.Name = "tbNCommand"
+        tbNCommand.Size = New Size(263, 23)
+        tbNCommand.TabIndex = 0
+        ' 
+        ' TestCDMToolStripMenuItem
+        ' 
+        TestCDMToolStripMenuItem.Name = "TestCDMToolStripMenuItem"
+        TestCDMToolStripMenuItem.Size = New Size(201, 22)
+        TestCDMToolStripMenuItem.Text = "Test CDM"
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1023, 820)
-        Controls.Add(GroupBox14)
-        Controls.Add(GroupBox13)
+        ClientSize = New Size(1023, 909)
+        Controls.Add(GroupBox15)
         Controls.Add(GroupBox12)
+        Controls.Add(GroupBox13)
+        Controls.Add(GroupBox14)
         Controls.Add(GroupBox11)
         Controls.Add(GroupBox10)
         Controls.Add(GroupBox9)
@@ -1336,12 +1609,14 @@ Partial Class Form1
         GroupBox10.PerformLayout()
         GroupBox11.ResumeLayout(False)
         GroupBox11.PerformLayout()
+        GroupBox14.ResumeLayout(False)
+        GroupBox14.PerformLayout()
         GroupBox12.ResumeLayout(False)
         GroupBox12.PerformLayout()
         GroupBox13.ResumeLayout(False)
         GroupBox13.PerformLayout()
-        GroupBox14.ResumeLayout(False)
-        GroupBox14.PerformLayout()
+        GroupBox15.ResumeLayout(False)
+        GroupBox15.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -1450,13 +1725,36 @@ Partial Class Form1
     Friend WithEvents GroupBox10 As GroupBox
     Friend WithEvents tbAudio As TextBox
     Friend WithEvents GroupBox11 As GroupBox
-    Friend WithEvents Btnnocache As RadioButton
-    Friend WithEvents GroupBox12 As GroupBox
-    Friend WithEvents Btnappendid As RadioButton
-    Friend WithEvents GroupBox13 As GroupBox
-    Friend WithEvents Btnfn As RadioButton
     Friend WithEvents Label5 As Label
     Friend WithEvents GroupBox14 As GroupBox
     Friend WithEvents tbSeconds As TextBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents CBnocache As CheckBox
+    Friend WithEvents Btnfn As CheckBox
+    Friend WithEvents Btnappendid As CheckBox
+    Friend WithEvents Btnnomux As CheckBox
+    Friend WithEvents Btnnomuxsubs As CheckBox
+    Friend WithEvents GroupBox12 As GroupBox
+    Friend WithEvents tbSaveFileName As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Btnshaka As CheckBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents GroupBox13 As GroupBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents tbThreads As TextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents GroupBox15 As GroupBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents tbNCommand As TextBox
+    Friend WithEvents BtnTVNZ As RadioButton
+    Friend WithEvents TVNZToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TestCDMToolStripMenuItem As ToolStripMenuItem
 End Class
