@@ -354,7 +354,7 @@ Partial Class Form2
         ' 
         lblCurrentProxy.AutoSize = True
         lblCurrentProxy.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        lblCurrentProxy.Location = New Point(420, 21)
+        lblCurrentProxy.Location = New Point(385, 21)
         lblCurrentProxy.Name = "lblCurrentProxy"
         lblCurrentProxy.Size = New Size(39, 15)
         lblCurrentProxy.TabIndex = 15
@@ -364,7 +364,7 @@ Partial Class Form2
         ' 
         Label13.AutoSize = True
         Label13.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
-        Label13.Location = New Point(313, 21)
+        Label13.Location = New Point(278, 21)
         Label13.Name = "Label13"
         Label13.Size = New Size(113, 15)
         Label13.TabIndex = 14

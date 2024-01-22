@@ -20,8 +20,12 @@ Public Class Form2
             ' Extract the proxy value from the config.yaml file
             Dim proxyValue As String = GetConfigValue(fileContent, "proxy")
 
-            ' Check if the proxy value is equal to "# basic, hola, or windscribe"
-            If proxyValue.Trim().ToLower() = "# basic, hola, or windscribe" Then
+            ' Check if the proxy value starts with "http"
+            If proxyValue.Trim().ToLower().StartsWith("http") Then
+                lblCurrentProxy.Text = "custom"
+
+                ' Check if the proxy value is equal to "# basic, hola, or windscribe"
+            ElseIf proxyValue.Trim().ToLower() = "# basic, hola or windscribe" Then
                 lblCurrentProxy.Text = "not configured"
             Else
                 ' Display the extracted proxy value
