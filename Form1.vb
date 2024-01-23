@@ -1005,26 +1005,32 @@ Public Class Form1
             ' Check if ComboBox1.Text is empty
             If ComboBox1.Text = "" Then
                 proxyArguments = ""
+            ElseIf ComboBox1.Text.ToLower().StartsWith("http") Then
+                ' If ComboBox1.Text starts with "http", set proxyArguments to the ComboBox1.Text
+                proxyArguments = "--proxy " + ComboBox1.Text
             Else
                 ' Handle proxyArguments based on ComboBox1.Text
-                Select Case ComboBox1.Text
-                    Case "au - Australia"
+                Select Case ComboBox1.Text.ToLower()
+                    Case "au - australia"
                         proxyArguments = "--proxy AU"
-                    Case "ca - Canada"
+                    Case "ca - canada"
                         proxyArguments = "--proxy CA"
-                    Case "dk - Denmark"
+                    Case "dk - denmark"
                         proxyArguments = "--proxy DK"
-                    Case "gb - Great Britain"
+                    Case "gb - great britain"
                         proxyArguments = "--proxy GB"
-                    Case "nz - New Zealand"
+                    Case "nz - new zealand"
                         proxyArguments = "--proxy NZ"
-                    Case "se - Sweden"
+                    Case "se - sweden"
                         proxyArguments = "--proxy SE"
-                    Case "uk - United Kingdom"
+                    Case "uk - united kingdom"
                         proxyArguments = "--proxy UK"
-                    Case "us - United States"
+                    Case "us - united states"
                         proxyArguments = "--proxy US"
                         ' Add more cases as needed
+                    Case Else
+                        ' Default case if ComboBox1.Text doesn't match any specific case
+                        proxyArguments = ""
                 End Select
             End If
 
@@ -2346,28 +2352,35 @@ Public Class Form1
             ' Check if ComboBox1.Text is empty
             If ComboBox1.Text = "" Then
                 proxyArguments = ""
+            ElseIf ComboBox1.Text.ToLower().StartsWith("http") Then
+                ' If ComboBox1.Text starts with "http", set proxyArguments to the ComboBox1.Text
+                proxyArguments = "--proxy " + ComboBox1.Text
             Else
                 ' Handle proxyArguments based on ComboBox1.Text
-                Select Case ComboBox1.Text
-                    Case "au - Australia"
+                Select Case ComboBox1.Text.ToLower()
+                    Case "au - australia"
                         proxyArguments = "--proxy AU"
-                    Case "ca - Canada"
+                    Case "ca - canada"
                         proxyArguments = "--proxy CA"
-                    Case "dk - Denmark"
+                    Case "dk - denmark"
                         proxyArguments = "--proxy DK"
-                    Case "gb - Great Britain"
+                    Case "gb - great britain"
                         proxyArguments = "--proxy GB"
-                    Case "nz - New Zealand"
+                    Case "nz - new zealand"
                         proxyArguments = "--proxy NZ"
-                    Case "se - Sweden"
+                    Case "se - sweden"
                         proxyArguments = "--proxy SE"
-                    Case "uk - United Kingdom"
+                    Case "uk - united kingdom"
                         proxyArguments = "--proxy UK"
-                    Case "us - United States"
+                    Case "us - united states"
                         proxyArguments = "--proxy US"
                         ' Add more cases as needed
+                    Case Else
+                        ' Default case if ComboBox1.Text doesn't match any specific case
+                        proxyArguments = ""
                 End Select
             End If
+
 
             ' Check if Audio Stream is empty
             If tbAudio.Text = "" Then
