@@ -12,13 +12,16 @@ The FreevineGUI is a portable executable and does not require to be installed. Y
 When running FreevineGUI for the first tme please set your Freevine folder location ie: that is the Freevine folder from https://github.com/stabbedbybrick/freevine (this is a Mandatory step)
 You may also choose to set your Downloads folder location in the Options (this is an optional step)
 
-Update v1.0.0.
-1. added Import & Export function for Favorites for those that want to maintain the list on more than one pc
-2. added optional Audio Stream selection
-3. added no cache option
-4. added append ID to video file name option
-5. added force numbering option
-6. added sleep delay (number of seconds) between downloads
+FreevineGUI v1.1.0 changes
+1. added support for TVNZ
+2. added proxy configuration in Options (set Hola, Windscribe or Custom proxy). Proxy server locations listed in the Country Name dropdown will populate according to your set proxy option.
+3. added set Windscribe proxy credentials
+4. added Save File Name command
+5. added number of Threads option
+6. added additional N-m3u8Dl-RE command option
+7. added No Mux, No Mux Subtitles and Shaka Packager options
+8. Redesigned UI to move optional items under the 3 main program functions (service, action, process)
+9. added Test CDM function
    
 Operation
 1. Search
