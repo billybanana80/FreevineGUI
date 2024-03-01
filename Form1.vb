@@ -75,6 +75,8 @@ Public Class Form1
             secondMainGroupboxRadioButtons = secondMainGroupboxRadioButtons.Concat(gbs(x).Controls.OfType(Of RadioButton)).ToArray
         Next
 
+        '___________________________________________________________________________________________________
+
         'Show the Freevine folder location in Label 5
         ' Load the saved folder path from application settings
         Form2.TBfolder.Text = My.Settings.FolderPath
@@ -87,6 +89,8 @@ Public Class Form1
         If Form2.TBfolder.Text = "" Then
             ToolStripStatusLabel2.Text = "Please set your Freevine folder location in Options"
         End If
+
+        '___________________________________________________________________________________________________
 
         ' Load the contents of the queue
         ' Specify the path to the queue.txt file
@@ -101,7 +105,45 @@ Public Class Form1
             rtbQueue.Text = queueContent
         End If
 
+        '___________________________________________________________________________________________________
+
+        ' Find the current Freevine version number by reading the "__init__.py" file
+        ToolStripStatusLabel3.Text = "Freevine version:"
+
+        ' Specify the path to the __init__.py file
+        Dim filePath2 As String = Path.Combine(Form2.TBfolder.Text, "utils\__init__.py")
+
+        If File.Exists(filePath2) Then
+
+            ' Read the content of the __init__.py file
+            Dim fileContent2 As String = File.ReadAllText(filePath2)
+            Dim versionValue As String = ExtractversionValue(fileContent2, "__version__ = ""(v.*?)""")
+
+            If versionValue.Contains("v") Then
+                ' Populate the label based on the extracted version
+                ToolStripStatusLabel4.Text = versionValue
+            Else
+                ' Handle the case where versionValue does not contain "v"
+                ToolStripStatusLabel4.Text = "Freevine folder not set"
+                MessageBox.Show("Please set your Freevine folder", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+            End If
+        End If
+        '___________________________________________________________________________________________________
+
     End Sub
+
+    Function ExtractversionValue(content As String, pattern As String) As String
+        Dim match As Match = Regex.Match(content, pattern)
+
+        If match.Success Then
+            ' The version value is captured in the first group
+            Return match.Groups(1).Value
+        Else
+            ' Return an empty string or handle the case where no match is found
+            Return String.Empty
+        End If
+    End Function
 
     'this is the handler for the 1st main groupbox's radiobuttons
     'it ensures only 1 radiobutton in this main group can be checked
@@ -140,7 +182,7 @@ Public Class Form1
             If proxyValue = "hola" Then
                 ' Options for Hola proxy
                 ComboBox1.Items.Clear()
-                ComboBox1.Items.AddRange({"au - Australia", "ca - Canada", "dk - Denmark", "gb - Great Britain", "nz - New Zealand", "se - Sweden", "uk - United Kingdom", "us - United States"})
+                ComboBox1.Items.AddRange({"au - Australia", "ca - Canada", "dk - Denmark", "gb - Great Britain", "ie - Ireland", "nz - New Zealand", "se - Sweden", "uk - United Kingdom", "us - United States"})
             ElseIf proxyValue = "windscribe" Then
                 ' Options for Windscribe proxy
                 ComboBox1.Items.Clear()
@@ -561,6 +603,8 @@ Public Class Form1
                         additionalArguments = "cwtv"
                     ElseIf BtnTVNZ.Checked Then
                         additionalArguments = "tvnz"
+                    ElseIf btnRTE.Checked Then
+                        additionalArguments = "rte"
                         ' Add more conditions for other service-specific options if needed
 
                     End If
@@ -980,6 +1024,8 @@ Public Class Form1
                         additionalArguments = "cwtv"
                     ElseIf BtnTVNZ.Checked Then
                         additionalArguments = "tvnz"
+                    ElseIf btnRTE.Checked Then
+                        additionalArguments = "rte"
                         ' Add more conditions for other service-specific options if needed
 
                     End If
@@ -1019,6 +1065,8 @@ Public Class Form1
                         proxyArguments = "--proxy DK"
                     Case "gb - great britain"
                         proxyArguments = "--proxy GB"
+                    Case "ie - ireland"
+                        proxyArguments = "--proxy IE"
                     Case "nz - new zealand"
                         proxyArguments = "--proxy NZ"
                     Case "se - sweden"
@@ -1178,6 +1226,7 @@ Public Class Form1
         BtnCWTV.Checked = False
         tv4Btn.Checked = False
         BtnTVNZ.Checked = False
+        btnRTE.Checked = False
 
         BtnInfo.Checked = False
         BtnTitles.Checked = False
@@ -1466,6 +1515,7 @@ Public Class Form1
         BtnCWTV.Checked = False
         tv4Btn.Checked = False
         BtnTVNZ.Checked = False
+        btnRTE.Checked = False
 
         BtnInfo.Checked = False
         BtnTitles.Checked = False
@@ -1913,6 +1963,8 @@ Public Class Form1
                         additionalArguments = "cwtv"
                     ElseIf BtnTVNZ.Checked Then
                         additionalArguments = "tvnz"
+                    ElseIf btnRTE.Checked Then
+                        additionalArguments = "rte"
                         ' Add more conditions for other service-specific options if needed
 
 
@@ -2333,6 +2385,8 @@ Public Class Form1
                         additionalArguments = "cwtv"
                     ElseIf BtnTVNZ.Checked Then
                         additionalArguments = "tvnz"
+                    ElseIf btnRTE.Checked Then
+                        additionalArguments = "rte"
                         ' Add more conditions for other service-specific options if needed
 
                     End If
@@ -2366,6 +2420,8 @@ Public Class Form1
                         proxyArguments = "--proxy DK"
                     Case "gb - great britain"
                         proxyArguments = "--proxy GB"
+                    Case "ie - ireland"
+                        proxyArguments = "--proxy IE"
                     Case "nz - new zealand"
                         proxyArguments = "--proxy NZ"
                     Case "se - sweden"
@@ -2673,5 +2729,16 @@ Public Class Form1
             ' Display an error message if the folder path doesn't exist
             MessageBox.Show("Please set your Freevine folder location in Options", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
+    End Sub
+
+    Private Sub RTEPlayerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RTEPlayerToolStripMenuItem.Click
+        'Open RTE Player
+
+        Dim startexternal As New Process()
+
+        startexternal.StartInfo.FileName = "https://www.rte.ie/player/"
+        startexternal.StartInfo.UseShellExecute = True
+
+        startexternal.Start()
     End Sub
 End Class

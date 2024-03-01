@@ -7,6 +7,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <ApplicationIcon>file_commander.ico</ApplicationIcon>
+    <FileVersion>1.1.1</FileVersion>
+    <AssemblyVersion>1.1.1</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -164,7 +164,7 @@ Partial Class Form3
         ' ServiceColumn
         ' 
         ServiceColumn.HeaderText = "Service"
-        ServiceColumn.Items.AddRange(New Object() {"ABC iView", "All 4", "BBC iPlayer", "CBC Gem", "Crackle", "CTV", "CWTV", "ITV", "My 5", "Plex", "Pluto", "Roku", "STV", "SVT Play", "Tubi", "TV4 Play", "TVNZ", "UKTV Play"})
+        ServiceColumn.Items.AddRange(New Object() {"ABC iView", "All 4", "BBC iPlayer", "CBC Gem", "Crackle", "CTV", "CWTV", "ITV", "My 5", "Plex", "Pluto", "Roku", "RTE Player", "STV", "SVT Play", "Tubi", "TV4 Play", "TVNZ", "UKTV Play"})
         ServiceColumn.Name = "ServiceColumn"
         ServiceColumn.Resizable = DataGridViewTriState.True
         ServiceColumn.SortMode = DataGridViewColumnSortMode.Automatic

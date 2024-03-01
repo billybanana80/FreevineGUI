@@ -79,6 +79,7 @@ Partial Class Form1
         ShowFavoritesToolStripMenuItem = New ToolStripMenuItem()
         ToolStripSeparator1 = New ToolStripSeparator()
         FreevineExternalCommandPromptToolStripMenuItem = New ToolStripMenuItem()
+        TestCDMToolStripMenuItem = New ToolStripMenuItem()
         SitesToolStripMenuItem = New ToolStripMenuItem()
         ABCIViewToolStripMenuItem = New ToolStripMenuItem()
         All4ToolStripMenuItem = New ToolStripMenuItem()
@@ -92,6 +93,7 @@ Partial Class Form1
         PlexTVToolStripMenuItem = New ToolStripMenuItem()
         PlutoToolStripMenuItem = New ToolStripMenuItem()
         TheRokuChannelToolStripMenuItem = New ToolStripMenuItem()
+        RTEPlayerToolStripMenuItem = New ToolStripMenuItem()
         STVPlayerToolStripMenuItem = New ToolStripMenuItem()
         SVTPlayToolStripMenuItem = New ToolStripMenuItem()
         TubiTVToolStripMenuItem = New ToolStripMenuItem()
@@ -103,6 +105,8 @@ Partial Class Form1
         StatusStrip1 = New StatusStrip()
         ToolStripStatusLabel1 = New ToolStripStatusLabel()
         ToolStripStatusLabel2 = New ToolStripStatusLabel()
+        ToolStripStatusLabel3 = New ToolStripStatusLabel()
+        ToolStripStatusLabel4 = New ToolStripStatusLabel()
         Button4 = New Button()
         TBcompletecommand = New TextBox()
         GroupBox4 = New GroupBox()
@@ -159,7 +163,7 @@ Partial Class Form1
         Label18 = New Label()
         Label19 = New Label()
         tbNCommand = New TextBox()
-        TestCDMToolStripMenuItem = New ToolStripMenuItem()
+        btnRTE = New RadioButton()
         GroupBox1.SuspendLayout()
         GroupBox8.SuspendLayout()
         gbUSA.SuspendLayout()
@@ -204,6 +208,7 @@ Partial Class Form1
         ' 
         ' GroupBox8
         ' 
+        GroupBox8.Controls.Add(btnRTE)
         GroupBox8.Controls.Add(tv4Btn)
         GroupBox8.Controls.Add(SVTBtn)
         GroupBox8.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
@@ -218,7 +223,7 @@ Partial Class Form1
         ' 
         tv4Btn.AutoSize = True
         tv4Btn.ForeColor = Color.Black
-        tv4Btn.Location = New Point(10, 47)
+        tv4Btn.Location = New Point(10, 72)
         tv4Btn.Name = "tv4Btn"
         tv4Btn.Size = New Size(69, 19)
         tv4Btn.TabIndex = 13
@@ -229,7 +234,7 @@ Partial Class Form1
         ' 
         SVTBtn.AutoSize = True
         SVTBtn.ForeColor = Color.Black
-        SVTBtn.Location = New Point(10, 22)
+        SVTBtn.Location = New Point(10, 47)
         SVTBtn.Name = "SVTBtn"
         SVTBtn.Size = New Size(69, 19)
         SVTBtn.TabIndex = 12
@@ -762,9 +767,15 @@ Partial Class Form1
         FreevineExternalCommandPromptToolStripMenuItem.Size = New Size(201, 22)
         FreevineExternalCommandPromptToolStripMenuItem.Text = "Freevine (External CMD)"
         ' 
+        ' TestCDMToolStripMenuItem
+        ' 
+        TestCDMToolStripMenuItem.Name = "TestCDMToolStripMenuItem"
+        TestCDMToolStripMenuItem.Size = New Size(201, 22)
+        TestCDMToolStripMenuItem.Text = "Test CDM"
+        ' 
         ' SitesToolStripMenuItem
         ' 
-        SitesToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ABCIViewToolStripMenuItem, All4ToolStripMenuItem, BBCIPlayerToolStripMenuItem, CBCGemToolStripMenuItem, CrackleToolStripMenuItem, CTVToolStripMenuItem, CWTVToolStripMenuItem, ITVXToolStripMenuItem, My5ToolStripMenuItem, PlexTVToolStripMenuItem, PlutoToolStripMenuItem, TheRokuChannelToolStripMenuItem, STVPlayerToolStripMenuItem, SVTPlayToolStripMenuItem, TubiTVToolStripMenuItem, TV4PlayToolStripMenuItem, TVNZToolStripMenuItem, UKTVPlayToolStripMenuItem})
+        SitesToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ABCIViewToolStripMenuItem, All4ToolStripMenuItem, BBCIPlayerToolStripMenuItem, CBCGemToolStripMenuItem, CrackleToolStripMenuItem, CTVToolStripMenuItem, CWTVToolStripMenuItem, ITVXToolStripMenuItem, My5ToolStripMenuItem, PlexTVToolStripMenuItem, PlutoToolStripMenuItem, TheRokuChannelToolStripMenuItem, RTEPlayerToolStripMenuItem, STVPlayerToolStripMenuItem, SVTPlayToolStripMenuItem, TubiTVToolStripMenuItem, TV4PlayToolStripMenuItem, TVNZToolStripMenuItem, UKTVPlayToolStripMenuItem})
         SitesToolStripMenuItem.Name = "SitesToolStripMenuItem"
         SitesToolStripMenuItem.Size = New Size(43, 20)
         SitesToolStripMenuItem.Text = "Sites"
@@ -772,109 +783,115 @@ Partial Class Form1
         ' ABCIViewToolStripMenuItem
         ' 
         ABCIViewToolStripMenuItem.Name = "ABCIViewToolStripMenuItem"
-        ABCIViewToolStripMenuItem.Size = New Size(170, 22)
+        ABCIViewToolStripMenuItem.Size = New Size(180, 22)
         ABCIViewToolStripMenuItem.Text = "ABC iView"
         ' 
         ' All4ToolStripMenuItem
         ' 
         All4ToolStripMenuItem.Name = "All4ToolStripMenuItem"
-        All4ToolStripMenuItem.Size = New Size(170, 22)
+        All4ToolStripMenuItem.Size = New Size(180, 22)
         All4ToolStripMenuItem.Text = "All 4"
         ' 
         ' BBCIPlayerToolStripMenuItem
         ' 
         BBCIPlayerToolStripMenuItem.Name = "BBCIPlayerToolStripMenuItem"
-        BBCIPlayerToolStripMenuItem.Size = New Size(170, 22)
+        BBCIPlayerToolStripMenuItem.Size = New Size(180, 22)
         BBCIPlayerToolStripMenuItem.Text = "BBC iPlayer"
         ' 
         ' CBCGemToolStripMenuItem
         ' 
         CBCGemToolStripMenuItem.Name = "CBCGemToolStripMenuItem"
-        CBCGemToolStripMenuItem.Size = New Size(170, 22)
+        CBCGemToolStripMenuItem.Size = New Size(180, 22)
         CBCGemToolStripMenuItem.Text = "CBC Gem"
         ' 
         ' CrackleToolStripMenuItem
         ' 
         CrackleToolStripMenuItem.Name = "CrackleToolStripMenuItem"
-        CrackleToolStripMenuItem.Size = New Size(170, 22)
+        CrackleToolStripMenuItem.Size = New Size(180, 22)
         CrackleToolStripMenuItem.Text = "Crackle"
         ' 
         ' CTVToolStripMenuItem
         ' 
         CTVToolStripMenuItem.Name = "CTVToolStripMenuItem"
-        CTVToolStripMenuItem.Size = New Size(170, 22)
+        CTVToolStripMenuItem.Size = New Size(180, 22)
         CTVToolStripMenuItem.Text = "CTV"
         ' 
         ' CWTVToolStripMenuItem
         ' 
         CWTVToolStripMenuItem.Name = "CWTVToolStripMenuItem"
-        CWTVToolStripMenuItem.Size = New Size(170, 22)
+        CWTVToolStripMenuItem.Size = New Size(180, 22)
         CWTVToolStripMenuItem.Text = "CWTV"
         ' 
         ' ITVXToolStripMenuItem
         ' 
         ITVXToolStripMenuItem.Name = "ITVXToolStripMenuItem"
-        ITVXToolStripMenuItem.Size = New Size(170, 22)
+        ITVXToolStripMenuItem.Size = New Size(180, 22)
         ITVXToolStripMenuItem.Text = "ITV"
         ' 
         ' My5ToolStripMenuItem
         ' 
         My5ToolStripMenuItem.Name = "My5ToolStripMenuItem"
-        My5ToolStripMenuItem.Size = New Size(170, 22)
+        My5ToolStripMenuItem.Size = New Size(180, 22)
         My5ToolStripMenuItem.Text = "My 5"
         ' 
         ' PlexTVToolStripMenuItem
         ' 
         PlexTVToolStripMenuItem.Name = "PlexTVToolStripMenuItem"
-        PlexTVToolStripMenuItem.Size = New Size(170, 22)
+        PlexTVToolStripMenuItem.Size = New Size(180, 22)
         PlexTVToolStripMenuItem.Text = "Plex"
         ' 
         ' PlutoToolStripMenuItem
         ' 
         PlutoToolStripMenuItem.Name = "PlutoToolStripMenuItem"
-        PlutoToolStripMenuItem.Size = New Size(170, 22)
+        PlutoToolStripMenuItem.Size = New Size(180, 22)
         PlutoToolStripMenuItem.Text = "Pluto"
         ' 
         ' TheRokuChannelToolStripMenuItem
         ' 
         TheRokuChannelToolStripMenuItem.Name = "TheRokuChannelToolStripMenuItem"
-        TheRokuChannelToolStripMenuItem.Size = New Size(170, 22)
+        TheRokuChannelToolStripMenuItem.Size = New Size(180, 22)
         TheRokuChannelToolStripMenuItem.Text = "The Roku Channel"
+        ' 
+        ' RTEPlayerToolStripMenuItem
+        ' 
+        RTEPlayerToolStripMenuItem.Name = "RTEPlayerToolStripMenuItem"
+        RTEPlayerToolStripMenuItem.Size = New Size(180, 22)
+        RTEPlayerToolStripMenuItem.Text = "RTE Player"
         ' 
         ' STVPlayerToolStripMenuItem
         ' 
         STVPlayerToolStripMenuItem.Name = "STVPlayerToolStripMenuItem"
-        STVPlayerToolStripMenuItem.Size = New Size(170, 22)
+        STVPlayerToolStripMenuItem.Size = New Size(180, 22)
         STVPlayerToolStripMenuItem.Text = "STV Player"
         ' 
         ' SVTPlayToolStripMenuItem
         ' 
         SVTPlayToolStripMenuItem.Name = "SVTPlayToolStripMenuItem"
-        SVTPlayToolStripMenuItem.Size = New Size(170, 22)
+        SVTPlayToolStripMenuItem.Size = New Size(180, 22)
         SVTPlayToolStripMenuItem.Text = "SVT Play"
         ' 
         ' TubiTVToolStripMenuItem
         ' 
         TubiTVToolStripMenuItem.Name = "TubiTVToolStripMenuItem"
-        TubiTVToolStripMenuItem.Size = New Size(170, 22)
+        TubiTVToolStripMenuItem.Size = New Size(180, 22)
         TubiTVToolStripMenuItem.Text = "Tubi TV"
         ' 
         ' TV4PlayToolStripMenuItem
         ' 
         TV4PlayToolStripMenuItem.Name = "TV4PlayToolStripMenuItem"
-        TV4PlayToolStripMenuItem.Size = New Size(170, 22)
+        TV4PlayToolStripMenuItem.Size = New Size(180, 22)
         TV4PlayToolStripMenuItem.Text = "TV4 Play"
         ' 
         ' TVNZToolStripMenuItem
         ' 
         TVNZToolStripMenuItem.Name = "TVNZToolStripMenuItem"
-        TVNZToolStripMenuItem.Size = New Size(170, 22)
+        TVNZToolStripMenuItem.Size = New Size(180, 22)
         TVNZToolStripMenuItem.Text = "TVNZ"
         ' 
         ' UKTVPlayToolStripMenuItem
         ' 
         UKTVPlayToolStripMenuItem.Name = "UKTVPlayToolStripMenuItem"
-        UKTVPlayToolStripMenuItem.Size = New Size(170, 22)
+        UKTVPlayToolStripMenuItem.Size = New Size(180, 22)
         UKTVPlayToolStripMenuItem.Text = "UKTV Play"
         ' 
         ' HelpToolStripMenuItem
@@ -892,7 +909,7 @@ Partial Class Form1
         ' 
         ' StatusStrip1
         ' 
-        StatusStrip1.Items.AddRange(New ToolStripItem() {ToolStripStatusLabel1, ToolStripStatusLabel2})
+        StatusStrip1.Items.AddRange(New ToolStripItem() {ToolStripStatusLabel1, ToolStripStatusLabel2, ToolStripStatusLabel3, ToolStripStatusLabel4})
         StatusStrip1.Location = New Point(0, 887)
         StatusStrip1.Name = "StatusStrip1"
         StatusStrip1.Size = New Size(1023, 22)
@@ -901,16 +918,31 @@ Partial Class Form1
         ' 
         ' ToolStripStatusLabel1
         ' 
-        ToolStripStatusLabel1.ForeColor = Color.CornflowerBlue
+        ToolStripStatusLabel1.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
         ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
         ToolStripStatusLabel1.Size = New Size(119, 17)
         ToolStripStatusLabel1.Text = "ToolStripStatusLabel1"
         ' 
         ' ToolStripStatusLabel2
         ' 
+        ToolStripStatusLabel2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
         ToolStripStatusLabel2.Size = New Size(119, 17)
         ToolStripStatusLabel2.Text = "ToolStripStatusLabel2"
+        ' 
+        ' ToolStripStatusLabel3
+        ' 
+        ToolStripStatusLabel3.ForeColor = Color.FromArgb(CByte(91), CByte(91), CByte(91))
+        ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
+        ToolStripStatusLabel3.Size = New Size(119, 17)
+        ToolStripStatusLabel3.Text = "ToolStripStatusLabel3"
+        ' 
+        ' ToolStripStatusLabel4
+        ' 
+        ToolStripStatusLabel4.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
+        ToolStripStatusLabel4.Size = New Size(119, 17)
+        ToolStripStatusLabel4.Text = "ToolStripStatusLabel4"
         ' 
         ' Button4
         ' 
@@ -1531,11 +1563,16 @@ Partial Class Form1
         tbNCommand.Size = New Size(263, 23)
         tbNCommand.TabIndex = 0
         ' 
-        ' TestCDMToolStripMenuItem
+        ' btnRTE
         ' 
-        TestCDMToolStripMenuItem.Name = "TestCDMToolStripMenuItem"
-        TestCDMToolStripMenuItem.Size = New Size(201, 22)
-        TestCDMToolStripMenuItem.Text = "Test CDM"
+        btnRTE.AutoSize = True
+        btnRTE.ForeColor = Color.Black
+        btnRTE.Location = New Point(10, 22)
+        btnRTE.Name = "btnRTE"
+        btnRTE.Size = New Size(78, 19)
+        btnRTE.TabIndex = 14
+        btnRTE.Text = "RTE Player"
+        btnRTE.UseVisualStyleBackColor = True
         ' 
         ' Form1
         ' 
@@ -1757,4 +1794,8 @@ Partial Class Form1
     Friend WithEvents BtnTVNZ As RadioButton
     Friend WithEvents TVNZToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TestCDMToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
+    Friend WithEvents RTEPlayerToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btnRTE As RadioButton
 End Class
