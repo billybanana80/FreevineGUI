@@ -266,7 +266,7 @@ Partial Class Form2
         ' cbService
         ' 
         cbService.FormattingEnabled = True
-        cbService.Items.AddRange(New Object() {"ABC", "All4", "BBC", "CBC", "CTV", "CWTV", "ITV", "My 5", "Plex", "Pluto", "Roku", "RTE", "STV", "SVT", "Tubi", "TV4", "TVNZ", "UKTV"})
+        cbService.Items.AddRange(New Object() {"ABC", "All4", "BBC", "CBC", "CBS", "CTV", "CWTV", "ITV", "My 5", "Plex", "Pluto", "Roku", "RTE", "STV", "SVT", "Tubi", "TV4", "TVNZ", "UKTV"})
         cbService.Location = New Point(76, 52)
         cbService.Name = "cbService"
         cbService.Size = New Size(142, 23)

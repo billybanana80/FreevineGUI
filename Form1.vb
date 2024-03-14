@@ -605,6 +605,8 @@ Public Class Form1
                         additionalArguments = "tvnz"
                     ElseIf btnRTE.Checked Then
                         additionalArguments = "rte"
+                    ElseIf btnCBS.Checked Then
+                        additionalArguments = "cbs"
                         ' Add more conditions for other service-specific options if needed
 
                     End If
@@ -1026,6 +1028,8 @@ Public Class Form1
                         additionalArguments = "tvnz"
                     ElseIf btnRTE.Checked Then
                         additionalArguments = "rte"
+                    ElseIf btnCBS.Checked Then
+                        additionalArguments = "cbs"
                         ' Add more conditions for other service-specific options if needed
 
                     End If
@@ -1227,6 +1231,7 @@ Public Class Form1
         tv4Btn.Checked = False
         BtnTVNZ.Checked = False
         btnRTE.Checked = False
+        btnCBS.Checked = False
 
         BtnInfo.Checked = False
         BtnTitles.Checked = False
@@ -1516,6 +1521,7 @@ Public Class Form1
         tv4Btn.Checked = False
         BtnTVNZ.Checked = False
         btnRTE.Checked = False
+        btnCBS.Checked = False
 
         BtnInfo.Checked = False
         BtnTitles.Checked = False
@@ -1965,6 +1971,8 @@ Public Class Form1
                         additionalArguments = "tvnz"
                     ElseIf btnRTE.Checked Then
                         additionalArguments = "rte"
+                    ElseIf btnCBS.Checked Then
+                        additionalArguments = "cbs"
                         ' Add more conditions for other service-specific options if needed
 
 
@@ -2387,6 +2395,8 @@ Public Class Form1
                         additionalArguments = "tvnz"
                     ElseIf btnRTE.Checked Then
                         additionalArguments = "rte"
+                    ElseIf btnCBS.Checked Then
+                        additionalArguments = "cbs"
                         ' Add more conditions for other service-specific options if needed
 
                     End If
@@ -2737,6 +2747,17 @@ Public Class Form1
         Dim startexternal As New Process()
 
         startexternal.StartInfo.FileName = "https://www.rte.ie/player/"
+        startexternal.StartInfo.UseShellExecute = True
+
+        startexternal.Start()
+    End Sub
+
+    Private Sub CBSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CBSToolStripMenuItem.Click
+        'Open CBS
+
+        Dim startexternal As New Process()
+
+        startexternal.StartInfo.FileName = "https://www.cbs.com/shows/"
         startexternal.StartInfo.UseShellExecute = True
 
         startexternal.Start()
